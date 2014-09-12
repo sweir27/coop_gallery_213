@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :shows
+  resources :links, only: [:index]
+  root 'shows#current'
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
   # The priority is based upon order of creation: first created -> highest priority.
