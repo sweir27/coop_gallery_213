@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   resources :shows
   resources :links, only: [:index]
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :artworks
   root 'shows#current'
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
