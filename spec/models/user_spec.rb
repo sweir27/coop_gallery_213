@@ -10,6 +10,7 @@ describe User do
   it { should respond_to(:name) }
   it { should respond_to(:email) }
   it { should respond_to(:biography) }
+  it { should respond_to(:pic) }
   it { should respond_to(:password_digest) }
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
@@ -66,6 +67,12 @@ describe User do
     end
 
     it { should_not be_valid }
+  end
+
+  describe "should generate slug" do
+    before { @user.save }
+    its(:slug) { should_not be_blank }
+    its(:slug) { should eq 'example-user' }
   end
 
   describe "when password is not present" do
