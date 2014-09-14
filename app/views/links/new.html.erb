@@ -1,0 +1,20 @@
+<% provide(:title, 'New link') %>
+<h1>Create new link</h1>
+
+<div class='row'>
+  <div class='span6 offset3'>
+    <%= form_for @link do |f| %>
+      <%= render 'shared/error_messages' %>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+
+      <%= f.label :url %>
+      <%= f.text_field :url %>
+
+      <%= f.label :description %>
+      <%= f.text_area :description, :cols => "10", :rows => "5" %>
+
+      <%= f.submit "Create new link", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

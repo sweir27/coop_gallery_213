@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   resources :shows
-  resources :links, only: [:index]
-  resources :users
+  resources :links
+  resources :users do
+    member do
+      post 'toggle_admin'
+    end
+  end
   resources :sessions, only: [:new, :create, :destroy]
   resources :artworks
   root 'shows#current'
