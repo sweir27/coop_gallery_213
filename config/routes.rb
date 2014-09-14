@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       get 'upcoming'
     end
   end
-  resources :artists
+  resources :artists, only: [:show, :index]
   resources :links
   resources :users do
     member do
