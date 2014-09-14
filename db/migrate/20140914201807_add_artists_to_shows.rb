@@ -1,5 +1,5 @@
 class AddArtistsToShows < ActiveRecord::Migration
   def change
-    add_column :shows, :artists, :string
+    add_column :links, :artists, :string
   end
 end
