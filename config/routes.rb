@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
-  resources :shows
+  resources :shows do
+    member do
+      post 'set_current'
+    end
+
+    collection do
+      get 'past'
+      get 'upcoming'
+    end
+  end
+  resources :artists
   resources :links
   resources :users do
     member do

@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :artworks, dependent: :destroy
   before_save { self.email = email.downcase }
   before_save { self.slug = create_slug }
   before_create :create_remember_token

@@ -19,6 +19,12 @@ class LinksController < ApplicationController
     end
   end
 
+   def destroy
+    Link.find(params[:id]).destroy
+    flash[:success] = "Link deleted."
+    redirect_to links_url
+  end
+
   private
     def admin_user
       # store_location

@@ -1,0 +1,16 @@
+<% provide(:title, 'New artwork') %>
+<h1>Add artwork</h1>
+<div class='row'>
+  <div class='span6 offset3'>
+    <%= form_for @artwork, :html => { :multipart => true } do |f| %>
+      <%= render 'shared/error_messages', item: @artwork %>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+      <p>
+       <b>Image</b><br/>
+       <%= f.file_field :image %>
+     </p>
+      <%= f.submit "Add artwork", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

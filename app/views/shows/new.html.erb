@@ -1,0 +1,36 @@
+<% provide(:title, 'New show') %>
+<h1>New show</h1>
+
+<div class='row'>
+  <div class='span6 offset3'>
+    <%= form_for @show, :html => { :multipart => true } do |f| %>
+      <%= render 'shared/error_messages', :item => @show %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+
+      <%= f.label :artists %>
+      <%= f.text_field :artists %>
+
+      <%= f.label :start_date %>
+      <%= f.datetime_select :start_date %>
+
+      <%= f.label :end_date %>
+      <%= f.datetime_select :end_date %>
+
+      <p>
+       <b> Picture 1</b><br/>
+       <%= f.file_field :picture_1 %>
+     </p>
+
+     <p>
+       <b> Picture 2 (optional)</b><br/>
+       <%= f.file_field :picture_2 %>
+     </p>
+
+      <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
