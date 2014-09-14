@@ -4,19 +4,21 @@
   <%= link_to "Create User", signup_path %>
 <% end %>
 <ul class="users">
-  <% @users.each do |user| %>
-    <li>
-      <%= image_tag user.pic.url(:thumb) %>
-      <%= link_to user.name, user %>
-      <%= "| admin" if user.admin? %>
-      <% if current_user.admin? && !current_user?(user) %>
-        | <%= link_to "delete", user, method: :delete, data: { confirm: "You sure?" } %>
-        <% if user.admin? %>
-          | <%= link_to "Remove admin", toggle_admin_user_path(user), :method => :post, data: { confirm: "Are you sure?" } %>
-        <% else %>
-          | <%= link_to "Make admin", toggle_admin_user_path(user), :method => :post, data: { confirm: "Are you sure?" } %>
+  <% if @users %>
+    <% @users.each do |user| %>
+      <li>
+        <%= image_tag user.pic.url(:thumb) %>
+        <%= link_to user.name, user %>
+        <%= "| admin" if user.admin? %>
+        <% if current_user.admin? && !current_user?(user) %>
+          | <%= link_to "delete", user, method: :delete, data: { confirm: "You sure?" } %>
+          <% if user.admin? %>
+            | <%= link_to "Remove admin", toggle_admin_user_path(user), :method => :post, data: { confirm: "Are you sure?" } %>
+          <% else %>
+            | <%= link_to "Make admin", toggle_admin_user_path(user), :method => :post, data: { confirm: "Are you sure?" } %>
+          <% end %>
         <% end %>
-      <% end %>
-    </li>
+      </li>
+    <% end %>
   <% end %>
 </ul>
