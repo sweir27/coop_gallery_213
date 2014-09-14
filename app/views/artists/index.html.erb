@@ -1,7 +1,7 @@
 <% provide(:title, 'All artists') %>
 <h1>All artists</h1>
 <ul class="artists">
-<% if @users %>
+<% if @artists %>
   <% @artists.each do |artist| %>
     <li>
       <%= image_tag artist.pic.url(:thumb) %>
