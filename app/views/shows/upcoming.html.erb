@@ -4,4 +4,7 @@
   <% @upcoming_shows.each do |show| %>
     <%= render 'ind_show_admin', show: show %>
   <% end %>
+  <% if @upcoming_shows.size == 0 %>
+    <div class='center'>There are no upcoming shows at this time.</div>
+  <% end %>
 </ul>
