@@ -1,21 +1,7 @@
 <% provide(:title, 'Past shows at Cooperative Gallery 213') %>
-<%= link_to "Past Shows", past_shows_path %>
-<br>
-<%= link_to "Upcoming Shows", upcoming_shows_path %>
-<br>
-<% if current_user && current_user.admin? %>
-  <%= link_to "Create Show", new_show_path %>
-<% end %>
+<%= render 'show_tabs' %>
 <ul class="shows">
   <% @past_shows.each do |show| %>
-    <li>
-      <%= show.name %>
-      <p><%= show.description %></p>
-      <p><%= show.artists %></p>
-      <%= image_tag show.picture_1.url(:medium) %>
-      <% if show.picture_2_file_name? %>
-        <%= image_tag show.picture_2.url(:medium) %>
-      <% end %>
-    </li>
+    <%= render 'ind_show_admin', show: show %>
   <% end %>
 </ul>

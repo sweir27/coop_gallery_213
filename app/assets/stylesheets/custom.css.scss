@@ -1,6 +1,7 @@
 @import "bootstrap";
 
 $grayMediumLight: #eaeaea;
+$maroon: #FE8080;
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -16,6 +17,7 @@ html {
 
 body {
   padding-top: 60px;
+  font-family: Garamond;
 }
 
 section {
@@ -33,11 +35,167 @@ textarea {
   }
 }
 
+.container {
+  width: 800px;
+}
+
+.container-inner {
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+  margin-bottom: 50px;
+}
+
+.btn {
+  border-radius: 0;
+  background-color: black;
+  background-image: none;
+  color: white;
+  border: none;
+  font-family: Helvetica;
+  font-size: 12pt;
+  text-transform: uppercase;
+  &:hover {
+    background-color: #666666;
+    border: none;
+  }
+}
+
+#new_user, #new_show, #new_artwork, #new_link {
+  input, textarea, select {
+    border: 1px solid black;
+    border-radius: 0;
+    &:focus {
+      box-shadow: none;
+      border: 1px solid $maroon;
+      outline: none;
+    }
+  }
+}
+
+.text-title {
+  padding: 10px;
+  font-size: 16pt;
+  text-align: center;
+}
+
+.text-inset {
+  margin-left: 30px;
+}
+.text-inset-bold {
+  font-weight: bold;
+}
+
+.inner-tab-group {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.inner-tab {
+  padding: 30px;
+}
+
+.left {
+  float: left;
+  width: 50%;
+  margin-bottom: 50px;
+}
+
+.right {
+  float: right;
+  width: 50%;
+  margin-bottom: 50px;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-family: Helvetica;
+  font-size: 18pt
+}
+
+h2 {
+  text-transform: uppercase;
+  font-family: Helvetica;
+  font-size: 12pt
+}
+
+h3 {
+
+}
+
+/* header */
+.header-container {
+  border-bottom: 1px solid $grayMediumLight;
+  background-color: white;
+    #logo {
+    float: left;
+    margin-right: 10px;
+    font-size: 14pt;
+    color: black;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    // padding-top: 5px;
+    line-height: 1;
+    font-family: Helvetica;
+    &:hover {
+      color: $maroon;
+    }
+  }
+}
+
+a {
+  color: black;
+  &:hover {
+    color: $maroon;
+    background-color: none;
+    text-decoration: none
+  }
+}
+
+.dropdown-menu {
+  li {
+    a {
+      &:hover {
+        background-color: none;
+        background: none;
+        color: $maroon;
+      }
+    }
+  }
+}
+
+.nav > li > a:hover,
+.nav > li > a:focus {
+  text-decoration: none;
+  background-color: white;
+}
+
+nav {
+  .pull-right {
+    float:right;
+  }
+  li {
+    list-style-type: none;
+    float:left;
+    margin-right: 40px;
+    a {
+      color: black;
+      &:hover {
+        color: $maroon;
+        background-color: none;
+        background: none;
+      }
+    }
+  }
+}
+
+
 
 /* footer */
 
 footer {
-  margin-top: 45px;
+  clear: both;
+  margin-top: 50px;
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
   color: #999;
@@ -148,4 +306,30 @@ aside {
     height: 100px;
     margin-bottom: 5px;
   }
+}
+
+/* shows */
+
+.ind-show-title {
+  font-weight: bold;
+}
+
+.ind-show-paragraph {
+
+}
+
+.ind-show-text {
+
+}
+
+.shows {
+  margin: 0px;
+  li {
+    list-style-type: none;
+    padding: 20px;
+  }
+}
+
+.show-picture {
+  padding: 20px;
 }

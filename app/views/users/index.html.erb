@@ -1,5 +1,5 @@
 <% provide(:title, 'All users') %>
-<h1>All users</h1>
+<h2 class='center'>All users</h2>
 <% if current_user.admin? %>
   <%= link_to "Create User", signup_path %>
 <% end %>

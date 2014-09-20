@@ -1,9 +1,20 @@
 <% provide(:title, 'Cooperative Gallery 213') %>
-<h1>Current show</h1>
+<h2 class='center'>Current show</h2>
 <% if @current_show %>
-  <%= @current_show.name %>
-  <%= @current_show.description %>
-  <div>
-    <%= image_tag @current_show.picture_1.url(:medium) %>
+  <div class='text-title'><%= @current_show.name %></div>
+  <div class='left'>
+    <div class='text-inset text-inset-bold'>
+      Artists:
+      <%= @current_show.artists %>
+    </div>
+    <div class='text-inset'><%= @current_show.description %></div>
+  </div>
+  <div class='right'>
+    <div class='show-picture'>
+      <%= image_tag @current_show.picture_1.url(:medium) %>
+    </div>
+    <div class='show-picture'>
+      <%= image_tag @current_show.picture_2.url(:medium) if @current_show.picture_2 %>
+    </div>
   </div>
 <% end %>

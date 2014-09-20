@@ -1,36 +1,31 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="navbar-inner">
-    <div class="container">
-      <%= link_to "cooperative gallery 213", root_path, id: "logo" %>
-      <nav>
-        <ul class="nav pull-right">
-          <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "Artists", artists_path %></li>
-          <li><%= link_to "Links", links_path %></li>
-          <li><%= link_to "Shows", shows_path %></li>
-          <% if signed_in? %>
-            <li id="fat-menu" class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Account <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <li><%= link_to "Profile", current_user %></li>
-                <li><%= link_to "Update Profile", edit_user_path(current_user) %></li>
-                <li><%= link_to "Update Artwork", '#' %></li>
-                <% if admin? %>
-                  <li><%= link_to "Manage Users", users_path %></li>
-                <% end %>
-                <li class="divider"></li>
-                <li>
-                  <%= link_to "Sign out", signout_path, method: "delete" %>
-                </li>
-              </ul>
+<div class="container header-container">
+  <%= link_to "Cooperative Gallery 213", root_path, id: "logo" %>
+  <nav>
+    <ul class="nav pull-right">
+      <li><%= link_to "Artists", artists_path %></li>
+      <li><%= link_to "Links", links_path %></li>
+      <li><%= link_to "Shows", shows_path %></li>
+      <% if signed_in? %>
+        <li id="fat-menu" class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Account <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Profile", current_user %></li>
+            <li><%= link_to "Update Profile", edit_user_path(current_user) %></li>
+            <li><%= link_to "Update Artwork", '#' %></li>
+            <% if admin? %>
+              <li><%= link_to "Manage Users", users_path %></li>
+            <% end %>
+            <li class="divider"></li>
+            <li>
+              <%= link_to "Sign out", signout_path, method: "delete" %>
             </li>
-          <% else %>
-            <li><%= link_to "Sign in", signin_path %></li>
-          <% end %>
-        </ul>
-      </nav>
-    </div>
-  </div>
-</header>
+          </ul>
+        </li>
+      <% else %>
+        <li><%= link_to "Sign in", signin_path %></li>
+      <% end %>
+    </ul>
+  </nav>
+</div>

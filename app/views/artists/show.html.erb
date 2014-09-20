@@ -1,5 +1,5 @@
 <% provide(:title, @artist.name) %>
-<h1><%= @artist.name %></h1>
+<h2 class='center'><%= @artist.name %></h2>
 <p><%= @artist.biography %></p>
 <ul class="artworks">
   <% if @artworks %>
@@ -7,9 +7,6 @@
       <li>
         <span class="content"><%= artwork.title %></span>
         <%= image_tag artwork.image.url(:thumb) %>
-        <% if current_user?(@user) %>
-          | <%= link_to "delete", artwork, method: :delete, data: { confirm: "You sure?" } %>
-        <% end %>
       </li>
     <% end %>
   <% end %>

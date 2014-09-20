@@ -1,5 +1,5 @@
 <% provide(:title, @user.name) %>
-<h1><%= @user.name %></h1>
+<h2 class='center'><%= @user.name %></h2>
 <%= image_tag @user.pic.url(:thumb) %>
 <div class="span8">
   <% if current_user?(@user) %>
