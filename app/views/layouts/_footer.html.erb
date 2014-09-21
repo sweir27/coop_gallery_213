@@ -17,10 +17,11 @@
     <br/>
     Saturdays 12-4 p.m.
   </div>
+  <div class='footer-information'>
+    <%= mail_to 'info@cooperativegallery.com' %>
+  </div>
   <nav>
     <ul>
-      <li><%= link_to "About",   about_path %></li>
-      <li><%= link_to "Contact", contact_path %></li>
       <% if signed_in? %>
         <li id="fat-menu" class="dropup">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
