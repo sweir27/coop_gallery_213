@@ -5,9 +5,11 @@
   - :thumb
 :Show:
   :picture_1:
+  - :largethumb
   - :medium
   - :thumb
   :picture_2:
+  - :largethumb
   - :medium
   - :thumb
 :User:

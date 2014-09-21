@@ -3,7 +3,7 @@
 <div class='shows-list'>
   <ul class="shows">
     <% @shows.each do |show| %>
-      <%= render 'ind_show_admin', show: show %>
+      <%= render :partial => 'ind_show_admin', :locals => { show: show, is_current_page: @is_current_page } %>
     <% end %>
   </ul>
 </div>

@@ -1,8 +1,8 @@
-<% provide(:title, 'Upcoming shows at Cooperative Gallery 213') %>
+<% provide(:title, 'Upcoming shows') %>
 <%= render 'show_tabs' %>
 <ul class="shows">
   <% @upcoming_shows.each do |show| %>
-    <%= render 'ind_show_admin', show: show %>
+    <%= render :partial => 'ind_show_admin', :locals => { show: show, is_current_page: @is_current_page } %>
   <% end %>
   <% if @upcoming_shows.size == 0 %>
     <div class='center-text center'>There are no upcoming shows at this time.</div>

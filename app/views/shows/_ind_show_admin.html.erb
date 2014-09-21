@@ -2,12 +2,13 @@
   <div class='ind-show-title'>
     <div class='center-div'><p><%= show.name %></p></div>
   </div>
-  <% if show.current? %>
+  <% if show.current? && !is_current_page %>
     <div class='current-show-tag'>current show</div>
   <% end %>
   <div class='left no-margin'>
     <div class='inner-content-shows small-padding'>
-      <div class='ind-show-text'><%= show.artists %></div>
+      <div class='ind-show-text'><%= "Artists: #{show.artists}" %></div>
+      <div class='ind-show-text'><%= "#{show.start_date.strftime('%m/%d/%Y')} - #{show.end_date.strftime('%m/%d/%Y')}" %></div>
       <div class='ind-show-paragraph-truncated'>
         <%= show.description %>
       </div>

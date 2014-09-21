@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, length: { minimum: 6 }
+  validates_url_format_of :website,
+                          :allow_nil => true
 
   Paperclip.interpolates :slug do |attachment, style|
     attachment.instance.slug

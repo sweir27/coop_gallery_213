@@ -4,17 +4,32 @@
   <div class='text-title'><%= @current_show.name %></div>
   <div class='left'>
     <div class='text-inset text-inset-bold'>
-      Artists:
-      <%= @current_show.artists %>
+      <%= "Artists: #{@current_show.artists}" %>
+    </div>
+    <div class='text-inset'>
+      <%= "#{@current_show.start_date.strftime('%m/%d/%Y')} - #{@current_show.end_date.strftime('%m/%d/%Y')}" %>
     </div>
     <div class='text-inset'><%= @current_show.description %></div>
   </div>
-  <div class='right'>
+  <div class='right large-padding-left'>
     <div class='show-picture'>
-      <%= image_tag @current_show.picture_1.url(:medium) %>
+      <%= image_tag @current_show.picture_1.url(:largethumb) %>
     </div>
     <div class='show-picture'>
-      <%= image_tag @current_show.picture_2.url(:medium) if @current_show.picture_2 %>
+      <%= image_tag @current_show.picture_2.url(:largethumb) if @current_show.picture_2 %>
     </div>
   </div>
 <% end %>
+<div class='large-info-container'>
+  <h2 class='center'>Cooperative Gallery 213</h2>
+  <div class='info-text'>
+    The Cooperative Gallery 213 is a popular stop on the First Friday Art Walk and a member of the Gorgeous Washington Association.
+    The gallery has played an important role in the arts renaissance in downtown Binghamton for the past 11 years. Regular gallery hours are
+    Fridays 3-6 pm and Saturdays 12-4 pm and by appointment with the exhibiting artists.
+    Contact the gallery at Info@cooperativegallery.com and check out events listings at either www.cooperativegallery.com
+    or the calendar at www.binghamtonbridge.org.
+  </div>
+  <div class='info-text center'>
+    <a href='http://visitor.r20.constantcontact.com/d.jsp?llr=pjztkndab&p=oi&m=1103180195119'>Sign up for our newsletter</a>
+  </div>
+</div>

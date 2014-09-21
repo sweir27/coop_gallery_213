@@ -96,6 +96,7 @@ img {
 
 .text-inset {
   margin-left: 30px;
+  margin-bottom: 10px;
 }
 .text-inset-bold {
   font-weight: bold;
@@ -124,9 +125,15 @@ img {
   padding: 30px;
 }
 
+.inner-tab-large {
+  text-transform: uppercase;
+  font-family: Helvetica;
+  font-size: 12pt;
+}
+
 .center-text {
   padding: 20px;
-  font-weight: bold;
+  // font-weight: bold;
 }
 
 .left {
@@ -137,24 +144,35 @@ img {
 
 .right {
   float: right;
-  width: 50%;
+  // width: 50%;
   margin-bottom: 50px;
 }
 
 h1 {
   text-transform: uppercase;
   font-family: Helvetica;
-  font-size: 18pt
+  font-size: 18pt;
 }
 
 h2 {
   text-transform: uppercase;
   font-family: Helvetica;
-  font-size: 12pt
+  font-size: 12pt;
+  font-weight: normal;
 }
 
 h3 {
 
+}
+
+.large-info-container {
+  border-top: 1px solid $grayMediumLight;
+  clear: both;
+  padding-top: 50px;
+}
+
+.info-text {
+  padding: 30px;
 }
 
 /* header */
@@ -254,6 +272,12 @@ footer {
       margin-left: 10px;
     }
   }
+}
+
+.footer-information {
+  float: left;
+  padding: 40px;
+  padding-top: 0px;
 }
 
 /* miscellaneous */
@@ -375,8 +399,8 @@ aside {
   text-align: center;
 }
 
-.artist-biography, .artist-link {
-  text-align: center;
+.artist-biography {
+  padding: 30px;
 }
 
 .artwork-content {
@@ -386,6 +410,11 @@ aside {
 
 .all-artwork {
   margin-top: 30px;
+  text-align: center;
+}
+
+.artist-link {
+  padding: 10px;
   text-align: center;
 }
 
@@ -436,6 +465,7 @@ aside {
 
 .show-picture {
   padding: 20px;
+  padding-right: 30px;
 }
 
 /* links */
@@ -474,6 +504,11 @@ aside {
   padding-right: 10px;
   font-family: Helvetica;
   font-size: 8pt;
+}
+
+.map-hook {
+  display: inline-block;
+  margin: 0 auto;
 }
 
 /* Alert errors */

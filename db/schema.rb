@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140921021658) do
+ActiveRecord::Schema.define(version: 20140921173313) do
 
   create_table "artworks", force: true do |t|
     t.string   "title"
@@ -48,8 +48,8 @@ ActiveRecord::Schema.define(version: 20140921021658) do
     t.integer  "picture_2_file_size"
     t.datetime "picture_2_updated_at"
     t.string   "artists"
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.date     "start_date"
+    t.date     "end_date"
     t.boolean  "current",                default: false
   end
 

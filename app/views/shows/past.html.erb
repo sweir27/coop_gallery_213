@@ -1,8 +1,8 @@
-<% provide(:title, 'Past shows at Cooperative Gallery 213') %>
+<% provide(:title, 'Past shows') %>
 <%= render 'show_tabs' %>
 <ul class="shows">
   <% @past_shows.each do |show| %>
-    <%= render 'ind_show_admin', show: show %>
+    <%= render :partial => 'ind_show_admin', :locals => { show: show, is_current_page: @is_current_page } %>
   <% end %>
   <% if @past_shows.size == 0 %>
     <div class='center-text center'>There are no past shows available for viewing at this time.</div>

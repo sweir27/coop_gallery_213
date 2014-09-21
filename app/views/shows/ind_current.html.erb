@@ -1,0 +1,9 @@
+<% provide(:title, 'Current show') %>
+<%= render 'show_tabs' %>
+<ul class="shows">
+  <% if @current_show %>
+    <%= render :partial => 'ind_show_admin', :locals => { show: @current_show, is_current_page: @is_current_page } %>
+  <% else %>
+    <div class='center-text center'>There is no show at this time. Visit our past and upcoming shows pages.</div>
+  <% end %>
+</ul>

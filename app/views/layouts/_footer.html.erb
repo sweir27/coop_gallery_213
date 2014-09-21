@@ -1,4 +1,22 @@
 <footer class="footer">
+  <div class='footer-information'>
+    Cooperative Gallery 213
+    <br/>
+    213 State Street
+    <br/>
+    Binghamton, New York 13901
+    <br/>
+    (607) 724-3462
+  </div>
+  <div class='footer-information'>
+    Gallery hours:
+    <br/>
+    Fridays 3-6 p.m.
+    <br/>
+    First Fridays 3-9 p.m.
+    <br/>
+    Saturdays 12-4 p.m.
+  </div>
   <nav>
     <ul>
       <li><%= link_to "About",   about_path %></li>
@@ -10,6 +28,7 @@
           </a>
           <ul class="dropdown-menu">
             <li><%= link_to "Profile", current_user %></li>
+            <li><%= link_to "Calendar", calendar_path %></li>
             <% if admin? %>
               <li><%= link_to "Manage Users", users_path %></li>
             <% end %>
