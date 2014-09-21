@@ -1,7 +1,9 @@
 <% provide(:title, 'Shows at Cooperative Gallery 213') %>
 <%= render 'show_tabs' %>
-<ul class="shows">
-  <% @shows.each do |show| %>
-    <%= render 'ind_show_admin', show: show %>
-  <% end %>
-</ul>
+<div class='shows-list'>
+  <ul class="shows">
+    <% @shows.each do |show| %>
+      <%= render 'ind_show_admin', show: show %>
+    <% end %>
+  </ul>
+</div>

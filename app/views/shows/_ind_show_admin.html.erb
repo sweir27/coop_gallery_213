@@ -1,16 +1,30 @@
 <li>
-  <div class='ind-show-title'><%= show.name %></div>
-  <div class='ind-show-paragraph'><%= show.description %></div>
-  <div class='ind-show-text'><%= show.artists %></div>
-  <%= image_tag show.picture_1.url(:thumb) %>
-  <% if show.picture_2_file_name? %>
-    <%= image_tag show.picture_2.url(:thumb) %>
+  <div class='ind-show-title'>
+    <div class='center-div'><%= show.name %></p></div>
+  </div>
+  <% if show.current? %>
+    <div class='current-show-tag'>current show</div>
   <% end %>
-  <%= "| current show" if show.current? %>
-  <% if current_user && current_user.admin? %>
-  | <%= link_to "delete", show, method: :delete, data: { confirm: "You sure?" } %>
-    <% if not show.current? %>
-      | <%= link_to "make current", set_current_show_path(show), method: :post, data: { confirm: "You sure?" } %>
+  <div class='left no-margin'>
+    <div class='inner-content-shows small-padding'>
+      <div class='ind-show-text'><%= show.artists %></div>
+      <div class='ind-show-paragraph-truncated'>
+        <%= show.description %>
+      </div>
+    </div>
+  </div>
+  <div class='right no-margin'>
+    <%= image_tag show.picture_1.url(:thumb) %>
+    <% if show.picture_2_file_name? %>
+      <%= image_tag show.picture_2.url(:thumb) %>
     <% end %>
-  <% end %>
+  </div>
+  <div class='admin-options small-padding'>
+    <% if current_user && current_user.admin? %>
+    <%= link_to "delete", show, method: :delete, data: { confirm: "You sure?" }, class: 'admin-option' %>
+      <% if not show.current? %>
+        <%= link_to "make current", set_current_show_path(show), method: :post, data: { confirm: "You sure?" }, class: 'admin-option' %>
+      <% end %>
+    <% end %>
+  </div>
 </li>

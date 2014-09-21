@@ -1,8 +1,8 @@
 <% provide(:title, 'New link') %>
 <h2 class='center'>Create new link</h2>
-
+<%= render 'link_tabs' %>
 <div class='row'>
-  <div class='span6 offset3'>
+  <div class='span7 offset1'>
     <%= form_for @link do |f| %>
       <%= render 'shared/error_messages', :item => @link %>
       <%= f.label :title %>

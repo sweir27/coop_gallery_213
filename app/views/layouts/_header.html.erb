@@ -2,9 +2,9 @@
   <%= link_to "Cooperative Gallery 213", root_path, id: "logo" %>
   <nav>
     <ul class="nav pull-right">
-      <li><%= link_to "Artists", artists_path %></li>
-      <li><%= link_to "Links", links_path %></li>
-      <li><%= link_to "Shows", shows_path %></li>
+      <li><%= link_to "Artists", artists_path, class: cp(artists_path) %></li>
+      <li><%= link_to "Links", links_path, class: cp(links_path) %></li>
+      <li><%= link_to "Shows", shows_path, class: cp(shows_path) %></li>
       <% if signed_in? %>
         <li id="fat-menu" class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">

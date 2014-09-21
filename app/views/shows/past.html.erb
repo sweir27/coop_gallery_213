@@ -4,4 +4,7 @@
   <% @past_shows.each do |show| %>
     <%= render 'ind_show_admin', show: show %>
   <% end %>
+  <% if @past_shows.size == 0 %>
+    <div class='center-text center'>There are no past shows available for viewing at this time.</div>
+  <% end %>
 </ul>

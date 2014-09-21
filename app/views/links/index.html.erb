@@ -1,8 +1,6 @@
 <% provide(:title, 'Related links') %>
 <h2 class='center'>Related links</h2>
-<% if current_user && current_user.admin? %>
-  <%= link_to "Create Link", new_link_path %>
-<% end %>
+<%= render 'link_tabs' %>
 <ul class="links">
   <% @links.each do |link| %>
     <li>

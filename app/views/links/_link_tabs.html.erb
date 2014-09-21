@@ -1,0 +1,6 @@
+<div class='inner-tab-group'>
+  <% if current_user && current_user.admin? %>
+    <span class='inner-tab'><%= link_to "All Links", links_path, class: cp(links_path) %></span>
+    <span class='inner-tab'><%= link_to "Create Link", new_link_path, class: cp(new_link_path) %></span>
+  <% end %>
+</div>

@@ -35,6 +35,10 @@ textarea {
   }
 }
 
+.center-div {
+  margin: 0 auto;
+}
+
 .container {
   width: 800px;
 }
@@ -50,15 +54,24 @@ textarea {
   border-radius: 0;
   background-color: black;
   background-image: none;
+  border: none;
   color: white;
   border: none;
   font-family: Helvetica;
-  font-size: 12pt;
+  font-size: 10pt;
   text-transform: uppercase;
   &:hover {
     background-color: #666666;
     border: none;
   }
+}
+
+img {
+  display: inline-block;
+}
+
+.current {
+  color: $maroon;
 }
 
 #new_user, #new_show, #new_artwork, #new_link {
@@ -74,7 +87,7 @@ textarea {
 }
 
 .text-title {
-  padding: 10px;
+  padding: 20px;
   font-size: 16pt;
   text-align: center;
 }
@@ -86,9 +99,21 @@ textarea {
   font-weight: bold;
 }
 
+.current-show-tag {
+  color: $maroon;
+  text-transform: uppercase;
+  font-family: Helvetica;
+  font-size: 12pt;
+}
+
+.small-padding {
+  padding: 10px;
+}
+
 .inner-tab-group {
   text-align: center;
   margin: 0 auto;
+  margin-bottom: 30px;
 }
 
 .inner-tab {
@@ -97,6 +122,7 @@ textarea {
 
 .center-text {
   padding: 20px;
+  font-weight: bold;
 }
 
 .left {
@@ -157,6 +183,8 @@ a {
 }
 
 .dropdown-menu {
+  border-radius: 0;
+  box-shadow: none;
   li {
     a {
       &:hover {
@@ -316,6 +344,13 @@ aside {
 
 .ind-show-title {
   font-weight: bold;
+  font-family: Helvetica;
+  font-size: 14pt;
+  // text-align: center;
+}
+
+.read-more-link, .read-less-link {
+  cursor: pointer;
 }
 
 .ind-show-paragraph {
@@ -326,14 +361,53 @@ aside {
 
 }
 
+.hidden {
+  display: none;
+}
+
+.shows-list {
+  text-align: left;
+}
+
+.inner-content-shows {
+  text-align: left;
+}
+
 .shows {
   margin: 0px;
   li {
     list-style-type: none;
     padding: 20px;
+    border-top: 1px solid $grayMediumLight;
   }
 }
 
 .show-picture {
   padding: 20px;
+}
+
+.admin-options {
+  clear: both;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.admin-option {
+  text-transform: uppercase;
+  padding-right: 10px;
+  font-family: Helvetica;
+  font-size: 8pt;
+}
+
+/* Alert errors */
+
+.alert {
+  border: none;
+  border-radius: 0;
+}
+
+.alert-error {
+
 }

@@ -3,7 +3,7 @@
 <!-- <h1>New show</h1> -->
 
 <div class='row'>
-  <div class='span6 offset3'>
+  <div class='span7 offset1'>
     <%= form_for @show, :html => { :multipart => true } do |f| %>
       <%= render 'shared/error_messages', :item => @show %>
       <%= f.label :name %>
@@ -31,7 +31,7 @@
        <%= f.file_field :picture_2 %>
      </p>
 
-      <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+      <%= f.submit "Create new show", class: "btn btn-large btn-primary" %>
     <% end %>
   </div>
 </div>

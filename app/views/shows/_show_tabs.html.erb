@@ -1,8 +1,8 @@
 <div class='inner-tab-group'>
-  <span class='inner-tab'><%= link_to "All Shows", shows_path %></span>
-  <span class='inner-tab'><%= link_to "Past Shows", past_shows_path %></span>
-  <span class='inner-tab'><%= link_to "Upcoming Shows", upcoming_shows_path %></span>
+  <span class='inner-tab'><%= link_to "All Shows", shows_path, class: cp(shows_path) %></span>
+  <span class='inner-tab'><%= link_to "Past Shows", past_shows_path, class: cp(past_shows_path) %></span>
+  <span class='inner-tab'><%= link_to "Upcoming Shows", upcoming_shows_path, class: cp(upcoming_shows_path) %></span>
   <% if current_user && current_user.admin? %>
-    <span class='inner-tab'><%= link_to "Create Show", new_show_path %></span>
+    <span class='inner-tab'><%= link_to "Create Show", new_show_path, class: cp(new_show_path) %></span>
   <% end %>
 </div>
