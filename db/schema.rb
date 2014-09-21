@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140921173313) do
+ActiveRecord::Schema.define(version: 20140921205401) do
 
   create_table "artworks", force: true do |t|
     t.string   "title"
@@ -29,14 +29,14 @@ ActiveRecord::Schema.define(version: 20140921173313) do
   create_table "links", force: true do |t|
     t.string   "url"
     t.string   "title"
-    t.string   "description"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "shows", force: true do |t|
     t.string   "name"
-    t.string   "description"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "picture_1_file_name"
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20140921173313) do
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "email"
-    t.text     "biography",        limit: 255
+    t.text     "biography"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_digest"
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 20140921173313) do
     t.integer  "pic_file_size"
     t.datetime "pic_updated_at"
     t.string   "slug"
-    t.boolean  "admin",                        default: false
+    t.boolean  "admin",            default: false
     t.string   "website"
   end
 
