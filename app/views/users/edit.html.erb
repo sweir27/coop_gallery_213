@@ -24,12 +24,6 @@
       <%= f.label :password_confirmation, "Confirm Password" %>
       <%= f.password_field :password_confirmation %>
 
-      <p>Profile Picture</p>
-      <% if @user.pic.exists? %>
-        <%= image_tag @user.pic.url(:thumb) %><br/>
-      <% end %>
-      <%= f.file_field :pic %>
-
       <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
     <% end %>
 

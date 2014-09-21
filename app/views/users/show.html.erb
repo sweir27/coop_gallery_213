@@ -2,7 +2,7 @@
 <h2 class='center'><%= "#{@user.name}'s Profile" %></h2>
 <%= render 'profile_tabs', user: @user %>
 <div class='artist-biography'><%= @user.biography %></div>
-<div class='artist-link'><%= @user.website %></div>
+<div class='artist-link'><%= link_to @user.website, @user.website %></div>
 <div class="span8">
   <% if @user.artworks.any? %>
     <h2>Artwork (<%= @user.artworks.count %>)</h2>
