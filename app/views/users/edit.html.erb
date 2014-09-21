@@ -1,4 +1,4 @@
-<% provide(:title, "Edit user") %>
+<% provide(:title, "Edit user profile") %>
 <h2 class='center'>Update your profile</h2>
 
 <div class="row">
@@ -11,6 +11,9 @@
 
       <%= f.label :email %>
       <%= f.text_field :email %>
+
+      <%= f.label :website %>
+      <%= f.text_field :website %>
 
       <%= f.label :biography %>
       <%= f.text_area :biography, :cols => "10", :rows => "10" %>

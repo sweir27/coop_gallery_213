@@ -1,7 +1,7 @@
 class ArtistsController < ApplicationController
   def index
     # add filter here in case not all users are technically artists
-    @artists = User.all
+    @artists = User.all.order(:slug)
   end
 
   def show

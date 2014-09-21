@@ -1,14 +1,22 @@
-<% provide(:title, 'Related links') %>
-<h2 class='center'>Related links</h2>
+<% provide(:title, 'Gallery Partners') %>
+<h2 class='center'>Gallery Partners</h2>
 <%= render 'link_tabs' %>
-<ul class="links">
-  <% @links.each do |link| %>
-    <li>
-      <%= link_to link.title, link.url %>
-      <% if current_user && current_user.admin? %>
-      | <%= link_to "delete", link, method: :delete, data: { confirm: "You sure?" } %>
-      <% end %>
-      <p><%= link.description %></p>
-    </li>
-  <% end %>
-</ul>
+<div class='links-list'>
+  <ul class="links">
+    <% @links.each do |link| %>
+      <li>
+        <div class='ind-link'>
+          <div class='ind-link-title'>
+            <%= link_to link.title, link.url %>
+          </div>
+          <p><%= link.description %></p>
+          <% if current_user && current_user.admin? %>
+            <div class='admin-options small-padding'>
+              <%= link_to "delete", link, method: :delete, data: { confirm: "You sure?" }, class: 'admin-option' %>
+            </div>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>

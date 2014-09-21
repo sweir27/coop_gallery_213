@@ -1,6 +1,6 @@
 <li>
   <div class='ind-show-title'>
-    <div class='center-div'><%= show.name %></p></div>
+    <div class='center-div'><p><%= show.name %></p></div>
   </div>
   <% if show.current? %>
     <div class='current-show-tag'>current show</div>
@@ -21,7 +21,8 @@
   </div>
   <div class='admin-options small-padding'>
     <% if current_user && current_user.admin? %>
-    <%= link_to "delete", show, method: :delete, data: { confirm: "You sure?" }, class: 'admin-option' %>
+      <%= link_to "delete", show, method: :delete, data: { confirm: "You sure?" }, class: 'admin-option' %>
+      <%= link_to "edit", edit_show_path(show), class: 'admin-option' %>
       <% if not show.current? %>
         <%= link_to "make current", set_current_show_path(show), method: :post, data: { confirm: "You sure?" }, class: 'admin-option' %>
       <% end %>

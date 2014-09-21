@@ -1,0 +1,5 @@
+<div class='inner-tab-group'>
+  <% if current_user.admin? %>
+    <span class='inner-tab'><%= link_to "Create user", new_user_path, class: cp(new_user_path) %></span>
+  <% end %>
+</div>

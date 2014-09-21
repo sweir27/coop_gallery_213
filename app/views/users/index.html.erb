@@ -1,21 +1,22 @@
 <% provide(:title, 'All users') %>
 <h2 class='center'>All users</h2>
-<% if current_user.admin? %>
-  <%= link_to "Create User", signup_path %>
-<% end %>
+<%= render 'all_users_tabs' %>
 <ul class="users">
   <% if @users %>
     <% @users.each do |user| %>
       <li>
-        <%= image_tag user.pic.url(:thumb) %>
-        <%= link_to user.name, user %>
-        <%= "| admin" if user.admin? %>
+        <%= link_to user.name, user, class: 'user-name' %>
+        <% if user.admin? %>
+          <span class='user-admin-tag small-margin-left'>
+            admin
+          </span>
+        <% end %>
         <% if current_user.admin? && !current_user?(user) %>
-          | <%= link_to "delete", user, method: :delete, data: { confirm: "You sure?" } %>
+          <%= link_to "delete", user, method: :delete, data: { confirm: "You sure?" }, class: 'admin-option small-margin-left' %>
           <% if user.admin? %>
-            | <%= link_to "Remove admin", toggle_admin_user_path(user), :method => :post, data: { confirm: "Are you sure?" } %>
+            <%= link_to "Remove admin", toggle_admin_user_path(user), :method => :post, data: { confirm: "Are you sure?" }, class: 'admin-option small-margin-left' %>
           <% else %>
-            | <%= link_to "Make admin", toggle_admin_user_path(user), :method => :post, data: { confirm: "Are you sure?" } %>
+            <%= link_to "Make admin", toggle_admin_user_path(user), :method => :post, data: { confirm: "Are you sure?" }, class: 'admin-option small-margin-left' %>
           <% end %>
         <% end %>
       </li>

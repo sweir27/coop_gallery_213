@@ -1,13 +1,14 @@
 <% provide(:title, @artist.name) %>
 <h2 class='center'><%= @artist.name %></h2>
-<p><%= @artist.biography %></p>
-<ul class="artworks">
-  <% if @artworks %>
+<div class='artist-biography'><%= @artist.biography %></div>
+<div class='artist-link'><%= @artist.website %></div>
+<% if @artworks %>
+  <div class='all-artwork'>
     <% @artworks.each do |artwork| %>
-      <li>
-        <span class="content"><%= artwork.title %></span>
-        <%= image_tag artwork.image.url(:thumb) %>
-      </li>
+      <div class="artwork-content">
+        <%= image_tag artwork.image.url(:medium), class: 'artwork-image' %>
+        <div class='artwork-title'><%= artwork.title %></div>
+      </div>
     <% end %>
-  <% end %>
-</ul>
+  </div>
+<% end %>

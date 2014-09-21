@@ -47,7 +47,9 @@ textarea {
   width: 90%;
   margin: 0 auto;
   padding: 20px;
+  padding-top: 0px;
   margin-bottom: 50px;
+  margin-top: 50px;
 }
 
 .btn {
@@ -113,7 +115,9 @@ img {
 .inner-tab-group {
   text-align: center;
   margin: 0 auto;
-  margin-bottom: 30px;
+  line-height:60px;
+  // margin-bottom: 20px;
+  // margin-top: 20px;
 }
 
 .inner-tab {
@@ -187,7 +191,7 @@ a {
   box-shadow: none;
   li {
     a {
-      &:hover {
+      &:hover, &:focus {
         background-color: none;
         background: none;
         color: $maroon;
@@ -212,10 +216,11 @@ nav {
     margin-right: 40px;
     a {
       color: black;
-      &:hover {
+      &:hover, &:focus {
         color: $maroon;
         background-color: none;
         background: none;
+        text-decoration: none;
       }
     }
   }
@@ -227,10 +232,11 @@ nav {
 
 footer {
   clear: both;
-  margin-top: 50px;
-  padding-top: 5px;
+  // margin-top: 50px;
+  padding-top: 25px;
   border-top: 1px solid #eaeaea;
   color: #999;
+  height: 50px;
   a {
     color: #555;
     &:hover {
@@ -293,12 +299,27 @@ input {
   margin: 0;
   li {
     overflow: auto;
-    padding: 10px 0;
+    padding: 20px 0;
     border-top: 1px solid $grayLighter;
     &:last-child {
-      border-bottom: 1px solid $grayLighter;
+      // border-bottom: 1px solid $grayLighter;
     }
   }
+}
+
+.user-name {
+  font-weight: bold;
+  font-family: Helvetica;
+  font-size: 14pt;
+  text-transform: uppercase;
+}
+
+.user-admin-tag {
+  color: $maroon;
+  text-transform: uppercase;
+  font-family: Helvetica;
+  font-size: 8pt;
+  padding-right: 10px;
 }
 
 /* Artists index */
@@ -310,8 +331,9 @@ input {
     overflow: auto;
     padding: 10px 0;
     border-top: 1px solid $grayLighter;
-    &:last-child {
-      border-bottom: 1px solid $grayLighter;
+    &:first-child {
+      border-top: none;
+      // border-bottom: 1px solid $grayLighter;
     }
   }
 }
@@ -340,9 +362,36 @@ aside {
   }
 }
 
+.ind-artist-name {
+  font-weight: bold;
+  font-family: Helvetica;
+  font-size: 14pt;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.artist-artworks {
+  text-align: center;
+}
+
+.artist-biography, .artist-link {
+  text-align: center;
+}
+
+.artwork-content {
+  display: inline-block;
+  margin: 20px;
+}
+
+.all-artwork {
+  margin-top: 30px;
+  text-align: center;
+}
+
 /* shows */
 
-.ind-show-title {
+.ind-show-title, .ind-link-title {
   font-weight: bold;
   font-family: Helvetica;
   font-size: 14pt;
@@ -365,7 +414,7 @@ aside {
   display: none;
 }
 
-.shows-list {
+.shows-list, .artists-list, .links-list {
   text-align: left;
 }
 
@@ -379,11 +428,33 @@ aside {
     list-style-type: none;
     padding: 20px;
     border-top: 1px solid $grayMediumLight;
+    &:first-child {
+      border-top: none;
+    }
   }
 }
 
 .show-picture {
   padding: 20px;
+}
+
+/* links */
+
+.links {
+  margin: 0px;
+  li {
+    list-style-type: none;
+    padding: 20px;
+    border-top: 1px solid $grayMediumLight;
+    &:first-child {
+      border-top: none;
+    }
+  }
+}
+
+.ind-link {
+  width: 400px;
+  margin: 0 auto;
 }
 
 .admin-options {
@@ -392,6 +463,10 @@ aside {
 
 .no-margin {
   margin: 0;
+}
+
+.small-margin-left {
+  margin-left: 10px;
 }
 
 .admin-option {

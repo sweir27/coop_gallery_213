@@ -1,22 +1,24 @@
-<% provide(:title, @user.name) %>
-<h2 class='center'><%= @user.name %></h2>
-<%= image_tag @user.pic.url(:thumb) %>
+<% provide(:title, "#{@user.name}'s Profile") %>
+<h2 class='center'><%= "#{@user.name}'s Profile" %></h2>
+<%= render 'profile_tabs', user: @user %>
+<div class='artist-biography'><%= @user.biography %></div>
+<div class='artist-link'><%= @user.website %></div>
 <div class="span8">
-  <% if current_user?(@user) %>
-    <%= link_to "Add artwork", new_artwork_path %>
-  <% end %>
   <% if @user.artworks.any? %>
-    <h3>Artwork (<%= @user.artworks.count %>)</h3>
-    <ol class="artworks">
+    <h2>Artwork (<%= @user.artworks.count %>)</h2>
+    <div class='all-artwork'>
       <% @artworks.each do |artwork| %>
-        <li>
-          <span class="content"><%= artwork.title %></span>
-          <%= image_tag artwork.image.url(:thumb) %>
-          <% if current_user?(@user) %>
-            | <%= link_to "delete", artwork, method: :delete, data: { confirm: "You sure?" } %>
+        <div class="artwork-content">
+          <%= image_tag artwork.image.url(:thumb), class: 'artwork-image' %>
+          <div class='artwork-title'><%= artwork.title %></div>
+          <% if current_user && current_user.admin? %>
+            <div class='admin-options small-padding'>
+              <%= link_to "delete", artwork, method: :delete, data: { confirm: "You sure?" }, class: 'admin-option' %>
+              <%= link_to "edit", edit_artwork_path(artwork), class: 'admin-option' %>
+            </div>
           <% end %>
-        </li>
+        </div>
       <% end %>
-    </ol>
+    </div>
   <% end %>
 </div>

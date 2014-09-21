@@ -22,6 +22,20 @@ class ArtworksController < ApplicationController
     @artwork = Artwork.new
   end
 
+  def edit
+    @artwork = Artwork.find(params[:id])
+  end
+
+  def update
+    @artwork = Artwork.find(params[:id])
+    if @artwork.update_attributes(artwork_params)
+      flash[:success] = "Artwork updated"
+      redirect_to user_path(@artwork.user_id)
+    else
+      render 'edit'
+    end
+  end
+
   private
     def artwork_params
       params.require(:artwork).permit(:title, :image)

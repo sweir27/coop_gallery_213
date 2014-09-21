@@ -1,12 +1,11 @@
-<% provide(:title, 'All artists') %>
-<h2 class='center'>All artists</h2>
-<ul class="artists">
-<% if @artists %>
-  <% @artists.each do |artist| %>
-    <li>
-      <%= image_tag artist.pic.url(:thumb) %>
-      <%= link_to artist.name, artist_path(artist) %>
-    </li>
+<% provide(:title, 'Artists') %>
+<h2 class='center'>Artists</h2>
+<div class='artists-list'>
+  <ul class="artists">
+  <% if @artists %>
+    <% @artists.each do |artist| %>
+      <%= render 'ind_artist', artist: artist, artworks: artist.artworks.take(4) %>
+    <% end %>
   <% end %>
-<% end %>
-</ul>
+  </ul>
+</div>

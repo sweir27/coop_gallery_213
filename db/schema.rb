@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140914232205) do
+ActiveRecord::Schema.define(version: 20140921021658) do
 
   create_table "artworks", force: true do |t|
     t.string   "title"
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 20140914232205) do
     t.datetime "pic_updated_at"
     t.string   "slug"
     t.boolean  "admin",                        default: false
+    t.string   "website"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

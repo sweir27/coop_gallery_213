@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    @users = User.all.order(:slug)
   end
 
   def show
@@ -57,7 +57,7 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:name, :email, :biography, :password, :password_confirmation, :pic)
+      params.require(:user).permit(:name, :email, :biography, :password, :password_confirmation, :pic, :website)
     end
 
     # Before filters
