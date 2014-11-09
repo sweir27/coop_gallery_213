@@ -4,10 +4,9 @@
   </div>
   <div class='left-larger no-margin'>
     <div class='inner-content-shows small-padding'>
-      <div class='ind-event-text'><%= "#{event.event_date.strftime('%m/%d/%Y')}" %></div>
-      <div class='ind-event-text'><%= "Start: #{event.start_time}" %></div>
-      <div class='ind-event-text'><%= "End: #{event.end_time}" %></div>
-      <div class='ind-event-paragraph-truncated'>
+      <div class='ind-event-text'><%= "#{event.event_date.strftime('%m/%d/%Y')}, #{event.start_time.strftime('%I:%M %p')} - #{event.end_time.strftime('%I:%M %p')}" %></div>
+      <div class='ind-event-text'><%= link_to event.url, event.url if event.url %></div>
+      <div class='ind-event-paragraph'>
         <%= event.description %>
       </div>
     </div>

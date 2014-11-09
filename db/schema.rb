@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141109001825) do
+ActiveRecord::Schema.define(version: 20141109222216) do
 
   create_table "artworks", force: true do |t|
     t.string   "title"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20141109001825) do
     t.date     "event_date"
     t.time     "start_time"
     t.time     "end_time"
-    t.string   "event_link"
+    t.string   "url"
     t.boolean  "on_homepage",              default: false
     t.string   "event_image_file_name"
     t.string   "event_image_content_type"

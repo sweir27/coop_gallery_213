@@ -101,6 +101,9 @@ img {
 .text-inset-bold {
   font-weight: bold;
 }
+.text-inset-title {
+  font-size: 14pt;
+}
 
 .current-show-tag {
   color: $maroon;
@@ -148,10 +151,22 @@ img {
   margin-bottom: 50px;
 }
 
+.left-mid {
+  float: left;
+  width: 60%;
+  margin-bottom: 50px;
+}
+
 .right {
   float: right;
   width: 50%;
   margin-bottom: 50px;
+}
+
+.right-event {
+  float: right;
+  // margin-bottom: 20px;
+  width:40%;
 }
 
 .right-float {
@@ -180,6 +195,11 @@ h3 {
   border-top: 1px solid $grayMediumLight;
   clear: both;
   padding-top: 50px;
+}
+
+.event-info {
+  clear: both;
+  padding-top: 20px;
 }
 
 .info-text {
@@ -438,12 +458,16 @@ aside {
   // text-align: center;
 }
 
-.read-more-link, .read-less-link {
-  cursor: pointer;
+.ind-show-paragraph, .ind-event-paragraph {
+  margin-top: 10px;
 }
 
-.ind-show-paragraph {
+.ind-show-paragraph-truncated {
+  margin-top: 10px;
+}
 
+.read-more-link, .read-less-link {
+  cursor: pointer;
 }
 
 .ind-show-text {
@@ -476,6 +500,12 @@ aside {
 
 .show-picture {
   padding: 20px;
+  padding-right: 30px;
+}
+
+.event-picture {
+  padding: 20px;
+  padding-top: 0px;
   padding-right: 30px;
 }
 

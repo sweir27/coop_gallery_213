@@ -45,13 +45,13 @@ class ShowsController < ApplicationController
 
   def current
     @current_show = Show.where(:current => true).first
-    # @events = Event.where(:on_homepage => true).sort_by(&:event_date)
+    @events = Event.where(:on_homepage => true).sort_by(&:event_date)
   end
 
   def past
     current_show = Show.where(:current => true).first
     start_date = Show.arel_table[:start_date]
-    @past_shows = Show.where(start_date.lt(current_show.start_date))
+    @past_shows = Show.where(start_date.lt(current_show.start_date)).limit(10)
     @is_current_page = false
     render 'past'
   end
