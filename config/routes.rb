@@ -10,6 +10,11 @@ Rails.application.routes.draw do
       get 'ind_current'
     end
   end
+  resources :events do
+    member do
+      post 'set_homepage'
+    end
+  end
   resources :artists, only: [:show, :index]
   resources :links
   resources :users do

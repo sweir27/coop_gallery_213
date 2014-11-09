@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140921205401) do
+ActiveRecord::Schema.define(version: 20141109001825) do
 
   create_table "artworks", force: true do |t|
     t.string   "title"
@@ -25,6 +25,22 @@ ActiveRecord::Schema.define(version: 20140921205401) do
   end
 
   add_index "artworks", ["user_id"], name: "index_artworks_on_user_id"
+
+  create_table "events", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.date     "event_date"
+    t.time     "start_time"
+    t.time     "end_time"
+    t.string   "event_link"
+    t.boolean  "on_homepage",              default: false
+    t.string   "event_image_file_name"
+    t.string   "event_image_content_type"
+    t.integer  "event_image_file_size"
+    t.datetime "event_image_updated_at"
+  end
 
   create_table "links", force: true do |t|
     t.string   "url"

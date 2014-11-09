@@ -1,0 +1,12 @@
+<% provide(:title, 'Events') %>
+<%= render 'event_tabs' %>
+<div class='events-list'>
+  <ul class="events">
+    <% @events.each do |date_group| %>
+      <h2 class='center'><%= "#{Date::MONTHNAMES[date_group[0].month]} #{date_group[0].year}" %></h2>
+      <% date_group[1].each do |event| %>
+        <%= render :partial => 'ind_event_admin', :locals => { event: event } %>
+      <% end %>
+    <% end %>
+  </ul>
+</div>

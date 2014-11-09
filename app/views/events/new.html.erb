@@ -1,0 +1,31 @@
+<% provide(:title, 'New event') %>
+<%= render 'event_tabs' %>
+
+<div class='row'>
+  <div class='span7 offset1'>
+    <%= form_for @event, :html => { :multipart => true } do |f| %>
+      <%= render 'shared/error_messages', :item => @event %>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+
+      <%= f.label :event_date %>
+      <%= f.date_select :event_date %>
+
+      <%= f.label :start_time %>
+      <%= f.time_select :start_time %>
+
+      <%= f.label :end_time %>
+      <%= f.time_select :end_time %>
+
+      <p>
+       <b>Event image</b><br/>
+       <%= f.file_field :event_image %>
+     </p>
+
+      <%= f.submit "Create event", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

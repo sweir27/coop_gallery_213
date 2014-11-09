@@ -76,7 +76,7 @@ img {
   color: $maroon;
 }
 
-#new_user, #new_show, #new_artwork, #new_link {
+#new_user, #new_show, #new_artwork, #new_link, #new_event {
   input, textarea, select {
     border: 1px solid black;
     border-radius: 0;
@@ -139,6 +139,12 @@ img {
 .left {
   float: left;
   width: 50%;
+  margin-bottom: 50px;
+}
+
+.left-larger {
+  float: left;
+  width: 70%;
   margin-bottom: 50px;
 }
 
@@ -425,7 +431,7 @@ aside {
 
 /* shows */
 
-.ind-show-title, .ind-link-title {
+.ind-show-title, .ind-link-title, .ind-event-title {
   font-weight: bold;
   font-family: Helvetica;
   font-size: 14pt;
@@ -448,15 +454,15 @@ aside {
   display: none;
 }
 
-.shows-list, .artists-list, .links-list {
+.shows-list, .artists-list, .links-list, .events-list {
   text-align: left;
 }
 
-.inner-content-shows {
+.inner-content-shows, .inner-content-events {
   text-align: left;
 }
 
-.shows {
+.shows, .events {
   margin: 0px;
   li {
     list-style-type: none;
