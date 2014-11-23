@@ -58,9 +58,9 @@ class ShowsController < ApplicationController
   end
 
   def upcoming
-    current_show = Show.where(:current => true).first
+    @current_show = Show.where(:current => true).first
     end_date = Show.arel_table[:end_date]
-    @upcoming_shows = Show.where(end_date.gt(current_show.end_date))
+    @upcoming_shows = Show.where(end_date.gt(@current_show.end_date))
     @is_current_page = false
     render 'upcoming'
   end
@@ -80,6 +80,6 @@ class ShowsController < ApplicationController
     end
 
     def show_params
-      params.require(:show).permit(:name, :description, :artists, :start_date, :end_date, :picture_1, :picture_2)
+      params.require(:show).permit(:name, :description, :artists, :start_date, :end_date, :picture_1, :picture_2, :artist_talk_title, :artist_talk_date, :video_link, :video_link_title)
     end
 end

@@ -18,6 +18,14 @@
         <%= f.file_field :announcement_image %>
       </p>
 
+      <%= f.label :pdf_title %>
+      <%= f.text_field :pdf_title %>
+
+      <p>
+        <b>Announcement pdf (optional)</b><br/>
+        <%= f.file_field :pdf %>
+      </p>
+
       <%= f.submit "Update announcement", class: "btn btn-large btn-primary" %>
     <% end %>
   </div>

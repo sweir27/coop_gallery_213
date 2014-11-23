@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141123154608) do
+ActiveRecord::Schema.define(version: 20141123171647) do
 
   create_table "announcements", force: true do |t|
     t.string   "title"
@@ -23,6 +23,11 @@ ActiveRecord::Schema.define(version: 20141123154608) do
     t.string   "announcement_image_content_type"
     t.integer  "announcement_image_file_size"
     t.datetime "announcement_image_updated_at"
+    t.string   "pdf_file_name"
+    t.string   "pdf_content_type"
+    t.integer  "pdf_file_size"
+    t.datetime "pdf_updated_at"
+    t.string   "pdf_title"
   end
 
   create_table "artworks", force: true do |t|
@@ -52,6 +57,11 @@ ActiveRecord::Schema.define(version: 20141123154608) do
     t.string   "event_image_content_type"
     t.integer  "event_image_file_size"
     t.datetime "event_image_updated_at"
+    t.string   "pdf_file_name"
+    t.string   "pdf_content_type"
+    t.integer  "pdf_file_size"
+    t.datetime "pdf_updated_at"
+    t.string   "pdf_title"
   end
 
   create_table "links", force: true do |t|
@@ -79,6 +89,10 @@ ActiveRecord::Schema.define(version: 20141123154608) do
     t.date     "start_date"
     t.date     "end_date"
     t.boolean  "current",                default: false
+    t.string   "artist_talk_title"
+    t.datetime "artist_talk_date"
+    t.string   "video_link"
+    t.string   "video_link_title"
   end
 
   create_table "users", force: true do |t|

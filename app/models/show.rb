@@ -16,4 +16,7 @@ class Show < ActiveRecord::Base
             # :path => ":rails_root/public/system/:attachment/:slug/:style/:basename.:extension",
             # :url  => "/public/:attachment/:slug/:style/:basename.:extension"
   validates_attachment_content_type :picture_2, :content_type => /\Aimage\/.*\Z/
+
+  validates_presence_of :video_link, :unless => lambda { self.video_link_title.blank? }
+  validates_presence_of :artist_talk_date, :unless => lambda { self.artist_talk_title.blank? }
 end

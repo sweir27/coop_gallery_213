@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   def index
-    @events = Event.all.group_by{|e| e.event_date.beginning_of_month}.sort_by{ |k,v| k }
+    @events = Event.where("event_date >= ?", Date.today).group_by{|e| e.event_date.beginning_of_month}.sort_by{ |k,v| k }
   end
 
   def new
@@ -51,6 +51,6 @@ class EventsController < ApplicationController
     end
 
     def event_params
-      params.require(:event).permit(:title, :description, :event_date, :start_time, :end_time, :event_image, :on_homepage, :url)
+      params.require(:event).permit(:title, :description, :event_date, :start_time, :end_time, :event_image, :on_homepage, :url, :pdf, :pdf_title)
     end
 end

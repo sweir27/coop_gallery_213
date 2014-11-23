@@ -24,8 +24,16 @@
       <%= f.label :end_time %>
       <%= f.time_select :end_time %>
 
+      <%= f.label :pdf_title %>
+      <%= f.text_field :pdf_title %>
+
       <p>
-       <b>Event image</b><br/>
+        <b>Event pdf (optional)</b><br/>
+        <%= f.file_field :pdf %>
+      </p>
+
+      <p>
+       <b>Event image (optional)</b><br/>
        <%= f.file_field :event_image %>
      </p>
 

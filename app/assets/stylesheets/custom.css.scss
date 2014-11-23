@@ -16,7 +16,6 @@ html {
 }
 
 body {
-  padding-top: 60px;
   font-family: Garamond;
 }
 
@@ -41,6 +40,7 @@ textarea {
 
 .container {
   width: 800px;
+  padding-top: 100px;
 }
 
 .container-inner {
@@ -50,6 +50,10 @@ textarea {
   padding-top: 0px;
   margin-bottom: 50px;
   margin-top: 50px;
+}
+
+.maroon {
+  color: $maroon;
 }
 
 .btn {
@@ -92,6 +96,36 @@ img {
   padding: 20px;
   font-size: 16pt;
   text-align: center;
+}
+
+.text-subtitle {
+  padding: 0 15px 15px 15px;
+  font-size: 14pt;
+  text-align: center;
+  font-style: italic;
+}
+
+.text-subtitle-date {
+  padding: 0 15px 25px 15px;
+  font-size: 12pt;
+  font-weight: bold;
+  text-align: center;
+}
+
+.uppercase-subtitle {
+  text-transform: uppercase;
+  font-family: Helvetica;
+  font-size: 10pt;
+  padding-right: 10px;
+  color: $maroon;
+}
+
+.uppercase-subtitle-black {
+  text-transform: uppercase;
+  font-family: Helvetica;
+  font-size: 9pt;
+  padding-right: 10px;
+  font-weight: bold;
 }
 
 .text-inset {
@@ -151,12 +185,6 @@ img {
   margin-bottom: 50px;
 }
 
-.left-mid {
-  float: left;
-  width: 60%;
-  margin-bottom: 50px;
-}
-
 .right {
   float: right;
   width: 50%;
@@ -191,15 +219,38 @@ h3 {
 
 }
 
+.form-inner-title {
+  font-size: 14pt;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
 .large-info-container {
   border-top: 1px solid $grayMediumLight;
   clear: both;
   padding-top: 50px;
+  .no-announcements {
+    padding-bottom: 50px;
+  }
 }
 
 .event-info, .announcement-info {
   clear: both;
   padding-top: 20px;
+  .left-mid {
+    margin-bottom: 10px;
+    float: left;
+  }
+  .event-info-right, .announcement-info-right {
+    float: left;
+    width: 70%;
+  }
+  .event-picture, .announcement-picture {
+    padding: 20px;
+    padding-top: 0px;
+    padding-right: 30px;
+    width: 150px;
+  }
 }
 
 .info-text {
@@ -208,9 +259,14 @@ h3 {
 
 /* header */
 .header-container {
+  position: fixed;
+  padding-top: 60px;
+  width: 100%;
+  text-align: center;
   border-bottom: 1px solid $grayMediumLight;
   background-color: white;
     #logo {
+    margin-left: 50px;
     float: left;
     margin-right: 10px;
     font-size: 14pt;
@@ -498,15 +554,13 @@ aside {
   }
 }
 
-.show-picture {
-  padding: 20px;
-  padding-right: 30px;
-}
-
-.event-picture, .announcement-picture {
-  padding: 20px;
-  padding-top: 0px;
-  padding-right: 30px;
+.show-picture-container {
+  text-align: center;
+  .show-picture {
+    display: inline-block;
+    padding: 20px;
+    margin: 0 auto;
+  }
 }
 
 /* links */
