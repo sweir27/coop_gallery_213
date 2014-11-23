@@ -69,7 +69,7 @@
               <% end %>
             <% end %>
           </div>
-          <div class='text-inset'><%= event.description.gsub(/\n/, '<br/>').html_safe %></div>
+          <div class='text-inset'><%= simple_format(event.description) %></div>
         </div>
       </div>
     <% end %>

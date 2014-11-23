@@ -1,7 +1,7 @@
 <% provide(:title, "#{@user.name}'s Profile") %>
 <h2 class='center'><%= "#{@user.name}'s Profile" %></h2>
 <%= render 'profile_tabs', user: @user %>
-<div class='artist-biography'><%= @user.biography %></div>
+<div class='artist-biography'><%= simple_format(@user.biography) %></div>
 <div class='artist-link'><%= link_to @user.website, @user.website if @user.website %></div>
 <div class="span8">
   <% if @user.artworks.any? %>
