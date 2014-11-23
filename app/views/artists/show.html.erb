@@ -1,7 +1,7 @@
 <% provide(:title, @artist.name) %>
 <h2 class='center'><%= @artist.name %></h2>
 <div class='artist-link'><%= link_to @artist.website, @artist.website unless @artist.website.blank? %></div>
-<div class='artist-biography'><%= @artist.biography %></div>
+<div class='artist-biography'><%= @artist.biography.gsub(/\n/, '<br/>').html_safe %></div>
 <% if @artworks %>
   <div class='all-artwork'>
     <% @artworks.each do |artwork| %>

@@ -24,7 +24,7 @@
       <span class='uppercase-subtitle'>Video link</span><%= link_to @current_show.video_link_title, @current_show.video_link %>
     </div>
   <% end %>
-  <div class='text-inset'><%= @current_show.description %></div>
+  <div class='text-inset'><%= @current_show.description.gsub(/\n/, '<br/>').html_safe %></div>
 <% end %>
 <% if current_user && current_user.admin? && @announcements.length < 1 %>
   <div class='large-info-container'>
@@ -69,7 +69,7 @@
               <% end %>
             <% end %>
           </div>
-          <div class='text-inset'><%= event.description %></div>
+          <div class='text-inset'><%= event.description.gsub(/\n/, '<br/>').html_safe %></div>
         </div>
       </div>
     <% end %>

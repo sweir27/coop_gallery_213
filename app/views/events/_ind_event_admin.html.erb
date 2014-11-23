@@ -16,7 +16,7 @@
         <% end %>
       </div>
       <div class='ind-event-paragraph'>
-        <%= event.description %>
+        <%= event.description.gsub(/\n/, '<br/>').html_safe %>
       </div>
     </div>
   </div>
