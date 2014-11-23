@@ -6,8 +6,10 @@
   <div class='all-artwork'>
     <% @artworks.each do |artwork| %>
       <div class="artwork-content">
-        <%= image_tag artwork.image.url(:medium), class: 'artwork-image' %>
-        <div class='artwork-title'><%= artwork.title %></div>
+        <%= link_to artwork.image.url, class: "artwork-#{@artist.slug}" do %>
+          <%= image_tag artwork.image.url(:medium), class: "artwork-image" %>
+          <div class='artwork-title'><%= artwork.title %></div>
+        <% end %>
       </div>
     <% end %>
   </div>

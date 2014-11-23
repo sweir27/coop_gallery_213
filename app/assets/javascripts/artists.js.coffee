@@ -1,3 +1,20 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
+
+ready = ->
+  $('a[class^=artwork-]')
+    .attr('rel', 'gallery')
+    .fancybox({
+      padding: 0
+      beforeLoad: ->
+        el = $(this.element).find('.artwork-title');
+        if (el.length)
+          this.title = el.html();
+      helpers:
+        title:
+          type: 'outside'
+    });
+
+$(document).ready(ready)
+$(document).on('page:load', ready)
