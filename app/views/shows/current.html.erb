@@ -20,6 +20,17 @@
     </div>
   </div>
 <% end %>
+<% if current_user && current_user.admin? %>
+  <%= link_to "Create Announcement", new_announcement_path, class: cp(new_announcement_path) %>
+<% end %>
+<% if @announcements.length > 0 %>
+  <div class='large-info-container'>
+    <h2 class='center'>Announcements</h2>
+    <% @announcements.each do |announcement| %>
+      <%= render :partial => 'announcements/ind_announcement_admin', :locals => { announcement: announcement } %>
+    <% end %>
+  </div>
+<% end %>
 <% if @events.length > 0 %>
   <div class='large-info-container'>
     <h2 class='center'>Featured Events</h2>
@@ -35,7 +46,9 @@
         </div>
         <div class='right-event large-padding-left'>
           <div class='event-picture'>
-            <%= image_tag event.event_image.url(:thumb) %>
+            <% if event.event_image_file_name? %>
+              <%= image_tag event.event_image.url(:thumb) %>
+            <% end %>
           </div>
         </div>
       </div>

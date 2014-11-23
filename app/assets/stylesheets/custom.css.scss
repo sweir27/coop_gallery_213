@@ -163,7 +163,7 @@ img {
   margin-bottom: 50px;
 }
 
-.right-event {
+.right-event, .right-announcement {
   float: right;
   // margin-bottom: 20px;
   width:40%;
@@ -197,7 +197,7 @@ h3 {
   padding-top: 50px;
 }
 
-.event-info {
+.event-info, .announcement-info {
   clear: both;
   padding-top: 20px;
 }
@@ -503,7 +503,7 @@ aside {
   padding-right: 30px;
 }
 
-.event-picture {
+.event-picture, .announcement-picture {
   padding: 20px;
   padding-top: 0px;
   padding-right: 30px;

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       post 'set_homepage'
     end
   end
+  resources :announcements, only: [:new, :create, :edit, :update, :destroy]
   resources :artists, only: [:show, :index]
   resources :links
   resources :users do
