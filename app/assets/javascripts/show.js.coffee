@@ -36,6 +36,19 @@ ready = ->
           type: 'outside'
     });
 
+  for show in $("*[class^='show-right-']")
+    $(show).find('.show-artwork').attr('rel', 'gallery-'+$(show).data('show'))
+      .fancybox({
+        padding: 0
+        beforeLoad: ->
+          el = $(this.element).find('.artwork-title');
+          if (el.length)
+            this.title = el.html();
+        helpers:
+          title:
+            type: 'outside'
+      });
+
 $(document).ready(ready)
 $(document).on('page:load', ready)
 

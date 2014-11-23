@@ -62,16 +62,20 @@
         </div>
         <div class='event-info-right'>
           <div class='text-inset text-inset-title'><%= event.title %></div>
-          <div class='text-inset text-inset-bold'>
-            <%= "#{event.event_date.strftime('%m/%d/%Y')}, #{event.start_time.strftime('%I:%M %p')} - #{event.end_time.strftime('%I:%M %p')}" %>
+          <div class='text-inset'>
+            <span class='uppercase-subtitle-black'>Date</span><%= "#{event.event_date.strftime('%m/%d/%Y')}, #{event.start_time.strftime('%I:%M %p')} - #{event.end_time.strftime('%I:%M %p')}" %>
           </div>
-          <div class='text-inset'><%= link_to event.url, event.url if event.url %></div>
+          <% unless event.url.blank? %>
+            <div class='text-inset'>
+              <span class='uppercase-subtitle-black'>Link</span><%= link_to event.url, event.url %>
+            </div>
+          <% end %>
           <div class='ind-event-text'>
             <% if event.pdf_file_name? %>
               <% unless event.pdf_title.blank? %>
-                <%= link_to event.pdf_title, event.pdf.url %>
+                <span class='uppercase-subtitle-black'>PDF</span><%= link_to event.pdf_title, event.pdf.url %>
               <% else %>
-                <%= link_to 'View PDF', event.pdf.url %>
+                <span class='uppercase-subtitle-black'>PDF</span><%= link_to 'View', event.pdf.url %>
               <% end %>
             <% end %>
           </div>
