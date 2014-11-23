@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141123171647) do
+ActiveRecord::Schema.define(version: 20141123204222) do
 
   create_table "announcements", force: true do |t|
     t.string   "title"
@@ -93,6 +93,8 @@ ActiveRecord::Schema.define(version: 20141123171647) do
     t.datetime "artist_talk_date"
     t.string   "video_link"
     t.string   "video_link_title"
+    t.string   "picture_1_caption"
+    t.string   "picture_2_caption"
   end
 
   create_table "users", force: true do |t|

@@ -24,20 +24,26 @@
       <div class='form-inner-title'>Show photos</div>
 
       <p>
-       <b> Picture 1</b><br/>
+        <b> Picture 1</b><br/>
         <% if @show.picture_1.exists? %>
           <%= image_tag @show.picture_1.url(:thumb) %><br/>
         <% end %>
         <%= f.file_field :picture_1 %>
-       </p>
+      </p>
 
-       <p>
-         <b> Picture 2 (optional)</b><br/>
-          <% if @show.picture_2.exists? %>
-            <%= image_tag @show.picture_2.url(:thumb) %><br/>
-          <% end %>
-         <%= f.file_field :picture_2 %>
-       </p>
+      <%= f.label :picture_1_caption %>
+      <%= f.text_field :picture_1_caption %>
+
+      <p>
+        <b> Picture 2 (optional)</b><br/>
+        <% if @show.picture_2.exists? %>
+          <%= image_tag @show.picture_2.url(:thumb) %><br/>
+        <% end %>
+        <%= f.file_field :picture_2 %>
+      </p>
+
+      <%= f.label :picture_2_caption %>
+      <%= f.text_field :picture_2_caption %>
 
       <div class='form-inner-title'>Artist talk (optional)</div>
 

@@ -6,11 +6,17 @@
   <div class='text-subtitle-date'><%= "#{@current_show.start_date.strftime('%m/%d/%Y')} - #{@current_show.end_date.strftime('%m/%d/%Y')}" %></div>
   <div class='show-picture-container'>
     <div class='show-picture'>
-      <%= image_tag @current_show.picture_1.url(:largethumb) if @current_show.picture_1_file_name %>
+      <%= link_to @current_show.picture_1.url, class: "current-show-artwork" do %>
+        <%= image_tag @current_show.picture_1.url(:largethumb) %>
+        <div class='artwork-title'><%= @current_show.picture_1_caption unless @current_show.picture_1_caption.blank? %></div>
+      <% end %>
     </div>
     <% unless @current_show.picture_2_file_name.blank? %>
       <div class='show-picture'>
-        <%= image_tag @current_show.picture_2.url(:largethumb) %>
+        <%= link_to @current_show.picture_2.url, class: "current-show-artwork" do %>
+          <%= image_tag @current_show.picture_2.url(:largethumb) %>
+          <div class='artwork-title'><%= @current_show.picture_2_caption unless @current_show.picture_2_caption.blank? %></div>
+        <% end %>
       </div>
     <% end %>
   </div>

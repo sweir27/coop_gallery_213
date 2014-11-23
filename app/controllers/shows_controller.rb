@@ -80,6 +80,6 @@ class ShowsController < ApplicationController
     end
 
     def show_params
-      params.require(:show).permit(:name, :description, :artists, :start_date, :end_date, :picture_1, :picture_2, :artist_talk_title, :artist_talk_date, :video_link, :video_link_title)
+      params.require(:show).permit(:name, :description, :artists, :start_date, :end_date, :picture_1, :picture_2, :picture_1_caption, :picture_2_caption, :artist_talk_title, :artist_talk_date, :video_link, :video_link_title)
     end
 end
