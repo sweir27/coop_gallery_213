@@ -6,19 +6,19 @@
         <h2 class='maroon'>Current show</h2>
       </div>
     </div>
-    <div class='onerow'>
+    <div class='onerow current-show-row'>
       <div class='col6'>
         <div class='column-inner'>
           <div class='text-title'><%= @current_show.name %></div>
           <div class='text-subtitle'><%= @current_show.artists %></div>
           <div class='text-subtitle-date'><%= "#{@current_show.start_date.strftime('%m/%d/%Y')} - #{@current_show.end_date.strftime('%m/%d/%Y')}" %></div>
           <% unless @current_show.artist_talk_title.blank? %>
-            <div class='text-inset'>
+            <div class=''>
               <span class='uppercase-subtitle'>Artists' talk</span><%= link_to "#{@current_show.artist_talk_title}, #{@current_show.artist_talk_date.strftime('%m/%d/%Y, %I:%M %p')}", events_path %>
             </div>
           <% end %>
           <% unless @current_show.video_link.blank? %>
-            <div class='text-inset'>
+            <div class=''>
               <span class='uppercase-subtitle'>Video link</span><%= link_to @current_show.video_link_title, @current_show.video_link %>
             </div>
           <% end %>
@@ -80,12 +80,12 @@
                 </div>
               <% end %>
               <div class='col9 last'>
-                <div class='text-inset text-inset-title'><%= event.title %></div>
-                <div class='text-inset'>
+                <div class='text-inset-title'><%= event.title %></div>
+                <div class=''>
                   <span class='uppercase-subtitle-black'>Date</span><%= "#{event.event_date.strftime('%m/%d/%Y')}, #{event.start_time.strftime('%I:%M %p')} - #{event.end_time.strftime('%I:%M %p')}" %>
                 </div>
                 <% unless event.url.blank? %>
-                  <div class='text-inset'>
+                  <div class=''>
                     <span class='uppercase-subtitle-black'>Link</span><%= link_to event.url, event.url %>
                   </div>
                 <% end %>
@@ -98,7 +98,7 @@
                     <% end %>
                   <% end %>
                 </div>
-                <div class='text-inset'><%= simple_format(event.description) %></div>
+                <div class='text-inset spaced-text'><%= simple_format(event.description) %></div>
               </div>
             </div>
           <% end %>
