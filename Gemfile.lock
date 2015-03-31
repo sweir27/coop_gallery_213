@@ -32,10 +32,6 @@ GEM
       json (~> 1.4)
       nokogiri (>= 1.4.4)
     bcrypt-ruby (3.1.2)
-    bootstrap-sass (2.3.2.0)
-      sass (~> 3.2)
-    bootstrap-will_paginate (0.0.9)
-      will_paginate
     builder (3.1.4)
     cancan (1.6.10)
     capybara (2.1.0)
@@ -177,8 +173,6 @@ PLATFORMS
 DEPENDENCIES
   aws-sdk
   bcrypt-ruby (= 3.1.2)
-  bootstrap-sass (= 2.3.2.0)
-  bootstrap-will_paginate (= 0.0.9)
   cancan
   capybara (= 2.1.0)
   coffee-rails (= 4.0.1)

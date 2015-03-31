@@ -1,99 +1,125 @@
 <% provide(:title, 'Cooperative Gallery 213') %>
-<h2 class='center maroon'>Current show</h2>
-<% if @current_show %>
-  <div class='text-title'><%= @current_show.name %></div>
-  <div class='text-subtitle'><%= @current_show.artists %></div>
-  <div class='text-subtitle-date'><%= "#{@current_show.start_date.strftime('%m/%d/%Y')} - #{@current_show.end_date.strftime('%m/%d/%Y')}" %></div>
-  <div class='show-picture-container'>
-    <div class='show-picture'>
-      <%= link_to @current_show.picture_1.url, class: "current-show-artwork" do %>
-        <%= image_tag @current_show.picture_1.url(:largethumb) %>
-        <div class='artwork-title'><%= @current_show.picture_1_caption unless @current_show.picture_1_caption.blank? %></div>
-      <% end %>
-    </div>
-    <% unless @current_show.picture_2_file_name.blank? %>
-      <div class='show-picture'>
-        <%= link_to @current_show.picture_2.url, class: "current-show-artwork" do %>
-          <%= image_tag @current_show.picture_2.url(:largethumb) %>
-          <div class='artwork-title'><%= @current_show.picture_2_caption unless @current_show.picture_2_caption.blank? %></div>
-        <% end %>
+<div class='onepcssgrid-1200'>
+  <% if @current_show %>
+    <div class='onerow'>
+      <div class='col12'>
+        <h2 class='maroon'>Current show</h2>
       </div>
-    <% end %>
-  </div>
-  <% unless @current_show.artist_talk_title.blank? %>
-    <div class='text-inset'>
-      <span class='uppercase-subtitle'>Artists' talk</span><%= link_to "#{@current_show.artist_talk_title}, #{@current_show.artist_talk_date.strftime('%m/%d/%Y, %I:%M %p')}", events_path %>
     </div>
-  <% end %>
-  <% unless @current_show.video_link.blank? %>
-    <div class='text-inset'>
-      <span class='uppercase-subtitle'>Video link</span><%= link_to @current_show.video_link_title, @current_show.video_link %>
-    </div>
-  <% end %>
-  <div class='text-inset'><%= @current_show.description.gsub(/\n/, '<br/>').html_safe %></div>
-<% end %>
-<% if current_user && current_user.admin? && @announcements.length < 1 %>
-  <div class='large-info-container'>
-    <div class='no-announcements'>
-      <%= link_to "Create Announcement", new_announcement_path, class: cp(new_announcement_path) %>
-    </div>
-  </div>
-<% end %>
-<% if @announcements.length > 0 %>
-  <div class='large-info-container'>
-    <h2 class='center maroon'>Announcements</h2>
-    <%= render :partial => 'announcements/announcement_tabs' %>
-    <% @announcements.each do |announcement| %>
-      <%= render :partial => 'announcements/ind_announcement_admin', :locals => { announcement: announcement } %>
-    <% end %>
-  </div>
-<% end %>
-<% if @events.length > 0 %>
-  <div class='large-info-container'>
-    <h2 class='center maroon'>Featured Events</h2>
-    <% @events.each do |event| %>
-      <div class='event-info'>
-        <div class='left-mid'>
-          <div class='event-picture'>
-            <% unless event.event_image_file_name.blank? %>
-              <%= image_tag event.event_image.url(:thumb) %>
-            <% end %>
-          </div>
-        </div>
-        <div class='event-info-right'>
-          <div class='text-inset text-inset-title'><%= event.title %></div>
-          <div class='text-inset'>
-            <span class='uppercase-subtitle-black'>Date</span><%= "#{event.event_date.strftime('%m/%d/%Y')}, #{event.start_time.strftime('%I:%M %p')} - #{event.end_time.strftime('%I:%M %p')}" %>
-          </div>
-          <% unless event.url.blank? %>
+    <div class='onerow'>
+      <div class='col6'>
+        <div class='column-inner'>
+          <div class='text-title'><%= @current_show.name %></div>
+          <div class='text-subtitle'><%= @current_show.artists %></div>
+          <div class='text-subtitle-date'><%= "#{@current_show.start_date.strftime('%m/%d/%Y')} - #{@current_show.end_date.strftime('%m/%d/%Y')}" %></div>
+          <% unless @current_show.artist_talk_title.blank? %>
             <div class='text-inset'>
-              <span class='uppercase-subtitle-black'>Link</span><%= link_to event.url, event.url %>
+              <span class='uppercase-subtitle'>Artists' talk</span><%= link_to "#{@current_show.artist_talk_title}, #{@current_show.artist_talk_date.strftime('%m/%d/%Y, %I:%M %p')}", events_path %>
             </div>
           <% end %>
-          <div class='ind-event-text'>
-            <% if event.pdf_file_name? %>
-              <% unless event.pdf_title.blank? %>
-                <span class='uppercase-subtitle-black'>PDF</span><%= link_to event.pdf_title, event.pdf.url %>
-              <% else %>
-                <span class='uppercase-subtitle-black'>PDF</span><%= link_to 'View', event.pdf.url %>
-              <% end %>
-            <% end %>
-          </div>
-          <div class='text-inset'><%= simple_format(event.description) %></div>
+          <% unless @current_show.video_link.blank? %>
+            <div class='text-inset'>
+              <span class='uppercase-subtitle'>Video link</span><%= link_to @current_show.video_link_title, @current_show.video_link %>
+            </div>
+          <% end %>
+          <div class='current-show-description spaced-text'><%= @current_show.description.gsub(/\n/, '<br/>').html_safe %></div>
         </div>
       </div>
-    <% end %>
-  </div>
-<% end %>
-<div class='large-info-container'>
-  <h2 class='center maroon'>Cooperative Gallery 213</h2>
-  <div class='info-text'>
-    The Cooperative Gallery 213 was founded in 2000 to provide accessible exhibition space for member artists.
-    The gallery has created a community of artists and increased an appreciation for art in the larger community.
-    Because of the quality of its exhibits the Cooperative Gallery is a popular stop on the First Friday Art Walk
-    sponsored by the Gorgeous Washington Association.
-  </div>
-  <div class='info-text center'>
-    <a href='http://visitor.r20.constantcontact.com/d.jsp?llr=pjztkndab&p=oi&m=1103180195119'>Sign up for our newsletter</a>
+      <div class='col6 last'>
+        <div class='column-inner'>
+          <div class='show-picture'>
+            <%= link_to @current_show.picture_1.url, class: "current-show-artwork" do %>
+              <%= image_tag @current_show.picture_1.url(:original) %>
+              <div class='artwork-title'><%= @current_show.picture_1_caption unless @current_show.picture_1_caption.blank? %></div>
+            <% end %>
+          </div>
+          <% unless @current_show.picture_2_file_name.blank? %>
+            <div class='show-picture'>
+              <%= link_to @current_show.picture_2.url, class: "current-show-artwork" do %>
+                <%= image_tag @current_show.picture_2.url(:original) %>
+                <div class='artwork-title'><%= @current_show.picture_2_caption unless @current_show.picture_2_caption.blank? %></div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <% if current_user && current_user.admin? && @announcements.length < 1 %>
+    <div class='onerow'>
+      <div class='large-info-container'>
+        <div class='no-announcements'>
+          <%= link_to "Create Announcement", new_announcement_path, class: cp(new_announcement_path) %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <% if @announcements.length > 0 %>
+    <div class='onerow'>
+      <div class='large-info-container'>
+        <h2 class='maroon'>Announcements</h2>
+        <%= render :partial => 'announcements/announcement_tabs' %>
+        <% @announcements.each do |announcement| %>
+          <%= render :partial => 'announcements/ind_announcement_admin', :locals => { announcement: announcement } %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+  <% if @events.length > 0 %>
+    <div class='onerow event-info'>
+      <div class='large-info-container'>
+        <h2 class='maroon'>Featured Events</h2>
+        <div class='column-inner-inner'>
+          <% @events.each do |event| %>
+            <div class='onerow eventrow'>
+              <% unless event.event_image_file_name.blank? %>
+                <div class='col3'>
+                  <div class='event-picture'>
+                    <%= image_tag event.event_image.url(:thumb) %>
+                  </div>
+                </div>
+              <% end %>
+              <div class='col9 last'>
+                <div class='text-inset text-inset-title'><%= event.title %></div>
+                <div class='text-inset'>
+                  <span class='uppercase-subtitle-black'>Date</span><%= "#{event.event_date.strftime('%m/%d/%Y')}, #{event.start_time.strftime('%I:%M %p')} - #{event.end_time.strftime('%I:%M %p')}" %>
+                </div>
+                <% unless event.url.blank? %>
+                  <div class='text-inset'>
+                    <span class='uppercase-subtitle-black'>Link</span><%= link_to event.url, event.url %>
+                  </div>
+                <% end %>
+                <div class='ind-event-text'>
+                  <% if event.pdf_file_name? %>
+                    <% unless event.pdf_title.blank? %>
+                      <span class='uppercase-subtitle-black'>PDF</span><%= link_to event.pdf_title, event.pdf.url %>
+                    <% else %>
+                      <span class='uppercase-subtitle-black'>PDF</span><%= link_to 'View', event.pdf.url %>
+                    <% end %>
+                  <% end %>
+                </div>
+                <div class='text-inset'><%= simple_format(event.description) %></div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <div class='onerow'>
+    <div class='large-info-container'>
+      <h2 class='maroon'>Cooperative Gallery 213</h2>
+      <div class='column-inner-inner'>
+        <div class='info-text spaced-text'>
+          The Cooperative Gallery 213 was founded in 2000 to provide accessible exhibition space for member artists.
+          The gallery has created a community of artists and increased an appreciation for art in the larger community.
+          Because of the quality of its exhibits the Cooperative Gallery is a popular stop on the First Friday Art Walk
+          sponsored by the Gorgeous Washington Association.
+        </div>
+        <div class='info-text center uppercase-subtitle-black'>
+          <a href='http://visitor.r20.constantcontact.com/d.jsp?llr=pjztkndab&p=oi&m=1103180195119'>Sign up for our newsletter</a>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
