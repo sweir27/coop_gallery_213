@@ -26,7 +26,7 @@
           <div class='text-subtitle text-subline'><%= @current_show.artists %></div>
           <div class='text-subtitle-date text-subline'><%= "#{@current_show.start_date.strftime('%m/%d/%Y')} - #{@current_show.end_date.strftime('%m/%d/%Y')}" %></div>
           <% unless @current_show.artist_talk_title.blank? %>
-            <div class=''>
+            <div class='text-subline'>
               <span class='uppercase-subtitle-black'>Artists' talk</span><%= link_to "#{@current_show.artist_talk_title}, #{@current_show.artist_talk_date.strftime('%m/%d/%Y, %I:%M %p')}", events_path %>
             </div>
           <% end %>
