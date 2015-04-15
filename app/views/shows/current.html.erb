@@ -1,14 +1,27 @@
 <% provide(:title, 'Cooperative Gallery 213') %>
 <div class='onepcssgrid-1200'>
   <% if @current_show %>
-    <div class='onerow'>
-      <div class='col12'>
-        <h2 class='maroon current-show-title'>Current show</h2>
-      </div>
-    </div>
     <div class='onerow current-show-row'>
-      <div class='col6'>
+      <div class='col4 right-align'>
         <div class='column-inner'>
+          <div class='show-picture'>
+            <%= link_to @current_show.picture_1.url, class: "current-show-artwork" do %>
+              <%= image_tag @current_show.picture_1.url(:medium) %>
+              <div class='artwork-title'><%= @current_show.picture_1_caption unless @current_show.picture_1_caption.blank? %></div>
+            <% end %>
+          </div>
+          <% unless @current_show.picture_2_file_name.blank? %>
+            <div class='show-picture'>
+              <%= link_to @current_show.picture_2.url, class: "current-show-artwork" do %>
+                <%= image_tag @current_show.picture_2.url(:medium) %>
+                <div class='artwork-title'><%= @current_show.picture_2_caption unless @current_show.picture_2_caption.blank? %></div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class='col8 last'>
+        <div class='column-inner column-inner-right'>
           <div class='text-title'><%= @current_show.name %></div>
           <div class='text-subtitle'><%= @current_show.artists %></div>
           <div class='text-subtitle-date'><%= "#{@current_show.start_date.strftime('%m/%d/%Y')} - #{@current_show.end_date.strftime('%m/%d/%Y')}" %></div>
@@ -23,24 +36,6 @@
             </div>
           <% end %>
           <div class='current-show-description spaced-text'><%= @current_show.description.gsub(/\n/, '<br/>').html_safe %></div>
-        </div>
-      </div>
-      <div class='col6 last'>
-        <div class='column-inner'>
-          <div class='show-picture'>
-            <%= link_to @current_show.picture_1.url, class: "current-show-artwork" do %>
-              <%= image_tag @current_show.picture_1.url(:original) %>
-              <div class='artwork-title'><%= @current_show.picture_1_caption unless @current_show.picture_1_caption.blank? %></div>
-            <% end %>
-          </div>
-          <% unless @current_show.picture_2_file_name.blank? %>
-            <div class='show-picture'>
-              <%= link_to @current_show.picture_2.url, class: "current-show-artwork" do %>
-                <%= image_tag @current_show.picture_2.url(:original) %>
-                <div class='artwork-title'><%= @current_show.picture_2_caption unless @current_show.picture_2_caption.blank? %></div>
-              <% end %>
-            </div>
-          <% end %>
         </div>
       </div>
     </div>
@@ -98,7 +93,7 @@
                     <% end %>
                   <% end %>
                 </div>
-                <div class='text-inset spaced-text'><%= simple_format(event.description) %></div>
+                <div class='spaced-text'><%= simple_format(event.description) %></div>
               </div>
             </div>
           <% end %>

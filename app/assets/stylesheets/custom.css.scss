@@ -46,7 +46,11 @@ a {
 
 .container {
   // width: 800px;
-  padding-top: 60px;
+  padding-top: 100px;
+}
+
+.right-align {
+  text-align: right;
 }
 
 .container-inner {
@@ -541,8 +545,12 @@ aside {
 }
 
 .column-inner {
-  margin-left: 10%;
+  margin-left: 5%;
   margin-right: 5%;
+}
+
+.column-inner-right {
+  margin-right: 15%;
 }
 
 .column-inner-inner {

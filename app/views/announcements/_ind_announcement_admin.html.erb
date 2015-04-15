@@ -1,16 +1,9 @@
 <div class='announcement-info'>
-<!--   <div class='left-mid'>
-    <div class='announcement-picture'>
-      <% if announcement.announcement_image_file_name? %>
-        <%= image_tag announcement.announcement_image.url(:thumb) %>
-      <% end %>
-    </div>
-  </div> -->
   <div class='column-inner-inner'>
     <div class='onerow'>
-      <div class='text-inset text-inset-title'><%= announcement.title %></div>
-      <div class='text-inset'><%= link_to announcement.announcement_link, announcement.announcement_link if announcement.announcement_link %></div>
-      <div class='text-inset'>
+      <div class='text-inset-title'><%= announcement.title %></div>
+      <div class=''><%= link_to announcement.announcement_link, announcement.announcement_link if announcement.announcement_link %></div>
+      <div class=''>
         <% if announcement.pdf_file_name? %>
           <% unless announcement.pdf_title.blank? %>
             <%= link_to announcement.pdf_title, announcement.pdf.url %>
@@ -21,7 +14,7 @@
       </div>
     </div>
     <div class='onerow'>
-      <div class='text-inset spaced-text'><%= announcement.description %></div>
+      <div class='spaced-text'><%= announcement.description %></div>
       <div class='admin-options small-padding'>
         <% if current_user && current_user.admin? %>
           <%= link_to "delete", announcement, method: :delete, data: { confirm: "Are you sure you want to delete this announcement?" }, class: 'admin-option' %>
