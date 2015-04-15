@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   def index
-    @events = Event.where("event_date >= ?", Date.today).group_by{|e| e.event_date.beginning_of_month}.sort_by{ |k,v| k }
+    @events = Event.all.group_by{|e| e.event_date.beginning_of_month}.sort_by{ |k,v| k }
   end
 
   def new

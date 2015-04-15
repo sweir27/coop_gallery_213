@@ -86,10 +86,6 @@ img {
   display: inline-block;
 }
 
-.current {
-  color: $maroon;
-}
-
 #new_user, #new_show, #new_artwork, #new_link, #new_event {
   input, textarea, select {
     border: 1px solid black;
@@ -672,4 +668,8 @@ footer {
   float: left;
   padding: 30px;
   padding-top: 0px;
+}
+
+.current {
+  color: $maroon !important;
 }
