@@ -2,8 +2,8 @@
   <div class='column-inner-inner'>
     <div class='onerow'>
       <div class='text-inset-title'><%= announcement.title %></div>
-      <div class=''><%= link_to announcement.announcement_link, announcement.announcement_link if announcement.announcement_link %></div>
-      <div class=''>
+      <div class='text-subline'><%= link_to announcement.announcement_link, announcement.announcement_link if announcement.announcement_link %></div>
+      <div class='text-subline'>
         <% if announcement.pdf_file_name? %>
           <% unless announcement.pdf_title.blank? %>
             <%= link_to announcement.pdf_title, announcement.pdf.url %>

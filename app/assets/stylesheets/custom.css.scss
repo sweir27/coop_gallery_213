@@ -111,22 +111,22 @@ img {
 }
 
 .text-subtitle {
-  padding-top: 5px;
-  padding-bottom: 5px;
+  // padding-top: 5px;
+  // padding-bottom: 5px;
   // font-size: 14pt;
   font-style: italic;
 }
 
 .text-subtitle-date {
   // padding: 0 15px 25px 15px;
-  // font-size: 12pt;
-  font-weight: bold;
+  font-size: 12pt;
+  // font-weight: bold;
 }
 
 .uppercase-subtitle {
   text-transform: uppercase;
   font-family: $sans;
-  // font-size: 10pt;
+  font-size: 10pt;
   padding-right: 10px;
   color: $maroon;
 }
@@ -134,7 +134,7 @@ img {
 .uppercase-subtitle-black {
   text-transform: uppercase;
   font-family: $sans;
-  font-size: 9pt;
+  font-size: 10pt;
   padding-right: 10px;
   font-weight: bold;
 }
@@ -159,6 +159,10 @@ img {
   // font-size: 14pt;
   font-family: $sans;
   font-weight: 800;
+}
+
+.text-subline {
+  padding-top: 4px;
 }
 
 .current-show-tag {

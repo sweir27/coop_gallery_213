@@ -23,11 +23,11 @@
       <div class='col8 last'>
         <div class='column-inner column-inner-right'>
           <div class='text-title'><%= @current_show.name %></div>
-          <div class='text-subtitle'><%= @current_show.artists %></div>
-          <div class='text-subtitle-date'><%= "#{@current_show.start_date.strftime('%m/%d/%Y')} - #{@current_show.end_date.strftime('%m/%d/%Y')}" %></div>
+          <div class='text-subtitle text-subline'><%= @current_show.artists %></div>
+          <div class='text-subtitle-date text-subline'><%= "#{@current_show.start_date.strftime('%m/%d/%Y')} - #{@current_show.end_date.strftime('%m/%d/%Y')}" %></div>
           <% unless @current_show.artist_talk_title.blank? %>
             <div class=''>
-              <span class='uppercase-subtitle'>Artists' talk</span><%= link_to "#{@current_show.artist_talk_title}, #{@current_show.artist_talk_date.strftime('%m/%d/%Y, %I:%M %p')}", events_path %>
+              <span class='uppercase-subtitle-black'>Artists' talk</span><%= link_to "#{@current_show.artist_talk_title}, #{@current_show.artist_talk_date.strftime('%m/%d/%Y, %I:%M %p')}", events_path %>
             </div>
           <% end %>
           <% unless @current_show.video_link.blank? %>
@@ -52,7 +52,7 @@
   <% if @announcements.length > 0 %>
     <div class='onerow'>
       <div class='large-info-container'>
-        <h2 class='maroon'>Announcements</h2>
+        <h2 class='maroon center'>Announcements</h2>
         <%= render :partial => 'announcements/announcement_tabs' %>
         <% @announcements.each do |announcement| %>
           <%= render :partial => 'announcements/ind_announcement_admin', :locals => { announcement: announcement } %>
@@ -63,38 +63,29 @@
   <% if @events.length > 0 %>
     <div class='onerow event-info'>
       <div class='large-info-container'>
-        <h2 class='maroon'>Featured Events</h2>
+        <h2 class='maroon center'>Featured Events</h2>
         <div class='column-inner-inner'>
           <% @events.each do |event| %>
             <div class='onerow eventrow'>
-              <% unless event.event_image_file_name.blank? %>
-                <div class='col3'>
-                  <div class='event-picture'>
-                    <%= image_tag event.event_image.url(:thumb) %>
-                  </div>
+              <div class='text-inset-title'><%= event.title %></div>
+              <div class='text-subline text-subtitle-date'>
+                <%= "#{event.event_date.strftime('%m/%d/%Y')}, #{event.start_time.strftime('%I:%M %p')} - #{event.end_time.strftime('%I:%M %p')}" %>
+              </div>
+              <% unless event.url.blank? %>
+                <div class='text-subline'>
+                  <%= link_to event.url, event.url %>
                 </div>
               <% end %>
-              <div class='col9 last'>
-                <div class='text-inset-title'><%= event.title %></div>
-                <div class=''>
-                  <span class='uppercase-subtitle-black'>Date</span><%= "#{event.event_date.strftime('%m/%d/%Y')}, #{event.start_time.strftime('%I:%M %p')} - #{event.end_time.strftime('%I:%M %p')}" %>
-                </div>
-                <% unless event.url.blank? %>
-                  <div class=''>
-                    <span class='uppercase-subtitle-black'>Link</span><%= link_to event.url, event.url %>
-                  </div>
-                <% end %>
-                <div class='ind-event-text'>
-                  <% if event.pdf_file_name? %>
-                    <% unless event.pdf_title.blank? %>
-                      <span class='uppercase-subtitle-black'>PDF</span><%= link_to event.pdf_title, event.pdf.url %>
-                    <% else %>
-                      <span class='uppercase-subtitle-black'>PDF</span><%= link_to 'View', event.pdf.url %>
-                    <% end %>
+              <div class='ind-event-text'>
+                <% if event.pdf_file_name? %>
+                  <% unless event.pdf_title.blank? %>
+                    <span class='uppercase-subtitle-black'>PDF</span><%= link_to event.pdf_title, event.pdf.url %>
+                  <% else %>
+                    <span class='uppercase-subtitle-black'>PDF</span><%= link_to 'View', event.pdf.url %>
                   <% end %>
-                </div>
-                <div class='spaced-text'><%= simple_format(event.description) %></div>
+                <% end %>
               </div>
+              <div class='spaced-text'><%= simple_format(event.description) %></div>
             </div>
           <% end %>
         </div>
@@ -103,7 +94,7 @@
   <% end %>
   <div class='onerow'>
     <div class='large-info-container'>
-      <h2 class='maroon'>Cooperative Gallery 213</h2>
+      <h2 class='maroon center'>Cooperative Gallery 213</h2>
       <div class='column-inner-inner'>
         <div class='info-text spaced-text'>
           The Cooperative Gallery 213 was founded in 2000 to provide accessible exhibition space for member artists.
