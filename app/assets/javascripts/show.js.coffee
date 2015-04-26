@@ -12,16 +12,16 @@ ready = ->
       $(this).data('full-text', fullText)
       $(this).data('short-text', shortText)
       $(this).text(shortText)
-      $(this).append("<a class='read-more-link'> (see more)</a>")
+      $(this).append("<a class='read-more-link'> read more</a>")
 
   $("body").on 'click', '.read-more-link', ->
     fullText = $(this.parentElement).data('full-text')
-    $(this.parentElement).html(fullText + "<a class='read-less-link'> (see less)</a>")
+    $(this.parentElement).html(fullText + "<a class='read-less-link'> read less</a>")
 
   $("body").on 'click', '.read-less-link', ->
     console.log('here')
     shortText = $(this.parentElement).data('short-text')
-    $(this.parentElement).html(shortText + "<a class='read-more-link'> (see more)</a>")
+    $(this.parentElement).html(shortText + "<a class='read-more-link'> read more</a>")
 
   $('a[class=current-show-artwork]')
     .attr('rel', 'gallery')

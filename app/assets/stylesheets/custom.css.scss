@@ -241,6 +241,10 @@ h3 {
 
 }
 
+#canvas-wrap {
+  padding-top: 20px;
+}
+
 .form-inner-title {
   font-size: 14pt;
   padding-bottom: 20px;
@@ -254,6 +258,11 @@ h3 {
   .no-announcements {
     padding-bottom: 50px;
   }
+}
+
+.padding-container {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .event-info, .announcement-info {
@@ -473,7 +482,7 @@ aside {
 .ind-artist-name {
   font-weight: bold;
   font-family: $sans;
-  font-size: 14pt;
+  // font-size: 14pt;
   padding-top: 20px;
   padding-bottom: 20px;
   text-transform: uppercase;
@@ -521,6 +530,10 @@ aside {
 
 .read-more-link, .read-less-link {
   cursor: pointer;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 10pt;
+  margin-left: 10px;
 }
 
 .ind-show-text {
@@ -537,6 +550,7 @@ aside {
 
 .inner-content-shows, .inner-content-events {
   text-align: left;
+  padding-left: 0px;
 }
 
 .column-inner {
@@ -557,11 +571,15 @@ aside {
   margin: 0 auto;
 }
 
+ul {
+  padding-left: 0px !important;
+}
+
 .shows, .events {
   margin: 0px;
   li {
     list-style-type: none;
-    padding: 20px;
+    // padding: 20px;
     border-top: 1px solid $grayMediumLight;
     &:first-child {
       border-top: none;
