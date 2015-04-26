@@ -36,7 +36,9 @@
               <span class='uppercase-subtitle'>Video link</span><%= link_to @current_show.video_link_title, @current_show.video_link %>
             </div>
           <% end %>
-          <div class='current-show-description spaced-text'><%= @current_show.short_description.gsub(/\n/, '<br/>').html_safe %></div>
+          <% if @current_show.short_description %>
+            <div class='current-show-description spaced-text'><%= @current_show.short_description.gsub(/\n/, '<br/>').html_safe %></div>
+          <% end %>
         </div>
       </div>
     </div>
