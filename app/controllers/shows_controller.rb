@@ -47,6 +47,7 @@ class ShowsController < ApplicationController
     @current_show = Show.where(:current => true).first
     @events = Event.where(:on_homepage => true).sort_by(&:event_date)
     @announcements = Announcement.all
+    @artworks = User.all.map{ |artist| artist.artworks.sample }
   end
 
   def past
@@ -80,6 +81,6 @@ class ShowsController < ApplicationController
     end
 
     def show_params
-      params.require(:show).permit(:name, :description, :artists, :start_date, :end_date, :picture_1, :picture_2, :picture_1_caption, :picture_2_caption, :artist_talk_title, :artist_talk_date, :video_link, :video_link_title)
+      params.require(:show).permit(:name, :description, :short_description, :artists, :start_date, :end_date, :picture_1, :picture_2, :picture_1_caption, :picture_2_caption, :artist_talk_title, :artist_talk_date, :video_link, :video_link_title)
     end
 end

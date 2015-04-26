@@ -2,7 +2,7 @@ $grayMediumLight: #eaeaea;
 $maroon: #FE8080;
 $grayLighter: #eee;
 $grayLight: #999;
-$sans: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+$sans: 'Lato', sans-serif;
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -17,8 +17,8 @@ html {
 }
 
 body {
-  font-family: Garamond;
-  font-size: 18px;
+  font-family: $sans;
+  font-size: 15px;
 }
 
 section {
@@ -45,8 +45,7 @@ a {
 }
 
 .container {
-  // width: 800px;
-  padding-top: 100px;
+  padding-top: 30px;
 }
 
 .right-align {
@@ -101,15 +100,12 @@ img {
 .text-title {
   padding-top: 10px;
   padding-bottom: 10px;
-  font-size: 35px;
+  font-size: 25px;
   letter-spacing: 1px;
   // font-weight: 900;
 }
 
-.text-subtitle {
-  // padding-top: 5px;
-  // padding-bottom: 5px;
-  // font-size: 14pt;
+.text-italic {
   font-style: italic;
 }
 
@@ -136,9 +132,8 @@ img {
 }
 
 .current-show-description {
-  margin-top: 50px;
-  margin-bottom: 30px;
-  // line-height: 27px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .current-show-row {
@@ -233,7 +228,7 @@ h1 {
 h2 {
   text-transform: uppercase;
   font-family: $sans;
-  font-size: 14pt;
+  font-size: 15px;
   font-weight: normal;
 }
 
@@ -263,7 +258,6 @@ h3 {
 
 .event-info, .announcement-info {
   clear: both;
-  padding-top: 20px;
   .announcement-info-right {
     float: left;
     width: 70%;
@@ -281,7 +275,7 @@ h3 {
 
 .spaced-text {
   // width: 60%;
-  line-height: 27px;
+  line-height: 22px;
   // margin: 0 auto;
   // padding-top: 10px;
   // padding-top: 10px;
@@ -290,15 +284,15 @@ h3 {
 /* header */
 .header-container {
   position: fixed;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   top: 0;
   width: 100%;
   text-align: center;
   border-bottom: 1px solid $grayMediumLight;
   background-color: white;
 
-  font-size: 14pt;
+  font-size: 15px;
   color: black;
   text-transform: uppercase;
   // letter-spacing: -1px;
@@ -328,7 +322,7 @@ h3 {
     .pull-right {
       float:right;
       margin: 0px;
-      font-size: 16px;
+      font-size: 15px;
     }
     li {
       list-style-type: none;
@@ -550,6 +544,10 @@ aside {
   margin-right: 5%;
 }
 
+.current-show-box {
+  border: 1px solid $grayLight;
+}
+
 .column-inner-right {
   margin-right: 15%;
 }
@@ -672,4 +670,8 @@ footer {
 
 .current {
   color: $maroon !important;
+}
+
+#sign-up-newsletter {
+  padding-top: 20px;
 }

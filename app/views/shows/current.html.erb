@@ -1,20 +1,21 @@
 <% provide(:title, 'Cooperative Gallery 213') %>
-<div class='onepcssgrid-1200'>
+<div class='onepcssgrid-960'>
   <% if @current_show %>
     <div class='onerow current-show-row'>
+      <h2 class='maroon center'>Current show</h2>
       <div class='col4 right-align'>
         <div class='column-inner'>
           <div class='show-picture'>
             <%= link_to @current_show.picture_1.url, class: "current-show-artwork" do %>
-              <%= image_tag @current_show.picture_1.url(:medium) %>
-              <div class='artwork-title'><%= @current_show.picture_1_caption unless @current_show.picture_1_caption.blank? %></div>
+              <%= image_tag @current_show.picture_1.url(:thumb) %>
+              <!-- <div class='artwork-title'><%= @current_show.picture_1_caption unless @current_show.picture_1_caption.blank? %></div> -->
             <% end %>
           </div>
           <% unless @current_show.picture_2_file_name.blank? %>
             <div class='show-picture'>
               <%= link_to @current_show.picture_2.url, class: "current-show-artwork" do %>
-                <%= image_tag @current_show.picture_2.url(:medium) %>
-                <div class='artwork-title'><%= @current_show.picture_2_caption unless @current_show.picture_2_caption.blank? %></div>
+                <%= image_tag @current_show.picture_2.url(:thumb) %>
+                <!-- <div class='artwork-title'><%= @current_show.picture_2_caption unless @current_show.picture_2_caption.blank? %></div> -->
               <% end %>
             </div>
           <% end %>
@@ -35,16 +36,7 @@
               <span class='uppercase-subtitle'>Video link</span><%= link_to @current_show.video_link_title, @current_show.video_link %>
             </div>
           <% end %>
-          <div class='current-show-description spaced-text'><%= @current_show.description.gsub(/\n/, '<br/>').html_safe %></div>
-        </div>
-      </div>
-    </div>
-  <% end %>
-  <% if current_user && current_user.admin? && @announcements.length < 1 %>
-    <div class='onerow'>
-      <div class='large-info-container'>
-        <div class='no-announcements'>
-          <%= link_to "Create Announcement", new_announcement_path, class: cp(new_announcement_path) %>
+          <div class='current-show-description spaced-text'><%= @current_show.short_description.gsub(/\n/, '<br/>').html_safe %></div>
         </div>
       </div>
     </div>
@@ -63,7 +55,7 @@
   <% if @events.length > 0 %>
     <div class='onerow event-info'>
       <div class='large-info-container'>
-        <h2 class='maroon center'>Featured Events</h2>
+        <h2 class='maroon center'>Upcoming Events</h2>
         <div class='column-inner-inner'>
           <% @events.each do |event| %>
             <div class='onerow eventrow'>
@@ -102,7 +94,7 @@
           Because of the quality of its exhibits the Cooperative Gallery is a popular stop on the First Friday Art Walk
           sponsored by the Gorgeous Washington Association.
         </div>
-        <div class='info-text center uppercase-subtitle-black'>
+        <div class='info-text center uppercase-subtitle-black' id='sign-up-newsletter'>
           <a href='http://visitor.r20.constantcontact.com/d.jsp?llr=pjztkndab&p=oi&m=1103180195119'>Sign up for our newsletter</a>
         </div>
       </div>

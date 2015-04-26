@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141123204222) do
+ActiveRecord::Schema.define(version: 20150425212344) do
 
   create_table "announcements", force: true do |t|
     t.string   "title"
@@ -88,13 +88,14 @@ ActiveRecord::Schema.define(version: 20141123204222) do
     t.string   "artists"
     t.date     "start_date"
     t.date     "end_date"
-    t.boolean  "current",                default: false
+    t.boolean  "current",                            default: false
     t.string   "artist_talk_title"
     t.datetime "artist_talk_date"
     t.string   "video_link"
     t.string   "video_link_title"
     t.string   "picture_1_caption"
     t.string   "picture_2_caption"
+    t.text     "short_description",      limit: 500
   end
 
   create_table "users", force: true do |t|

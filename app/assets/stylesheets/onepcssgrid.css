@@ -33,7 +33,7 @@
 /* *********************************************************************************************************************
  * Main container for all
  */
-.onepcssgrid-1000, .onepcssgrid-1200 {
+.onepcssgrid-1000, .onepcssgrid-1200, .onepcssgrid-960 {
 	margin: 0 auto;
 	padding: 0 0 0 1%; /* THAT'S THE NAME ;) */
 }
@@ -44,6 +44,10 @@
 
 .onepcssgrid-1000 {
 	max-width: 1020px;
+}
+
+.onepcssgrid-960 {
+  max-width: 980px;
 }
 
 .onerow {
