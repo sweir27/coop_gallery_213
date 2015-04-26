@@ -171,6 +171,9 @@ img {
   text-align: center;
   margin: 0 auto;
   line-height:60px;
+  .inner-tab-group-shows {
+    padding-top: 20px;
+  }
   // margin-bottom: 20px;
   // margin-top: 20px;
 }
@@ -254,10 +257,17 @@ h3 {
 .large-info-container {
   border-top: 1px solid $grayMediumLight;
   clear: both;
-  // padding-top: 20px;
+  padding-top: 30px;
+  padding-bottom: 30px;
   .no-announcements {
     padding-bottom: 50px;
   }
+}
+
+.large-info-container-no-border {
+  clear: both;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 .padding-container {
