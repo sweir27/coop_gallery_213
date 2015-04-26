@@ -22,7 +22,7 @@
     </div>
     <div class='col8 last'>
       <div class='column-inner'>
-        <div class='text-title'><%= link_to @current_show.name, ind_current_shows_path %></div>
+        <div class='text-title'><%= @current_show.name %></div>
         <div class='text-subtitle text-subline'><%= @current_show.artists %></div>
         <div class='text-subtitle-date text-subline'><%= "#{@current_show.start_date.strftime('%m/%d/%Y')} - #{@current_show.end_date.strftime('%m/%d/%Y')}" %></div>
         <% unless @current_show.artist_talk_title.blank? %>

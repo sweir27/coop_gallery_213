@@ -5,50 +5,58 @@
   <% if show.current? && !is_current_page %>
     <div class='current-show-tag'>current show</div>
   <% end %>
-  <div class='left no-margin'>
-    <div class='inner-content-shows small-padding'>
-      <div class='ind-show-text'>
-        <span class='uppercase-subtitle-black'>Date</span><%= "#{show.start_date.strftime('%m/%d/%Y')} - #{show.end_date.strftime('%m/%d/%Y')}" %>
-      </div>
-      <div class='ind-show-text'>
-        <span class='uppercase-subtitle-black'>Artists</span><%= show.artists %>
-      </div>
-      <% unless show.artist_talk_title.blank? %>
+  <div class='onerow'>
+    <div class='col7'>
+      <div class='inner-content-shows small-padding'>
         <div class='ind-show-text'>
-          <span class='uppercase-subtitle-black'>Artists' talk</span><%= link_to "#{show.artist_talk_title}, #{show.artist_talk_date.strftime('%m/%d/%Y, %I:%M %p')}", events_path %>
+          <span class='uppercase-subtitle-black'>Date</span><%= "#{show.start_date.strftime('%m/%d/%Y')} - #{show.end_date.strftime('%m/%d/%Y')}" %>
         </div>
-      <% end %>
-      <% unless show.video_link.blank? %>
         <div class='ind-show-text'>
-          <span class='uppercase-subtitle-black'>Video link</span><%= link_to show.video_link_title, show.video_link %>
+          <span class='uppercase-subtitle-black'>Artists</span><%= show.artists %>
         </div>
-      <% end %>
-      <% unless show.description.blank? %>
-        <div class='ind-show-paragraph-truncated'>
-          <%= show.description %>
-        </div>
-      <% end %>
+        <% unless show.artist_talk_title.blank? %>
+          <div class='ind-show-text'>
+            <span class='uppercase-subtitle-black'>Artists' talk</span><%= link_to "#{show.artist_talk_title}, #{show.artist_talk_date.strftime('%m/%d/%Y, %I:%M %p')}", events_path %>
+          </div>
+        <% end %>
+        <% unless show.video_link.blank? %>
+          <div class='ind-show-text'>
+            <span class='uppercase-subtitle-black'>Video link</span><%= link_to show.video_link_title, show.video_link %>
+          </div>
+        <% end %>
+        <% unless show.description.blank? %>
+          <div class='ind-show-paragraph-truncated'>
+            <%= show.description %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class='<%= "show-right-#{show.id}" %> col5 last' data-show= <%= show.id %> >
+      <div class='onerow pull-right'>
+        <% unless show.picture_1_file_name.blank? %>
+          <%= link_to show.picture_1.url, class: "show-artwork" do %>
+            <%= image_tag show.picture_1.url(:thumb) %>
+            <div class='artwork-title hidden'><%= show.picture_1_caption unless show.picture_1_caption.blank? %></div>
+          <% end %>
+        <% end %>
+        <% unless show.picture_2_file_name.blank? %>
+          <%= link_to show.picture_2.url, class: "show-artwork" do %>
+            <%= image_tag show.picture_2.url(:thumb) %>
+            <div class='artwork-title hidden'><%= show.picture_2_caption unless show.picture_2_caption.blank? %></div>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
-  <div class='<%= "show-right-#{show.id}" %> right-float no-margin' data-show= <%= show.id %> >
-    <%= link_to show.picture_1.url, class: "show-artwork" do %>
-      <%= image_tag show.picture_1.url(:thumb) %>
-      <div class='artwork-title hidden'><%= show.picture_1_caption unless show.picture_1_caption.blank? %></div>
-    <% end %>
-    <% unless show.picture_2_file_name.blank? %>
-      <%= link_to show.picture_2.url, class: "show-artwork" do %>
-        <%= image_tag show.picture_2.url(:thumb) %>
-        <div class='artwork-title hidden'><%= show.picture_2_caption unless show.picture_2_caption.blank? %></div>
+  <div class='onerow'>
+    <div class='admin-options small-padding'>
+      <% if current_user && current_user.admin? %>
+        <%= link_to "delete", show, method: :delete, data: { confirm: "Are you sure you want to delete this show?" }, class: 'admin-option' %>
+        <%= link_to "edit", edit_show_path(show), class: 'admin-option' %>
+        <% if not show.current? %>
+          <%= link_to "make current", set_current_show_path(show), method: :post, class: 'admin-option' %>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
-  <div class='admin-options small-padding'>
-    <% if current_user && current_user.admin? %>
-      <%= link_to "delete", show, method: :delete, data: { confirm: "Are you sure you want to delete this show?" }, class: 'admin-option' %>
-      <%= link_to "edit", edit_show_path(show), class: 'admin-option' %>
-      <% if not show.current? %>
-        <%= link_to "make current", set_current_show_path(show), method: :post, class: 'admin-option' %>
-      <% end %>
-    <% end %>
+    </div>
   </div>
 </li>
