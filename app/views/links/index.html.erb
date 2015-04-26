@@ -1,22 +1,24 @@
 <% provide(:title, 'Community') %>
-<!-- <h2 class='center'>Community Links</h2> -->
-<%= render 'link_tabs' %>
-<div class='links-list'>
-  <ul class="links">
-    <% @links.each do |link| %>
-      <li>
-        <div class='ind-link'>
-          <div class='ind-link-title'>
-            <%= link_to link.title, link.url %>
-          </div>
-          <p><%= link.description %></p>
-          <% if current_user && current_user.admin? %>
-            <div class='admin-options small-padding'>
-              <%= link_to "delete", link, method: :delete, data: { confirm: "You sure?" }, class: 'admin-option' %>
+<div class='large-info-container-no-border'>
+  <h2 class='center maroon'>Around the community</h2>
+  <%= render 'link_tabs' %>
+  <div class='links-list'>
+    <ul class="links">
+      <% @links.each do |link| %>
+        <li>
+          <div class='ind-link'>
+            <div class='ind-link-title'>
+              <%= link_to link.title, link.url %>
             </div>
-          <% end %>
-        </div>
-      </li>
-    <% end %>
-  </ul>
+            <p><%= link.description %></p>
+            <% if current_user && current_user.admin? %>
+              <div class='admin-options small-padding'>
+                <%= link_to "delete", link, method: :delete, data: { confirm: "You sure?" }, class: 'admin-option' %>
+              </div>
+            <% end %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </div>

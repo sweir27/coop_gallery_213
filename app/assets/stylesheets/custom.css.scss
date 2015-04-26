@@ -525,8 +525,8 @@ aside {
 
 .ind-show-title, .ind-link-title, .ind-event-title {
   font-weight: bold;
-  font-family: $sans;
-  font-size: 14pt;
+  // font-family: $sans;
+  font-size: 20px;
   // text-align: center;
 }
 
@@ -589,8 +589,9 @@ ul {
   margin: 0px;
   li {
     list-style-type: none;
-    // padding: 20px;
-    border-top: 1px solid $grayMediumLight;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    // border-top: 1px solid $grayMediumLight;
     &:first-child {
       border-top: none;
     }

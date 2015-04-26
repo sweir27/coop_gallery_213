@@ -1,6 +1,6 @@
 class ShowsController < ApplicationController
   def index
-    @shows = Show.all
+    @shows = Show.all.sort_by(&:start_date)
     @is_current_page = false
   end
 
@@ -53,7 +53,7 @@ class ShowsController < ApplicationController
   def past
     current_show = Show.where(:current => true).first
     start_date = Show.arel_table[:start_date]
-    @past_shows = Show.where(start_date.lt(current_show.start_date)).limit(10)
+    @past_shows = Show.where(start_date.lt(current_show.start_date)).limit(10).sort_by(&:start_date)
     @is_current_page = false
     render 'past'
   end
@@ -61,7 +61,7 @@ class ShowsController < ApplicationController
   def upcoming
     @current_show = Show.where(:current => true).first
     end_date = Show.arel_table[:end_date]
-    @upcoming_shows = Show.where(end_date.gt(@current_show.end_date))
+    @upcoming_shows = Show.where(end_date.gt(@current_show.end_date)).sort_by(&:start_date)
     @is_current_page = false
     render 'upcoming'
   end

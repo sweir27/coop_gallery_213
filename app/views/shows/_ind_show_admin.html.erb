@@ -1,6 +1,6 @@
 <li>
   <div class='ind-show-title'>
-    <div class='center-div'><p><%= show.name %></p></div>
+    <div class='center-div'><%= show.name %></div>
   </div>
   <% if show.current? && !is_current_page %>
     <div class='current-show-tag'>current show</div>
@@ -23,9 +23,11 @@
           <span class='uppercase-subtitle-black'>Video link</span><%= link_to show.video_link_title, show.video_link %>
         </div>
       <% end %>
-      <div class='ind-show-paragraph-truncated'>
-        <%= show.description %>
-      </div>
+      <% unless show.description.blank? %>
+        <div class='ind-show-paragraph-truncated'>
+          <%= show.description %>
+        </div>
+      <% end %>
     </div>
   </div>
   <div class='<%= "show-right-#{show.id}" %> right-float no-margin' data-show= <%= show.id %> >
