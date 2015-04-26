@@ -3,7 +3,7 @@
   <% if @current_show %>
     <div class='onerow current-show-row'>
       <h2 class='maroon center'>Current show</h2>
-      <div class='col4 right-align'>
+      <div class='col3 right-align'>
         <div class='column-inner'>
           <div class='show-picture'>
             <%= link_to @current_show.picture_1.url, class: "current-show-artwork" do %>
@@ -21,7 +21,7 @@
           <% end %>
         </div>
       </div>
-      <div class='col8 last'>
+      <div class='col9 last'>
         <div class='column-inner column-inner-right'>
           <div class='text-title'><%= @current_show.name %></div>
           <div class='text-subtitle text-subline'><%= @current_show.artists %></div>
