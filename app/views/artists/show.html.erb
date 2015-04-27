@@ -1,7 +1,9 @@
 <% provide(:title, @artist.name) %>
 <div class='large-info-container-no-border'>
   <h2 class='center text-title'><%= @artist.name %></h2>
-  <div class='artist-link'><%= link_to @artist.website, @artist.website unless @artist.website.blank? %></div>
+  <% unless @artist.website.blank? %>
+    <div class='artist-link'><%= link_to @artist.website, @artist.website unless @artist.website.blank? %></div>
+  <% end %>
   <div class='artist-biography'><%= simple_format(@artist.biography) %></div>
   <% if @artworks %>
     <div class='all-artwork'>

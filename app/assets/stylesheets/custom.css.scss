@@ -300,6 +300,19 @@ h3 {
   // padding-top: 10px;
 }
 
+.all-artists-artwork {
+  margin-left: 10px;
+  margin-bottom: 10px;
+  display: relative;
+  display: inline-block;
+  &:hover {
+    opacity: .5;
+  }
+  img {
+    max-width: 100px;
+  }
+}
+
 /* header */
 .header-container {
   position: fixed;
@@ -609,6 +622,7 @@ ul {
 
 .show-artwork {
   float: left;
+  margin-left: 5px;
 }
 
 /* links */
