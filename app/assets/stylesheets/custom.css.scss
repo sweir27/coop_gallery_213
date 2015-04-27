@@ -676,7 +676,7 @@ ul {
 }
 
 .alert-error {
-
+  color: red;
 }
 
 /* footer */
@@ -713,6 +713,9 @@ footer {
   float: left;
   padding: 30px;
   padding-top: 0px;
+  .divider {
+    border-top: 1px solid $grayMediumLight;
+  }
 }
 
 .current {

@@ -1,29 +1,31 @@
 <% provide(:title, 'Add user') %>
-<h2 class='center'>Add user</h2>
+<div class='large-info-container-no-border'>
+  <h2 class='center'>Add user</h2>
 
-<div class='row'>
-  <div class='span7 offset1'>
-    <%= form_for @user, :html => { :multipart => true } do |f| %>
-      <%= render 'shared/error_messages', :item => @user %>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+  <div class='row'>
+    <div class='span7 offset1'>
+      <%= form_for @user, :html => { :multipart => true } do |f| %>
+        <%= render 'shared/error_messages', :item => @user %>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
 
-      <%= f.label :email %>
-      <%= f.text_field :email %>
+        <%= f.label :email %>
+        <%= f.text_field :email %>
 
-      <%= f.label :website %>
-      <%= f.text_field :website %>
+        <%= f.label :website %>
+        <%= f.text_field :website %>
 
-      <%= f.label :biography %>
-      <%= f.text_area :biography, :cols => "10", :rows => "10" %>
+        <%= f.label :biography %>
+        <%= f.text_area :biography, :cols => "10", :rows => "10" %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password %>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
 
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation %>
+        <%= f.label :password_confirmation, "Confirmation" %>
+        <%= f.password_field :password_confirmation %>
 
-      <%= f.submit "Create user", class: "btn btn-large btn-primary" %>
-    <% end %>
+        <%= f.submit "Create user", class: "btn btn-large btn-primary" %>
+      <% end %>
+    </div>
   </div>
 </div>

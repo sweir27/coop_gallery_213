@@ -20,28 +20,21 @@
   <div class='footer-information'>
     <%= mail_to 'info@cooperativegallery.com' %>
   </div>
-  <nav>
-    <ul>
-      <% if signed_in? %>
-        <li id="fat-menu" class="dropup">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            Account <b class="caret"></b>
-          </a>
-          <ul class="dropdown-menu">
-            <li><%= link_to "Profile", current_user %></li>
-            <li><%= link_to "Calendar", calendar_path %></li>
-            <% if admin? %>
-              <li><%= link_to "Manage Users", users_path %></li>
-            <% end %>
-            <li class="divider"></li>
-            <li>
-              <%= link_to "Sign out", signout_path, method: "delete" %>
-            </li>
-          </ul>
-        </li>
-      <% else %>
-        <li><%= link_to "Sign in", signin_path %></li>
-      <% end %>
-    </ul>
-  </nav>
+  <div class='footer-information pull-right'>
+    <% if signed_in? %>
+        <%= link_to "Profile", current_user %>
+        <br />
+        <%= link_to "Calendar", calendar_path %>
+        <br />
+        <% if admin? %>
+          <%= link_to "Manage Users", users_path %>
+          <br />
+        <% end %>
+        <div class='divider'>
+          <%= link_to "Sign out", signout_path, method: "delete" %>
+        </div>
+    <% else %>
+      <%= link_to "Sign in", signin_path %>
+    <% end %>
+  </div>
 </footer>
