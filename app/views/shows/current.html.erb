@@ -1,21 +1,7 @@
 <% provide(:title, 'Cooperative Gallery 213') %>
-<div class='onerow'>
-  <div class='large-info-container-no-border'>
-    <h2 class='maroon center'>Artists</h2>
-    <div class='all-artists center'>
-      <% @artists.each do |artist| %>
-        <% if artist.artworks.any? %>
-          <%= link_to artist_path(artist), class: "all-artists-artwork" do %>
-            <%= image_tag artist.artworks.first.image.url(:thumb) %>
-          <% end %>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
-</div>
 <% if @current_show %>
   <div class='onerow current-show-row'>
-    <div class='large-info-container'>
+    <div class='large-info-container-no-border'>
       <h2 class='maroon center'>Current show</h2>
       <div class='col3 right-align'>
         <div class='column-inner'>
@@ -101,6 +87,20 @@
     </div>
   </div>
 <% end %>
+<div class='onerow'>
+  <div class='large-info-container'>
+    <h2 class='maroon center'>Artists</h2>
+    <div class='all-artists center'>
+      <% @artists.each do |artist| %>
+        <% if artist.artworks.any? %>
+          <%= link_to artist_path(artist), class: "all-artists-artwork" do %>
+            <%= image_tag artist.artworks.first.image.url(:thumb) %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
 <div class='onerow'>
   <div class='large-info-container'>
     <h2 class='maroon center'>Cooperative Gallery 213</h2>
