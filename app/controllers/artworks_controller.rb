@@ -3,10 +3,11 @@ class ArtworksController < ApplicationController
   # before_action :correct_user,   only: [:new, :create, :destroy]
 
   def create
-    @artwork = current_user.artworks.build(artwork_params)
+    @user = User.find(params[:user_id])
+    @artwork = @user.artworks.build(artwork_params)
     if @artwork.save
       flash[:success] = "Artwork added"
-      redirect_to current_user
+      redirect_to @user
     else
       render 'new'
     end
@@ -19,6 +20,7 @@ class ArtworksController < ApplicationController
   end
 
   def new
+    @user = User.find(params[:user_id])
     @artwork = Artwork.new
   end
 

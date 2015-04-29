@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :artists, only: [:show, :index]
   resources :links
   resources :users do
+    resources :artworks, only: [:new, :create]
     member do
       post 'toggle_admin'
     end

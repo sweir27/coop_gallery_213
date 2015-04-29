@@ -49,6 +49,17 @@ class UsersController < ApplicationController
     end
   end
 
+  # def create_artwork
+  #   @user = User.find(params[:id])
+  #   @artwork = @user.artworks.build(artwork_params)
+  #   if @artwork.save
+  #     flash[:success] = "Artwork added"
+  #     redirect_to @user
+  #   else
+  #     render 'new_artwork'
+  #   end
+  # end
+
   def toggle_admin
     user = User.find(params[:id])
     user.toggle!(:admin)
@@ -69,7 +80,7 @@ class UsersController < ApplicationController
 
     def correct_user
       @user = User.find(params[:id])
-      redirect_to(root_url) unless current_user?(@user)
+      redirect_to(root_url) unless current_user?(@user) || current_user.admin?
     end
 
     def admin_user
