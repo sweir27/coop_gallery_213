@@ -58,11 +58,13 @@
     </div>
   </div>
 </div>
+<% if current_user && current_user.admin? %>
+  <%= render :partial => 'announcements/announcement_tabs' %>
+<% end %>
 <% if @announcements.length > 0 %>
   <div class='onerow'>
     <div class='large-info-container'>
       <h2 class='maroon center'>Announcements</h2>
-      <%= render :partial => 'announcements/announcement_tabs' %>
       <% @announcements.each do |announcement| %>
         <%= render :partial => 'announcements/ind_announcement_admin', :locals => { announcement: announcement } %>
       <% end %>
