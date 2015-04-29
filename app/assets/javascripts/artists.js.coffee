@@ -3,6 +3,25 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 ready = ->
+  $('.artist-biography').each (index) ->
+    fullText = this.textContent
+    if fullText.length > 1500
+      words = fullText.substring(0,1500).split(' ')
+      shortText = words.slice(0, words.length-1).join(' ') + "..."
+      $(this).data('full-text', fullText)
+      $(this).data('short-text', shortText)
+      $(this).text(shortText)
+      $(this).append("<a class='read-more-link'> read more</a>")
+
+  $("body").on 'click', '.read-more-link', ->
+    fullText = $(this.parentElement).data('full-text')
+    $(this.parentElement).html(fullText + "<a class='read-less-link'> read less</a>")
+
+  $("body").on 'click', '.read-less-link', ->
+    console.log('here')
+    shortText = $(this.parentElement).data('short-text')
+    $(this.parentElement).html(shortText + "<a class='read-more-link'> read more</a>")
+
   $('a[class^=artwork-]')
     .attr('rel', 'gallery')
     .fancybox({

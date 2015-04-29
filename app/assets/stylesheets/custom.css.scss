@@ -318,6 +318,21 @@ img.about-page-image {
   }
 }
 
+.banner-image-wrap {
+  width: 100%;
+  margin: 0px;
+  .banner-image {
+    max-height: 400px;
+  }
+  .banner-image-right {
+    max-height: 400px;
+    float: right;
+  }
+  .one-percent-left {
+    margin-left: 1% !important;
+  }
+}
+
 /* header */
 .header-container {
   position: fixed;

@@ -11,6 +11,9 @@
   </head>
   <body>
     <%= render 'layouts/header' %>
+    <% if current_page?(root_url) %>
+      <%= render 'layouts/banner' %>
+    <% end %>
     <div class='onepcssgrid-960'>
       <div class="container">
         <% flash.each do |key, value| %>
