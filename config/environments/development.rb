@@ -36,6 +36,6 @@ CoopGallery213::Application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   # config/environments/production.rb
-
-  Paperclip.options[:command_path] = "C:/Program Files/ImageMagick-6.9.1-Q16"
+  Paperclip.options[:command_path] = "/usr/local/bin/"
+  # Paperclip.options[:command_path] = "C:/Program Files/ImageMagick-6.9.1-Q16"
 end
