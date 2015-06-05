@@ -21,3 +21,6 @@ doc/
 
 # Ignore local images
 /public/system/artworks/images/
+
+# Development specific
+/config/environments/development.rb
