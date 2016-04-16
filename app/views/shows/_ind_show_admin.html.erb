@@ -14,9 +14,9 @@
         <div class='ind-show-text'>
           <span class='uppercase-subtitle-black'>Artists</span><%= show.artists %>
         </div>
-        <% unless show.artist_talk_title.blank? %>
+        <% unless show.third_thursday_talk_title.blank? %>
           <div class='ind-show-text'>
-            <span class='uppercase-subtitle-black'>Artists' talk</span><%= link_to "#{show.artist_talk_title}, #{show.artist_talk_date.strftime('%m/%d/%Y, %I:%M %p')}", events_path %>
+            <span class='uppercase-subtitle-black'>Third thursday talk</span><%= link_to "#{show.third_thursday_talk_title}, #{show.third_thursday_talk_date.strftime('%m/%d/%Y, %I:%M %p')}", events_path %>
           </div>
         <% end %>
         <% unless show.video_link.blank? %>
