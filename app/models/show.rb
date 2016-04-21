@@ -18,5 +18,5 @@ class Show < ActiveRecord::Base
   validates_attachment_content_type :picture_2, :content_type => /\Aimage\/.*\Z/
 
   validates_presence_of :video_link, :unless => lambda { self.video_link_title.blank? }
-  validates_presence_of :artist_talk_date, :unless => lambda { self.artist_talk_title.blank? }
+  validates_presence_of :third_thursday_talk_date, :unless => lambda { self.third_thursday_talk_title.blank? }
 end
