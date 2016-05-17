@@ -13,6 +13,7 @@
         <% end %>
       </div>
     </div>
+    <%= image_tag announcement.announcement_image.url(:thumb) %>
     <div class='onerow'>
       <div class='spaced-text'><%= announcement.description %></div>
       <div class='admin-options small-padding'>
