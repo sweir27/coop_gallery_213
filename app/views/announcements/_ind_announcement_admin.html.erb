@@ -1,8 +1,18 @@
 <div class='announcement-info'>
-  <div class='column-inner-inner'>
-    <div class='onerow'>
+
+  <div class='col3 right-align'>
+    <div class='column-inner'>
+      <div class='announcement-picture'>
+        <%= image_tag announcement.announcement_image.url(:thumb) %>
+      </div>
+    </div>
+  </div>
+ <div class='col9 last'>
+    <div class='column-inner'>
       <div class='text-inset-title'><%= announcement.title %></div>
-      <div class='text-subline'><%= link_to announcement.announcement_link, announcement.announcement_link if announcement.announcement_link %></div>
+      <div class='text-subtitle text-subline'><%= link_to announcement.announcement_link, announcement.announcement_link if announcement.announcement_link %>
+      </div>
+
       <div class='text-subline'>
         <% if announcement.pdf_file_name? %>
           <% unless announcement.pdf_title.blank? %>
@@ -11,11 +21,13 @@
             <%= link_to 'View PDF', announcement.pdf.url %>
           <% end %>
         <% end %>
+      </div>        
+
+      <div class='text-subline'>
+        <div class='spaced-text'><%= announcement.description %>
+        </div>
       </div>
-    </div>
-    <%= image_tag announcement.announcement_image.url(:thumb) %>
-    <div class='onerow'>
-      <div class='spaced-text'><%= announcement.description %></div>
+
       <div class='admin-options small-padding'>
         <% if current_user && current_user.admin? %>
           <%= link_to "delete", announcement, method: :delete, data: { confirm: "Are you sure you want to delete this announcement?" }, class: 'admin-option' %>
