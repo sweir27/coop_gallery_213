@@ -211,3 +211,9 @@ DEPENDENCIES
   turbolinks (= 1.1.1)
   uglifier (= 2.1.1)
   will_paginate (= 3.0.4)
+
+RUBY VERSION
+   ruby 2.0.0p648
+
+BUNDLED WITH
+   1.16.1
