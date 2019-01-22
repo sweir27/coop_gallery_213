@@ -3,6 +3,7 @@ $maroon: #FE8080;
 $grayLighter: #eee;
 $grayLight: #999;
 $sans: 'Lato', sans-serif;
+$grayLightest: #ececec;
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -45,7 +46,7 @@ a {
 }
 
 .container {
-  padding-top: 30px;
+  padding-top: 50px;
 }
 
 .right-align {
@@ -53,11 +54,8 @@ a {
 }
 
 .container-inner {
-  // width: 90%;
   margin: 0 auto;
-  // padding: 20px;
   padding-top: 0px;
-  // margin-top: 50px;
   margin-bottom: 50px;
 }
 
@@ -102,7 +100,6 @@ img {
   padding-bottom: 10px;
   font-size: 25px;
   letter-spacing: 1px;
-  // font-weight: 900;
 }
 
 .text-italic {
@@ -110,9 +107,7 @@ img {
 }
 
 .text-subtitle-date {
-  // padding: 0 15px 25px 15px;
   font-size: 12pt;
-  // font-weight: bold;
 }
 
 .uppercase-subtitle {
@@ -147,7 +142,6 @@ img {
   font-weight: bold;
 }
 .text-inset-title {
-  // font-size: 14pt;
   font-family: $sans;
   font-weight: 800;
 }
@@ -174,8 +168,6 @@ img {
   .inner-tab-group-shows {
     padding-top: 20px;
   }
-  // margin-bottom: 20px;
-  // margin-top: 20px;
 }
 
 .inner-tab {
@@ -190,7 +182,6 @@ img {
 
 .center-text {
   padding: 20px;
-  // font-weight: bold;
 }
 
 .left {
@@ -213,7 +204,6 @@ img {
 
 .right-event, .right-announcement {
   float: right;
-  // margin-bottom: 20px;
   width:40%;
 }
 
@@ -287,10 +277,7 @@ img.about-page-image {
     width: 70%;
   }
   .event-picture, .announcement-picture {
-    // padding: 20px;
     padding-top: 0px;
-    // padding-right: 30px;
-    // width: 150px;
   }
   .eventrow {
     padding-top: 10px;
@@ -298,11 +285,7 @@ img.about-page-image {
 }
 
 .spaced-text {
-  // width: 60%;
   line-height: 22px;
-  // margin: 0 auto;
-  // padding-top: 10px;
-  // padding-top: 10px;
 }
 
 .all-artists-artwork {
@@ -335,60 +318,77 @@ img.about-page-image {
 
 /* header */
 .header-container {
-  position: fixed;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  top: 0;
-  width: 100%;
-  text-align: center;
-  border-bottom: 1px solid $grayMediumLight;
+  text-align: left;
   background-color: white;
-
   font-size: 15px;
   color: black;
   text-transform: uppercase;
-  // letter-spacing: -1px;
-  // padding-top: 5px;
   line-height: 1;
   font-family: $sans;
 
   #logo {
-    margin-left: 30px;
-    float: left;
-    margin-right: 10px;
+    display: inline-block;
+    padding: 15px 20px;
+    height: 100%;
     font-weight: 600;
     letter-spacing: 1px;
-    color: $maroon;
+    background-color: $maroon;
+    color: white;
     &:hover {
       color: black;
     }
   }
 
-  .nav > li > a:hover,
-  .nav > li > a:focus {
-    text-decoration: none;
-    background-color: white;
+  .nav-toggle {
+    position: absolute;
+    top: 8px;
+    right: 20px;
+    cursor: pointer;
+    img {
+      height: 30px;
+      width: 30px;
+    }
   }
 
-  nav {
-    .pull-right {
-      float:right;
-      margin: 0px;
-      font-size: 15px;
-    }
+  .main-nav {
+    text-align: center;
+    display: none;
+
     li {
       list-style-type: none;
-      float:left;
-      margin-right: 40px;
-      a {
-        color: black;
-        &:hover, &:focus {
-          color: $maroon;
-          background-color: none;
-          background: none;
-          text-decoration: none;
+      margin: 15px auto;
+    }
+  }
+
+  .active {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0;
+    align-items: center;
+
+    .main-nav {
+      display: flex;
+      margin-right: 30px;
+      flex-direction: row;
+      justify-content: flex-end;
+
+      li {
+        margin: 0;
+
+        a {
+          margin-left: 40px;
         }
       }
+    }
+
+    .nav-toggle {
+      display: none;
     }
   }
 }
@@ -493,7 +493,6 @@ input {
     border-top: 1px solid $grayLighter;
     &:first-child {
       border-top: none;
-      // border-bottom: 1px solid $grayLighter;
     }
   }
 }
@@ -525,7 +524,6 @@ aside {
 .ind-artist-name {
   font-weight: bold;
   font-family: $sans;
-  // font-size: 14pt;
   padding-top: 20px;
   padding-bottom: 20px;
   text-transform: uppercase;
@@ -558,9 +556,7 @@ aside {
 
 .ind-show-title, .ind-link-title, .ind-event-title {
   font-weight: bold;
-  // font-family: $sans;
   font-size: 20px;
-  // text-align: center;
 }
 
 .ind-show-paragraph, .ind-event-paragraph {
@@ -624,7 +620,6 @@ ul {
     list-style-type: none;
     padding-top: 20px;
     padding-bottom: 20px;
-    // border-top: 1px solid $grayMediumLight;
     &:first-child {
       border-top: none;
     }
@@ -632,7 +627,6 @@ ul {
 }
 
 .show-picture {
-  // display: inline-block;
   padding: 10px;
   .artwork-title {
     margin-top: 10px;
@@ -704,7 +698,6 @@ ul {
 footer {
   clear: both;
   font-size: 15px;
-  // margin-top: 50px;
   padding-top: 25px;
   border-top: 1px solid #eaeaea;
   color: #999;
