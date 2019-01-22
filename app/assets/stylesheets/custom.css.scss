@@ -251,6 +251,7 @@ img.about-page-image {
 
 .large-info-container {
   border-top: 1px solid $grayMediumLight;
+  background-color: white;
   clear: both;
   padding-top: 30px;
   padding-bottom: 30px;
@@ -286,6 +287,17 @@ img.about-page-image {
 
 .spaced-text {
   line-height: 22px;
+}
+
+.partial-width-paragraph {
+  max-width: 750px;
+}
+
+.accent-link {
+  font-weight: bold;
+  a  {
+    color: $maroon;
+  }
 }
 
 .all-artists-artwork {
@@ -575,10 +587,6 @@ aside {
   margin-left: 10px;
 }
 
-.ind-show-text {
-
-}
-
 .hidden {
   display: none;
 }
@@ -637,6 +645,12 @@ ul {
 .show-artwork {
   float: left;
   margin-left: 5px;
+}
+
+.coop-gallery-info {
+  .large-info-container {
+    padding: 40px;
+  }
 }
 
 /* links */
