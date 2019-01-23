@@ -23,19 +23,6 @@ ready = ->
     shortText = $(this.parentElement).data('short-text')
     $(this.parentElement).html(shortText + "<a class='read-more-link'> read more</a>")
 
-  $('a[class=current-show-artwork]')
-    .attr('rel', 'gallery')
-    .fancybox({
-      padding: 0
-      beforeLoad: ->
-        el = $(this.element).find('.artwork-title');
-        if (el.length)
-          this.title = el.html();
-      helpers:
-        title:
-          type: 'outside'
-    });
-
   for show in $("*[class^='show-right-']")
     $(show).find('.show-artwork').attr('rel', 'gallery-'+$(show).data('show'))
       .fancybox({

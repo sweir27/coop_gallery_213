@@ -230,10 +230,6 @@ h2 {
   margin-bottom: 40px;
 }
 
-h3 {
-
-}
-
 #canvas-wrap {
   padding-top: 20px;
 }
@@ -317,15 +313,11 @@ img.about-page-image {
 .banner-image-wrap {
   width: 100%;
   margin: 0px;
-  .banner-image {
-    max-height: 400px;
-  }
-  .banner-image-right {
-    max-height: 400px;
-    float: right;
-  }
-  .one-percent-left {
-    margin-left: 1% !important;
+  max-height: 400px;
+  overflow: hidden;
+
+  img {
+    height: 200px;
   }
 }
 
@@ -722,6 +714,11 @@ footer {
   padding-top: 20px;
 }
 
+/* slick */
+.slick-dots {
+  bottom: -30px;
+}
+
 @media screen and (min-width: 768px) {
   .header-container {
     display: flex;
@@ -746,6 +743,13 @@ footer {
 
     .nav-toggle {
       display: none;
+    }
+  }
+
+  .banner-image-wrap {
+    img {
+      width: 100%;
+      height: auto;
     }
   }
 

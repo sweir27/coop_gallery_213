@@ -7,14 +7,10 @@ class Show < ActiveRecord::Base
   has_attached_file :picture_1,
             :styles =>
               { :medium => "300x300>", :thumb => "150x150#", :largethumb => "250x250#" }
-            # :path => ":rails_root/public/system/:attachment/:slug/:style/:basename.:extension",
-            # :url  => "/public/:attachment/:slug/:style/:basename.:extension"
   validates_attachment_content_type :picture_1, :content_type => /\Aimage\/.*\Z/
   has_attached_file :picture_2,
             :styles =>
               { :medium => "300x300>", :thumb => "150x150#", :largethumb => "250x250#" }
-            # :path => ":rails_root/public/system/:attachment/:slug/:style/:basename.:extension",
-            # :url  => "/public/:attachment/:slug/:style/:basename.:extension"
   validates_attachment_content_type :picture_2, :content_type => /\Aimage\/.*\Z/
 
   validates_presence_of :video_link, :unless => lambda { self.video_link_title.blank? }
