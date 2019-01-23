@@ -241,6 +241,7 @@ h3 {
 img.about-page-image {
   max-width: 960px;
   max-height: 600px;
+  width: 100%;
 }
 
 .form-inner-title {
@@ -374,34 +375,6 @@ img.about-page-image {
 
   .active {
     display: block;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .header-container {
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 0;
-    align-items: center;
-
-    .main-nav {
-      display: flex;
-      margin-right: 30px;
-      flex-direction: row;
-      justify-content: flex-end;
-
-      li {
-        margin: 0;
-
-        a {
-          margin-left: 40px;
-        }
-      }
-    }
-
-    .nav-toggle {
-      display: none;
-    }
   }
 }
 
@@ -710,7 +683,6 @@ ul {
 /* footer */
 
 footer {
-  clear: both;
   font-size: 15px;
   padding-top: 25px;
   border-top: 1px solid #eaeaea;
@@ -721,9 +693,6 @@ footer {
     &:hover {
       color: #222;
     }
-  }
-  small {
-    float: left;
   }
   ul {
     float: right;
@@ -751,4 +720,37 @@ footer {
 
 #sign-up-newsletter {
   padding-top: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0;
+    align-items: center;
+
+    .main-nav {
+      display: flex;
+      margin-right: 30px;
+      flex-direction: row;
+      justify-content: flex-end;
+
+      li {
+        margin: 0;
+
+        a {
+          margin-left: 40px;
+        }
+      }
+    }
+
+    .nav-toggle {
+      display: none;
+    }
+  }
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+  }
 }
