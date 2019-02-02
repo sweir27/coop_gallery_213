@@ -5,13 +5,10 @@ gem 'rails', '5.2.2'
 gem 'sprockets'
 gem 'bcrypt-ruby'
 gem 'faker'
-gem 'will_paginate'
 gem "paperclip"
 gem "cancan"
 gem "jquery-slick-rails"
 gem 'pg'
-
-gem 'activeadmin'
 
 group :development, :test do
   gem 'rspec-rails'
