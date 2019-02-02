@@ -1,11 +1,14 @@
 class ShowsController < ApplicationController
   def index
     @shows = Show.all.sort_by(&:start_date)
-    @is_current_page = false
   end
 
   def new
     @show = Show.new
+  end
+
+  def show
+    @show = Show.find(params[:id])
   end
 
   def create
@@ -39,32 +42,18 @@ class ShowsController < ApplicationController
   end
 
   def ind_current
-    @current_show = Show.where(:current => true).first
-    @is_current_page = true
+    today = Date.today
+
+    @current_shows = Show.where("start_date <= ? AND end_date >= ?", today, today).order(start_date: :desc)
+    @upcoming_shows = Show.where("start_date > ?", today).order(start_date: :desc)
+    @past_shows = Show.where("end_date < ?", today).limit(20).order(start_date: :desc)
   end
 
   def current
     @current_show = Show.where(:current => true).first
     @events = Event.where(:on_homepage => true).sort_by(&:event_date)
     @announcements = Announcement.all
-    # @artworks = User.all.map{ |artist| artist.artworks.sample }
     @artists = User.all
-  end
-
-  def past
-    current_show = Show.where(:current => true).first
-    start_date = Show.arel_table[:start_date]
-    @past_shows = Show.where(start_date.lt(current_show.start_date)).limit(10).sort_by(&:start_date)
-    @is_current_page = false
-    render 'past'
-  end
-
-  def upcoming
-    @current_show = Show.where(:current => true).first
-    end_date = Show.arel_table[:end_date]
-    @upcoming_shows = Show.where(end_date.gt(@current_show.end_date)).sort_by(&:start_date)
-    @is_current_page = false
-    render 'upcoming'
   end
 
   def set_current

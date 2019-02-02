@@ -2,7 +2,7 @@
   <div class='ind-show-title'>
     <div class='center-div'><%= show.name %></div>
   </div>
-  <% if show.current? && !is_current_page %>
+  <% if show.current? %>
     <div class='current-show-tag'>current show</div>
   <% end %>
   <div class='onerow'>

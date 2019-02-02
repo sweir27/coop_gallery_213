@@ -20,6 +20,7 @@ html {
 body {
   font-family: $sans;
   font-size: 15px;
+  padding-bottom: 20px;
 }
 
 section {
@@ -46,7 +47,8 @@ a {
 }
 
 .container {
-  padding-top: 50px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .right-align {
@@ -129,10 +131,6 @@ img {
 .current-show-description {
   margin-top: 20px;
   margin-bottom: 20px;
-}
-
-.current-show-row {
-  padding-top: 30px;
 }
 
 .text-inset {
@@ -261,6 +259,10 @@ img.about-page-image {
   clear: both;
   padding-top: 30px;
   padding-bottom: 30px;
+}
+
+.large-module {
+  padding: 20px;
 }
 
 .padding-container {
@@ -531,16 +533,26 @@ aside {
 
 /* shows */
 
-.ind-show-title, .ind-link-title, .ind-event-title {
+.shows-all {
+  margin-top: 50px;
+}
+
+.show-row {
+  .show-row-left, .show-row-right {
+    padding-bottom: 20px;
+  }
+}
+
+.show-title, .ind-link-title, .ind-event-title {
   font-weight: bold;
   font-size: 20px;
 }
 
-.ind-show-paragraph, .ind-event-paragraph {
+.show-paragraph, .ind-event-paragraph {
   margin-top: 10px;
 }
 
-.ind-show-paragraph-truncated {
+.show-paragraph-truncated {
   margin-top: 10px;
 }
 
@@ -607,9 +619,14 @@ ul {
   }
 }
 
+.show-row-right {
+  display: flex;
+}
+
 .show-artwork {
-  float: left;
-  margin-left: 5px;
+  img {
+    max-width: 90%;
+  }
 }
 
 .coop-gallery-info {
@@ -617,6 +634,71 @@ ul {
     padding: 40px;
   }
 }
+
+.current-show {
+  margin-top: 20px;
+
+  #current-show-images {
+    img {
+      width: 100%;
+    }
+  }
+
+  .current-show-info {
+    padding-left: 30px;
+  }
+}
+
+.shows-past {
+  .show-info {
+    margin-bottom: 10px;
+  }
+
+  .show-info--secondary {
+    font-style: oblique;
+  }
+}
+
+/* show */
+
+.show {
+  margin-top: 50px;
+  text-align: center;
+
+  .show-title {
+    font-size: 30px;
+    font-weight: normal;
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+
+  .show-artists, .show-dates, .show-description {
+    font-size: 18px;
+  }
+
+  .show-description {
+    line-height: 1.5;
+    text-align: left;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .show-images {
+    margin-top: 30px;
+    margin-bottom: 50px;
+
+    .show-artwork {
+      width: 50%;
+      max-height: 500px;
+    }
+
+    img {
+      padding-top: 20px;
+    }
+  }
+}
+
+
 
 /* links */
 
@@ -675,6 +757,7 @@ ul {
 /* footer */
 
 footer {
+  clear: both;
   font-size: 15px;
   padding-top: 25px;
   border-top: 1px solid #eaeaea;
@@ -750,6 +833,45 @@ footer {
     img {
       width: 100%;
       height: auto;
+    }
+  }
+
+  .current-show {
+    display: flex;
+    justify-content: space-between;
+
+    #current-show-images {
+      max-width: 400px;
+    }
+
+    .current-show-info {
+      padding-left: 30px;
+    }
+  }
+
+  .show-row {
+    display: flex;
+    padding-left: 20px;
+
+    .show-row-left {
+      margin-right: 20px;
+      width: 300px;
+    }
+  }
+
+  .show {
+    .show-title {
+      font-size: 40px;
+    }
+
+    .show-images {
+      display: flex;
+      align-items: center;
+      margin-top: 50px;
+
+      img {
+        padding-top: 0px;
+      }
     }
   }
 

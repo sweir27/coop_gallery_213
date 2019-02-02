@@ -1,9 +1,11 @@
 <% provide(:title, 'Shows at Cooperative Gallery 213') %>
-<%= render 'show_tabs' %>
-<div class='shows-list'>
-  <ul class="shows">
-    <% @shows.each do |show| %>
-      <%= render :partial => 'ind_show_admin', :locals => { show: show, is_current_page: @is_current_page } %>
-    <% end %>
-  </ul>
+<div class='large-info-container-no-border'>
+  <%= render 'show_tabs' %>
+  <div class='shows-list'>
+    <ul class="shows">
+      <% @shows.each do |show| %>
+        <%= render :partial => 'ind_show_admin', :locals => { show: show } %>
+      <% end %>
+    </ul>
+  </div>
 </div>

@@ -1,0 +1,37 @@
+<div class='show'>
+  <div class='show-title'>
+    <%= @show.name %>
+  </div>
+
+  <div class='show-artists'>
+    <%= @show.artists %>
+  </div>
+
+  <div class='show-dates'>
+    <%= formatted_show_dates(@show.start_date, @show.end_date) %>
+  </div>
+
+  <div class='show-images'>
+    <% unless @show.picture_1_file_name.blank? %>
+      <%= link_to @show.picture_1.url, class: "show-artwork" do %>
+        <%= image_tag @show.picture_1 %>
+        <div class='artwork-title hidden'>
+          <%= @show.picture_1_caption unless @show.picture_1_caption.blank? %>
+        </div>
+      <% end %>
+    <% end %>
+
+    <% unless @show.picture_2_file_name.blank? %>
+      <%= link_to @show.picture_2.url, class: "show-artwork" do %>
+        <%= image_tag @show.picture_2 %>
+        <div class='artwork-title hidden'>
+          <%= @show.picture_2_caption unless @show.picture_2_caption.blank? %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class='show-description'>
+    <%= @show.description %>
+  </div>
+</div>

@@ -24,3 +24,6 @@ doc/
 
 # Development specific
 /config/environments/development.rb
+
+# ignore public images
+public/system
