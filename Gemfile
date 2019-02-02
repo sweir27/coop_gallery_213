@@ -1,19 +1,21 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
+ruby '2.5.3'
 
-gem 'rails', '4.0.8'
-gem 'sprockets', '2.11.0'
-gem 'bcrypt-ruby', '3.1.2'
-gem 'faker', '1.1.2'
-gem 'will_paginate', '3.0.4'
-gem "paperclip", "~> 4.2"
+gem 'rails', '5.2.2'
+gem 'sprockets'
+gem 'bcrypt-ruby'
+gem 'faker'
+gem 'will_paginate'
+gem "paperclip"
 gem "cancan"
 gem "jquery-slick-rails"
+gem 'pg'
+
+gem 'activeadmin'
 
 group :development, :test do
-  gem 'sqlite3', '1.3.8'
-  gem 'rspec-rails', '2.13.1'
-  gem 'pry-byebug', '~> 2.0.0'
+  gem 'rspec-rails'
+  gem 'pry-byebug'
 end
 
 group :test do
@@ -21,20 +23,20 @@ group :test do
   gem 'capybara', '2.1.0'
 end
 
-gem 'sass-rails', '4.0.3'
-gem 'uglifier', '2.1.1'
-gem 'coffee-rails', '4.0.1'
-gem 'jquery-rails', '3.0.4'
-gem 'fancybox2-rails', '~> 0.2.8'
-gem 'jbuilder', '1.0.2'
-gem 'factory_girl_rails', '4.2.0'
+gem 'sass-rails'
+gem 'uglifier'
+gem 'coffee-rails'
+gem 'jquery-rails'
+gem 'fancybox2-rails'
+gem 'jbuilder'
+gem 'factory_girl_rails'
 gem 'aws-sdk'
 
 group :doc do
-  gem 'sdoc', '0.3.20', require: false
+  gem 'sdoc', require: false
 end
 
 group :production do
-  gem 'pg', '0.15.1'
-  gem 'rails_12factor', '0.0.2'
+
+  gem 'rails_12factor'
 end
