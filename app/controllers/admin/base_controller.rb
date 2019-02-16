@@ -4,7 +4,7 @@ class Admin::BaseController < ApplicationController
   before_action :signed_in_user
 
   def authorize_user
-    @user = User.find(params[:id])
+    @user = User.find(params[:user_id] || params[:id])
     redirect_to(admin_user_path(current_user)) unless current_user?(@user) || current_user.admin?
   end
 

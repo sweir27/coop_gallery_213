@@ -233,11 +233,21 @@ h2 {
   padding-top: 20px;
 }
 
-img.about-page-image {
-  max-width: 960px;
-  max-height: 600px;
-  width: 100%;
+.about-page {
+  margin-top: 50px;
+
+  img.about-page-image {
+    max-width: 960px;
+    max-height: 600px;
+    width: 100%;
+  }
+
+  .about-page--contents {
+    max-width: 550px;
+    margin: 0 auto;
+  }
 }
+
 
 .form-inner-title {
   font-size: 14pt;
@@ -718,7 +728,7 @@ ul {
 
 .links-list {
   padding-top: 50px;
-  max-width: 400px;
+  max-width: 550px;
   margin: 0 auto;
 }
 
