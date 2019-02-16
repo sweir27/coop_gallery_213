@@ -523,6 +523,12 @@ aside {
 
 .artist-artworks {
   text-align: center;
+
+  img {
+    width: 49%;
+    max-width: 150px;
+    padding: 2px;
+  }
 }
 
 .artist-biography {
