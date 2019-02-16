@@ -716,21 +716,14 @@ ul {
 
 /* links */
 
-.links {
-  margin: 0px;
-  li {
-    list-style-type: none;
-    padding: 20px;
-    border-top: 1px solid $grayMediumLight;
-    &:first-child {
-      border-top: none;
-    }
-  }
+.links-list {
+  padding-top: 50px;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 .ind-link {
-  width: 400px;
-  margin: 0 auto;
+  margin-top: 50px;
 }
 
 .admin-options {

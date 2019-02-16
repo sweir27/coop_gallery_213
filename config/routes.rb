@@ -19,6 +19,8 @@ Rails.application.routes.draw do
         post 'set_homepage'
       end
     end
+
+    resources :links
   end
 
   resources :shows do

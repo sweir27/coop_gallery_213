@@ -1,4 +1,6 @@
 class Admin::EventsController < Admin::BaseController
+  before_action :require_admin
+
   def index
     @events = Event
               .all
@@ -47,11 +49,7 @@ class Admin::EventsController < Admin::BaseController
     redirect_to admin_events_path
   end
 
-  def admin_user
-    # store_location
-    flash[:notice] = "Only administrators can create events" unless current_user && current_user.admin?
-    redirect_to(root_url) unless current_user && current_user.admin?
-  end
+  private
 
   def event_params
     params.require(:event).permit(:title, :description, :event_date, :start_time, :end_time, :event_image, :on_homepage, :url, :pdf, :pdf_title)
