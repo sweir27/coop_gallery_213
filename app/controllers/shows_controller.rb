@@ -1,46 +1,4 @@
 class ShowsController < ApplicationController
-  def index
-    @shows = Show.all.sort_by(&:start_date)
-  end
-
-  def new
-    @show = Show.new
-  end
-
-  def show
-    @show = Show.find(params[:id])
-  end
-
-  def create
-    @show = Show.new(show_params)
-    if @show.save
-      flash[:success] = "New show created"
-      redirect_to shows_path
-    else
-      render 'new'
-    end
-  end
-
-  def edit
-    @show = Show.find(params[:id])
-  end
-
-  def update
-    @show = Show.find(params[:id])
-    if @show.update_attributes(show_params)
-      flash[:success] = "Show updated"
-      redirect_to shows_path
-    else
-      render 'edit'
-    end
-  end
-
-  def destroy
-    Show.find(params[:id]).destroy
-    flash[:success] = "Show deleted."
-    redirect_to shows_url
-  end
-
   def ind_current
     today = Date.today
 
@@ -56,21 +14,8 @@ class ShowsController < ApplicationController
     @artists = User.all
   end
 
-  def set_current
-    show = Show.find(params[:id])
-    Show.update_all(:current => false)
-    show.toggle!(:current)
-    redirect_to shows_url
+  def show
+    @show = Show.find(params[:id])
+    puts "SHOW #{@show.picture_1.url}"
   end
-
-  private
-    def admin_user
-      # store_location
-      flash[:notice] = "Only administrators can create shows" unless current_user && current_user.admin?
-      redirect_to(root_url) unless current_user && current_user.admin?
-    end
-
-    def show_params
-      params.require(:show).permit(:name, :description, :short_description, :artists, :start_date, :end_date, :picture_1, :picture_2, :picture_1_caption, :picture_2_caption, :third_thursday_talk_title, :third_thursday_talk_date, :video_link, :video_link_title)
-    end
 end

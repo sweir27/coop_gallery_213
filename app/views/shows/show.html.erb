@@ -14,7 +14,7 @@
   <div class='show-images'>
     <% unless @show.picture_1_file_name.blank? %>
       <%= link_to @show.picture_1.url, class: "show-artwork" do %>
-        <%= image_tag @show.picture_1 %>
+        <%= image_tag @show.picture_1.url %>
         <div class='artwork-title hidden'>
           <%= @show.picture_1_caption unless @show.picture_1_caption.blank? %>
         </div>
@@ -23,7 +23,7 @@
 
     <% unless @show.picture_2_file_name.blank? %>
       <%= link_to @show.picture_2.url, class: "show-artwork" do %>
-        <%= image_tag @show.picture_2 %>
+        <%= image_tag @show.picture_2.url %>
         <div class='artwork-title hidden'>
           <%= @show.picture_2_caption unless @show.picture_2_caption.blank? %>
         </div>

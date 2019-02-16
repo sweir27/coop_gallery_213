@@ -1,22 +1,22 @@
-class ArtworksController < ApplicationController
-  before_action :signed_in_user, only: [:new, :create, :destroy]
-  # before_action :correct_user,   only: [:new, :create, :destroy]
+class Admin::ArtworksController < Admin::BaseController
+  before_action :authorize_user
 
   def create
     @user = User.find(params[:user_id])
     @artwork = @user.artworks.build(artwork_params)
     if @artwork.save
       flash[:success] = "Artwork added"
-      redirect_to @user
+      redirect_to [:admin, @user]
     else
       render 'new'
     end
   end
 
   def destroy
-    Artwork.find(params[:id]).destroy
+    @user = User.find(params[:user_id])
+    @user.artworks.find(params[:id]).destroy
     flash[:success] = "Artwork deleted."
-    redirect_to current_user
+    redirect_to admin_user_path(@user)
   end
 
   def new
@@ -39,13 +39,8 @@ class ArtworksController < ApplicationController
   end
 
   private
-    def artwork_params
-      params.require(:artwork).permit(:title, :image)
-    end
 
-    def signed_in_user
-      store_location
-      redirect_to signin_url, notice: "Please sign in." unless signed_in?
-    end
-
+  def artwork_params
+    params.require(:artwork).permit(:title, :image)
+  end
 end

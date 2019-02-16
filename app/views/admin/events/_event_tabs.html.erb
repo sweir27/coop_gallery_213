@@ -1,0 +1,7 @@
+<div class='inner-tab-group'>
+  <% if current_user && current_user.admin? %>
+    <span class='inner-tab'>
+      <%= link_to "Create Event", new_admin_event_path, class: cp(new_admin_event_path) %>
+    </span>
+  <% end %>
+</div>

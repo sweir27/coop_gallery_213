@@ -9,6 +9,7 @@ gem "paperclip"
 gem "cancan"
 gem "jquery-slick-rails"
 gem 'pg'
+gem 'kaminari'
 
 group :development, :test do
   gem 'rspec-rails'

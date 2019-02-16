@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
                     format:     { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
   has_secure_password
-  validates :password, length: { minimum: 6 }
+  validates :password, length: { minimum: 6 }, if: :password
 
   Paperclip.interpolates :slug do |attachment, style|
     attachment.instance.slug
@@ -32,12 +32,11 @@ class User < ActiveRecord::Base
 
   private
 
-    def create_remember_token
-      self.remember_token = User.digest(User.new_remember_token)
-    end
+  def create_remember_token
+    self.remember_token = User.digest(User.new_remember_token)
+  end
 
-    def create_slug
-      return self.name.downcase.gsub(" ", "-")
-    end
-
+  def create_slug
+    return self.name.downcase.gsub(" ", "-")
+  end
 end

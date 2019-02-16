@@ -1,10 +1,10 @@
-<% provide(:title, 'New show') %>
+<% provide(:title, 'Update show') %>
 <%= render 'show_tabs' %>
-<!-- <h1>New show</h1> -->
+<h2 class='center'>Update show</h1>
 
 <div class='row'>
   <div class='span7 offset1'>
-    <%= form_for @show, :html => { :multipart => true } do |f| %>
+    <%= form_for [:admin, @show], :html => { :multipart => true } do |f| %>
       <%= render 'shared/error_messages', :item => @show %>
       <%= f.label :name %>
       <%= f.text_field :name %>
@@ -28,6 +28,9 @@
 
       <p>
         <b> Picture 1</b><br/>
+        <% if @show.picture_1.exists? %>
+          <%= image_tag @show.picture_1.url(:thumb) %><br/>
+        <% end %>
         <%= f.file_field :picture_1 %>
       </p>
 
@@ -36,6 +39,9 @@
 
       <p>
         <b> Picture 2 (optional)</b><br/>
+        <% if @show.picture_2.exists? %>
+          <%= image_tag @show.picture_2.url(:thumb) %><br/>
+        <% end %>
         <%= f.file_field :picture_2 %>
       </p>
 
@@ -58,7 +64,7 @@
       <%= f.label :video_link_title %>
       <%= f.text_field :video_link_title %>
 
-      <%= f.submit "Create show", class: "btn btn-large btn-primary" %>
+      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
     <% end %>
   </div>
 </div>

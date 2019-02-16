@@ -59,6 +59,7 @@ a {
   margin: 0 auto;
   padding-top: 0px;
   margin-bottom: 50px;
+  max-width: 780px;
 }
 
 .maroon {
@@ -361,6 +362,8 @@ img.about-page-image {
     text-align: center;
     display: none;
 
+    border-bottom: 1px solid $grayLighter;
+
     li {
       list-style-type: none;
       margin: 15px auto;
@@ -643,10 +646,6 @@ ul {
       width: 100%;
     }
   }
-
-  .current-show-info {
-    padding-left: 30px;
-  }
 }
 
 .shows-past {
@@ -656,6 +655,21 @@ ul {
 
   .show-info--secondary {
     font-style: oblique;
+  }
+}
+
+/* events */
+
+.events-list {
+  margin-top: 50px;
+
+  .event-group {
+    margin-bottom: 50px;
+  }
+
+  .event-row {
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
 
@@ -814,6 +828,8 @@ footer {
       margin-right: 30px;
       flex-direction: row;
       justify-content: flex-end;
+
+      border-bottom: none;
 
       li {
         margin: 0;

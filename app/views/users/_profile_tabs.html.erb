@@ -1,6 +1,0 @@
-<div class='inner-tab-group'>
-  <% if current_user?(user) || current_user.admin? %>
-    <span class='inner-tab'><%= link_to "Add artwork", new_user_artwork_path(user), class: cp(new_artwork_path) %></span>
-    <span class='inner-tab'><%= link_to "Edit profile", edit_user_path(user), class: cp(edit_user_path(current_user)) %></span>
-  <% end %>
-</div>

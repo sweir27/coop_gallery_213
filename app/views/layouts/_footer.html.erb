@@ -22,14 +22,14 @@
   </div>
   <div class='footer-information'>
     <% if signed_in? %>
-        <%= link_to "Profile", current_user %>
+        <%= link_to "Admin", admin_user_path(current_user) %>
         <br />
         <%= link_to "Calendar", calendar_path %>
         <br />
         <a href="http://www.localendar.com">Shift Signup</a>
         <br />
         <% if admin? %>
-          <%= link_to "Manage Users", users_path %>
+          <%= link_to "Manage Users", admin_users_path %>
           <br />
         <% end %>
         <div class='divider'>

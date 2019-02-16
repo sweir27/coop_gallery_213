@@ -1,0 +1,21 @@
+$grayMediumLight: #eaeaea;
+$maroon: #FE8080;
+$grayLighter: #eee;
+$grayLight: #999;
+$sans: 'Lato', sans-serif;
+$grayLightest: #ececec;
+
+body.admin {
+  #logo {
+    background-color: black;
+
+    &:hover {
+      color: $maroon;
+    }
+  }
+
+  footer {
+    justify-content: flex-end;
+  }
+}
+

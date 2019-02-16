@@ -23,13 +23,13 @@
     </div>
     <% if current_user && current_user.admin? %>
       <div class='admin-options small-padding'>
-        <%= link_to "delete", event, method: :delete, data: { confirm: "Are you sure you want to delete this event?" }, class: 'admin-option' %>
-        <%= link_to "edit", edit_event_path(event), class: 'admin-option' %>
+        <%= link_to "delete", admin_event_path(event), method: :delete, data: { confirm: "Are you sure you want to delete this event?" }, class: 'admin-option' %>
+        <%= link_to "edit", edit_admin_event_path(event), class: 'admin-option' %>
         <% if not event.on_homepage? %>
-          <%= link_to "show on homepage", set_homepage_event_path(event), method: :post, class: 'admin-option' %>
+          <%= link_to "show on homepage", set_homepage_admin_event_path(event), method: :post, class: 'admin-option' %>
         <% end %>
         <% if event.on_homepage? %>
-          <%= link_to "remove from homepage", set_homepage_event_path(event), method: :post, class: 'admin-option' %>
+          <%= link_to "remove from homepage", set_homepage_admin_event_path(event), method: :post, class: 'admin-option' %>
         <% end %>
       </div>
     <% end %>

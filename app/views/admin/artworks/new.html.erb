@@ -2,7 +2,7 @@
 <h2 class='center'>Add artwork</h2>
 <div class='row'>
   <div class='span7 offset1'>
-    <%= form_for [@user, @artwork], :html => { :multipart => true } do |f| %>
+    <%= form_for [:admin, @user, @artwork], :html => { :multipart => true } do |f| %>
       <%= render 'shared/error_messages', :item => @artwork %>
       <%= f.label :title %>
       <%= f.text_field :title %>

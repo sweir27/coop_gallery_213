@@ -15,7 +15,7 @@
         Upcoming Shows
       </h2>
       <% @upcoming_shows.each do |show| %>
-        <%= render :partial => 'shared/show_row', :locals => { show: show } %>
+        <%= render :partial => 'show_row', :locals => { show: show } %>
       <% end %>
     </div>
   <% end %>

@@ -6,18 +6,18 @@
     <% if @users %>
       <% @users.each do |user| %>
         <li>
-          <%= link_to user.name, user, class: 'user-name' %>
+          <%= link_to user.name, admin_user_path(user), class: 'user-name' %>
           <% if user.admin? %>
             <span class='user-admin-tag small-margin-left'>
               admin
             </span>
           <% end %>
           <% if current_user.admin? && !current_user?(user) %>
-            <%= link_to "delete", user, method: :delete, data: { confirm: "You sure?" }, class: 'admin-option small-margin-left' %>
+            <%= link_to "delete", admin_user_path(user), method: :delete, data: { confirm: "You sure?" }, class: 'admin-option small-margin-left' %>
             <% if user.admin? %>
-              <%= link_to "Remove admin", toggle_admin_user_path(user), :method => :post, data: { confirm: "Are you sure?" }, class: 'admin-option small-margin-left' %>
+              <%= link_to "Remove admin", toggle_admin_admin_user_path(user), :method => :post, data: { confirm: "Are you sure?" }, class: 'admin-option small-margin-left' %>
             <% else %>
-              <%= link_to "Make admin", toggle_admin_user_path(user), :method => :post, data: { confirm: "Are you sure?" }, class: 'admin-option small-margin-left' %>
+              <%= link_to "Make admin", toggle_admin_admin_user_path(user), :method => :post, data: { confirm: "Are you sure?" }, class: 'admin-option small-margin-left' %>
             <% end %>
           <% end %>
         </li>

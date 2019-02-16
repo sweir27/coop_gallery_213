@@ -1,29 +1,37 @@
 Rails.application.routes.draw do
-  resources :shows do
-    member do
-      post 'set_current'
+  namespace :admin do
+    resources :users do
+      get 'profile'
+      resources :artworks
+      member do
+        post 'toggle_admin'
+      end
     end
 
+    resources :shows do
+      member do
+        post 'set_current'
+      end
+    end
+
+    resources :events do
+      member do
+        post 'set_homepage'
+      end
+    end
+  end
+
+  resources :shows do
     collection do
       get 'ind_current'
     end
   end
-  resources :events do
-    member do
-      post 'set_homepage'
-    end
-  end
+
+  resources :events, only: [:index]
   resources :announcements, only: [:new, :create, :edit, :update, :destroy]
   resources :artists, only: [:show, :index]
   resources :links
-  resources :users do
-    resources :artworks, only: [:new, :create]
-    member do
-      post 'toggle_admin'
-    end
-  end
   resources :sessions, only: [:new, :create, :destroy]
-  resources :artworks
   root 'shows#current'
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
