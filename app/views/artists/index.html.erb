@@ -3,7 +3,7 @@
   <ul class="artists">
     <% if @artists %>
       <% @artists.each do |artist| %>
-        <%= render 'ind_artist', artist: artist, artworks: artist.artworks.take(4) %>
+        <%= render 'artist_row', artist: artist, artworks: artist.artworks.take(4) %>
       <% end %>
     <% end %>
   </ul>

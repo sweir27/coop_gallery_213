@@ -30,10 +30,17 @@ Rails.application.routes.draw do
   end
 
   resources :events, only: [:index]
+
   resources :announcements, only: [:new, :create, :edit, :update, :destroy]
-  resources :artists, only: [:show, :index]
+
+  resources :artists, only: [:show, :index] do
+    resources :artworks, only: [:show]
+  end
+
   resources :links
+
   resources :sessions, only: [:new, :create, :destroy]
+
   root 'shows#current'
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'

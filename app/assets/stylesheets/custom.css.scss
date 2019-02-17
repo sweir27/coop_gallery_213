@@ -272,10 +272,6 @@ h2 {
   padding-bottom: 30px;
 }
 
-.large-module {
-  padding: 20px;
-}
-
 .padding-container {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -532,7 +528,7 @@ aside {
 }
 
 .artist-biography {
-  padding: 30px;
+  padding-bottom: 30px;
 }
 
 .artwork-content {
@@ -543,6 +539,9 @@ aside {
 .all-artwork {
   margin-top: 30px;
   text-align: center;
+  .artwork-content {
+    max-width: 300px;
+  }
 }
 
 .artist-link {
@@ -553,7 +552,7 @@ aside {
 /* shows */
 
 .shows-all {
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
 .show-row {
@@ -677,7 +676,7 @@ ul {
 /* events */
 
 .events-list {
-  margin-top: 50px;
+  margin-top: 30px;
 
   .event-group {
     margin-bottom: 50px;
@@ -686,6 +685,10 @@ ul {
   .event-row {
     padding-left: 10px;
     padding-right: 10px;
+
+    .text-subline {
+      overflow-wrap: break-word;
+    }
   }
 }
 
@@ -728,12 +731,10 @@ ul {
   }
 }
 
-
-
 /* links */
 
 .links-list {
-  padding-top: 50px;
+  padding-top: 30px;
   max-width: 550px;
   margin: 0 auto;
 }
@@ -825,6 +826,42 @@ footer {
   bottom: -30px;
 }
 
+/* artwork */
+.artwork-page {
+  margin-top: 30px;
+
+  .artwork-page--image {
+    img {
+      max-width: 960px;
+      max-height: 600px;
+      width: 100%;
+    }
+  }
+
+  .artwork-page--title {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .artwork-page--artist {
+    margin-bottom: 30px;
+    text-align: center;
+    margin-top: 5px;
+  }
+}
+
+.artwork-thumbnails {
+  text-align: center;
+
+  img {
+    max-width: 80px;
+    padding: 3px;
+  }
+}
+
+
 @media screen and (min-width: 768px) {
   .header-container {
     display: flex;
@@ -898,6 +935,36 @@ footer {
         padding-top: 0px;
       }
     }
+  }
+
+  .artwork-thumbnails {
+    img {
+      max-width: 150px;
+    }
+  }
+
+  .artwork-page {
+    .artwork-page--content {
+      display: flex;
+      margin-bottom: 50px;
+
+      .artwork-page--info {
+        width: 250px;
+        margin-left: 20px;
+
+        .artwork-page--title {
+          text-align: left;
+        }
+
+        .artwork-page--artist {
+          text-align: left;
+        }
+      }
+    }
+  }
+
+  .artist-biography {
+    padding: 30px;
   }
 
   footer {

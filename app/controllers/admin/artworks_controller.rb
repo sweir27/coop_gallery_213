@@ -32,7 +32,7 @@ class Admin::ArtworksController < Admin::BaseController
     @artwork = Artwork.find(params[:id])
     if @artwork.update_attributes(artwork_params)
       flash[:success] = "Artwork updated"
-      redirect_to user_path(@artwork.user_id)
+      redirect_to admin_user_path(@artwork.user_id)
     else
       render 'edit'
     end

@@ -16,6 +16,5 @@ class ShowsController < ApplicationController
 
   def show
     @show = Show.find(params[:id])
-    puts "SHOW #{@show.picture_1.url}"
   end
 end

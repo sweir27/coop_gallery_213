@@ -1,4 +1,4 @@
-<div class='current-show large-module'>
+<div class='current-show'>
   <div id='current-show-images'>
     <div class='show-picture'>
       <%= image_tag show.picture_1.url %>
@@ -31,7 +31,8 @@
 
     <% unless show.video_link.blank? %>
       <div class=''>
-        <span class='uppercase-subtitle'>Video link</span><%= link_to show.video_link_title, show.video_link %>
+        <span class='uppercase-subtitle'>Video link</span>
+          <%= link_to "#{show.video_link_title.blank? ? 'Click here' : show.video_link_title}", show.video_link %>
       </div>
     <% end %>
 

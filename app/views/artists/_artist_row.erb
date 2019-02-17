@@ -1,6 +1,9 @@
 <li>
   <%= link_to(artist_path(artist)) do %>
-    <div class='ind-artist-name'><%= artist.name %></div>
+    <div class='ind-artist-name'>
+      <%= artist.name %>
+    </div>
+
     <div class='artist-artworks'>
       <% artworks.each do |artwork| %>
         <%= image_tag artwork.image.url(:thumb) %>

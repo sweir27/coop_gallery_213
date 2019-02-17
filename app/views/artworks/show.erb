@@ -1,0 +1,20 @@
+<% provide(:title, 'Artwork') %>
+<div class='artwork-page'>
+  <div class='artwork-page--content'>
+    <div class='artwork-page--image'>
+      <%= image_tag @artwork.image.url %>
+    </div>
+
+    <div class='artwork-page--info'>
+      <div class='artwork-page--title'>
+        <%= @artwork.title %>
+      </div>
+
+      <div class='artwork-page--artist'>
+        <%= @artist.name %>
+      </div>
+    </div>
+  </div>
+
+  <%= render 'shared/artwork_thumbs', { artist: @artist, artworks: @artworks } %>
+</div>
