@@ -575,6 +575,10 @@ aside {
   margin-top: 10px;
 }
 
+.shows-upcoming {
+  margin-top: 30px;
+}
+
 .read-more-link, .read-less-link {
   cursor: pointer;
   text-transform: uppercase;
@@ -931,7 +935,6 @@ footer {
 
   .show-row {
     display: flex;
-    padding-left: 20px;
 
     .show-row-left {
       margin-right: 20px;
