@@ -38,6 +38,13 @@ class Admin::ArtworksController < Admin::BaseController
     end
   end
 
+  def make_primary
+    artwork = Artwork.find(params[:id])
+    artist = artwork.user
+    artist.update!(primary_artwork: artwork)
+    redirect_to admin_user_path(artwork.user_id)
+  end
+
   private
 
   def artwork_params

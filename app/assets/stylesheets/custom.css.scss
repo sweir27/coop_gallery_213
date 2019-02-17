@@ -307,16 +307,19 @@ h2 {
   }
 }
 
-.all-artists-artwork {
-  margin-left: 10px;
-  margin-bottom: 10px;
-  display: relative;
-  display: inline-block;
-  &:hover {
-    opacity: .5;
-  }
-  img {
-    max-width: 150px;
+.all-artists {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .all-artists-artwork {
+    padding: 5px;
+    &:hover {
+      opacity: .5;
+    }
+    img {
+      max-width: 120px;
+    }
   }
 }
 
@@ -654,6 +657,7 @@ ul {
 }
 
 .coop-gallery-info {
+  margin-top: 50px;
   .large-info-container {
     padding: 40px;
   }
@@ -677,6 +681,10 @@ ul {
   .show-info--secondary {
     font-style: oblique;
   }
+}
+
+.artists-section {
+  margin-top: 50px;
 }
 
 /* events */
@@ -1006,6 +1014,14 @@ footer {
       &.without-image {
         padding-left: 0px;
         width: 100%;
+      }
+    }
+  }
+
+  .all-artists {
+    .all-artists-artwork {
+      img {
+        max-width: 150px;
       }
     }
   }

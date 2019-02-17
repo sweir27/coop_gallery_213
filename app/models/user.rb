@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   has_many :artworks, dependent: :destroy
+  belongs_to :primary_artwork, class_name: 'Artwork'
+
   before_save { self.email = email.downcase }
   before_save { self.slug = create_slug }
   before_create :create_remember_token
@@ -21,6 +23,14 @@ class User < ActiveRecord::Base
             # :path => ":rails_root/public/system/:attachment/:slug/:style/:basename.:extension",
             # :url  => "/public/:attachment/:slug/:style/:basename.:extension"
   validates_attachment_content_type :pic, :content_type => /\Aimage\/.*\Z/
+
+  def primary_thumbnail_url
+    if primary_artwork && primary_artwork.image_file_name.present?
+      primary_artwork.image.url(:thumb)
+    else
+      artworks.where.not(image_file_name: nil).first.image.url(:thumb)
+    end
+  end
 
   def User.new_remember_token
     SecureRandom.urlsafe_base64

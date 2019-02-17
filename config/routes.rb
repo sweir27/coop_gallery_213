@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users do
       get 'profile'
-      resources :artworks
+      resources :artworks do
+        member do
+          post 'make_primary'
+        end
+      end
       member do
         post 'toggle_admin'
       end
