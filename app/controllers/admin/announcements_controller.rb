@@ -1,4 +1,10 @@
-class AnnouncementsController < ApplicationController
+class Admin::AnnouncementsController < Admin::BaseController
+  before_action :require_admin
+
+  def index
+    @announcements = Announcement.all
+  end
+
   def new
     @announcement = Announcement.new
   end
@@ -7,7 +13,7 @@ class AnnouncementsController < ApplicationController
     @announcement = Announcement.new(announcement_params)
     if @announcement.save
       flash[:success] = "New announcement created"
-      redirect_to root_url
+      redirect_to admin_announcements_path
     else
       render 'new'
     end
@@ -21,7 +27,7 @@ class AnnouncementsController < ApplicationController
     @announcement = Announcement.find(params[:id])
     if @announcement.update_attributes(announcement_params)
       flash[:success] = "Announcement updated!"
-      redirect_to root_url
+      redirect_to admin_announcements_path
     else
       render 'edit'
     end
@@ -30,17 +36,12 @@ class AnnouncementsController < ApplicationController
   def destroy
     Announcement.find(params[:id]).destroy
     flash[:success] = "Announcement deleted."
-    redirect_to root_url
+    redirect_to admin_announcements_path
   end
 
   private
-    def admin_user
-      # store_location
-      flash[:notice] = "Only administrators can create announcements" unless current_user && current_user.admin?
-      redirect_to(root_url) unless current_user && current_user.admin?
-    end
 
-    def announcement_params
-      params.require(:announcement).permit(:title, :description, :announcement_link, :announcement_image, :pdf, :pdf_title)
-    end
+  def announcement_params
+    params.require(:announcement).permit(:title, :description, :announcement_link, :announcement_image, :pdf, :pdf_title)
+  end
 end

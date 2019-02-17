@@ -147,6 +147,7 @@ img {
 
 .text-subline {
   padding-top: 4px;
+  overflow-wrap: break-word;
 }
 
 .current-show-tag {
@@ -586,7 +587,7 @@ aside {
   display: none;
 }
 
-.shows-list, .artists-list, .links-list, .events-list {
+.shows-list, .artists-list, .links-list, .events-list, .announcements-list {
   text-align: left;
 }
 
@@ -617,7 +618,7 @@ ul {
   padding-left: 0px !important;
 }
 
-.shows, .events {
+.shows, .events, .announcements {
   margin: 0px;
   li {
     list-style-type: none;
@@ -631,6 +632,7 @@ ul {
 
 .show-picture {
   padding: 10px;
+
   .artwork-title {
     margin-top: 10px;
     margin-bottom: 20px;
@@ -685,10 +687,6 @@ ul {
   .event-row {
     padding-left: 10px;
     padding-right: 10px;
-
-    .text-subline {
-      overflow-wrap: break-word;
-    }
   }
 }
 
@@ -729,6 +727,26 @@ ul {
       padding-top: 20px;
     }
   }
+}
+
+/* announcement */
+
+.announcement-row {
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  .announcement-image {
+    img {
+      width: 100%;
+    }
+
+    margin-bottom: 20px;
+  }
+}
+
+/* announcements admin */
+.announcements-list {
+  padding-bottom: 50px;
 }
 
 /* links */
@@ -965,6 +983,28 @@ footer {
 
   .artist-biography {
     padding: 30px;
+  }
+
+  .announcement-row {
+    display: flex;
+    justify-content: space-between;
+
+    .announcement-image {
+      width: 50%;
+      img {
+        max-width: 400px;
+      }
+    }
+
+    .announcement-info {
+      padding-left: 30px;
+      width: 50%;
+
+      &.without-image {
+        padding-left: 0px;
+        width: 100%;
+      }
+    }
   }
 
   footer {

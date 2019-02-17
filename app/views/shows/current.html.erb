@@ -4,15 +4,11 @@
   <%= render partial: 'shared/current_show', locals: { show: @current_show } %>
 <% end %>
 
-<% if current_user && current_user.admin? %>
-  <%= render partial: 'announcements/announcement_tabs' %>
-<% end %>
-
 <% if @announcements.length > 0 %>
   <div class='announcements'>
     <h2 class='maroon center'>Announcements</h2>
     <% @announcements.each do |announcement| %>
-      <%= render :partial => 'announcements/ind_announcement_admin', :locals => { announcement: announcement } %>
+      <%= render 'announcements/announcement_row', { announcement: announcement } %>
     <% end %>
   </div>
 <% end %>

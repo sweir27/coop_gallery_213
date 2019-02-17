@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     end
 
     resources :links
+    resources :announcements
   end
 
   resources :shows do
@@ -30,8 +31,6 @@ Rails.application.routes.draw do
   end
 
   resources :events, only: [:index]
-
-  resources :announcements, only: [:new, :create, :edit, :update, :destroy]
 
   resources :artists, only: [:show, :index] do
     resources :artworks, only: [:show]
