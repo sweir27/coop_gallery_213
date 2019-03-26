@@ -1,4 +1,4 @@
-class AddFieldsToEvents < ActiveRecord::Migration
+class AddFieldsToEvents < ActiveRecord::Migration[4.2]
   def change
     add_column :events, :event_date, :date
     add_column :events, :start_time, :time

@@ -1,4 +1,4 @@
-class AddPicPaperclip < ActiveRecord::Migration
+class AddPicPaperclip < ActiveRecord::Migration[4.2]
   def self.up
     add_column :users, :pic_file_name,    :string
     add_column :users, :pic_content_type, :string

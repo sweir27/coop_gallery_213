@@ -1,4 +1,4 @@
-class FixWrongColumns < ActiveRecord::Migration
+class FixWrongColumns < ActiveRecord::Migration[4.2]
   def change
     add_column :shows, :artists, :string
     add_column :shows, :start_date, :datetime
