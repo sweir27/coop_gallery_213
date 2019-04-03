@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150425212344) do
+ActiveRecord::Schema.define(version: 20160415054637) do
 
   create_table "announcements", force: true do |t|
     t.string   "title"
@@ -88,14 +88,14 @@ ActiveRecord::Schema.define(version: 20150425212344) do
     t.string   "artists"
     t.date     "start_date"
     t.date     "end_date"
-    t.boolean  "current",                            default: false
-    t.string   "artist_talk_title"
-    t.datetime "artist_talk_date"
+    t.boolean  "current",                               default: false
+    t.string   "third_thursday_talk_title"
+    t.datetime "third_thursday_talk_date"
     t.string   "video_link"
     t.string   "video_link_title"
     t.string   "picture_1_caption"
     t.string   "picture_2_caption"
-    t.text     "short_description",      limit: 500
+    t.text     "short_description",         limit: 500
   end
 
   create_table "users", force: true do |t|
@@ -117,5 +117,6 @@ ActiveRecord::Schema.define(version: 20150425212344) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"
+  add_index "users", ["slug"], name: "index_users_on_slug"
 
 end
