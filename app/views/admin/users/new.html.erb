@@ -4,7 +4,7 @@
 
   <div class='row'>
     <div class='span7 offset1'>
-      <%= form_for @user, :html => { :multipart => true } do |f| %>
+      <%= form_for [:admin, @user], :html => { :multipart => true } do |f| %>
         <%= render 'shared/error_messages', :item => @user %>
         <%= f.label :name %>
         <%= f.text_field :name %>

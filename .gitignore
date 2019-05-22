@@ -23,3 +23,6 @@ doc/
 
 # ignore public images
 public/system
+
+latest.dump
+.env

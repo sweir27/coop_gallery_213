@@ -860,25 +860,39 @@ footer {
 .artwork-page {
   margin-top: 30px;
 
+  .artwork-page--content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .artwork-page--image {
+    max-width: 600px;
+
     img {
-      max-width: 960px;
+      max-width: 100%;
+      display: block;
+      height: auto;
       max-height: 600px;
-      width: 100%;
     }
   }
 
-  .artwork-page--title {
-    text-align: center;
-    margin-top: 30px;
-    font-size: 20px;
-    font-weight: bold;
+  .artwork-page--info {
+    text-align: left;
+
+    .artwork-page--artist {
+      margin-top: 30px;
+      font-weight: bold;
+    }
+
+    .artwork-page--title {
+      margin-bottom: 30px;
+      margin-top: 5px;
+    }
   }
 
-  .artwork-page--artist {
-    margin-bottom: 30px;
-    text-align: center;
-    margin-top: 5px;
+  .artwork-page--more-works {
+    margin-top: 50px;
   }
 }
 
@@ -973,23 +987,7 @@ footer {
   }
 
   .artwork-page {
-    .artwork-page--content {
-      display: flex;
-      margin-bottom: 50px;
-
-      .artwork-page--info {
-        width: 250px;
-        margin-left: 20px;
-
-        .artwork-page--title {
-          text-align: left;
-        }
-
-        .artwork-page--artist {
-          text-align: left;
-        }
-      }
-    }
+    margin-top: 100px;
   }
 
   .artist-biography {
