@@ -55,13 +55,6 @@ class Admin::ShowsController < Admin::BaseController
     redirect_to shows_url
   end
 
-  def set_current
-    show = Show.find(params[:id])
-    Show.update_all(:current => false)
-    show.toggle!(:current)
-    redirect_to shows_url
-  end
-
   private
 
   def show_params

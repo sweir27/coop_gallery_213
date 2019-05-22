@@ -15,4 +15,8 @@ class Show < ActiveRecord::Base
 
   validates_presence_of :video_link, :unless => lambda { self.video_link_title.blank? }
   validates_presence_of :third_thursday_talk_date, :unless => lambda { self.third_thursday_talk_title.blank? }
+
+  def current?
+    start_date <= Date.today && end_date >= Date.today
+  end
 end

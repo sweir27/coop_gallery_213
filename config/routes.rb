@@ -12,11 +12,7 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :shows do
-      member do
-        post 'set_current'
-      end
-    end
+    resources :shows
 
     resources :events do
       member do

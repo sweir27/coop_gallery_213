@@ -54,9 +54,6 @@
       <% if current_user && current_user.admin? %>
         <%= link_to "delete", admin_show_path(show), method: :delete, data: { confirm: "Are you sure you want to delete this show?" }, class: 'admin-option' %>
         <%= link_to "edit", edit_admin_show_path(show), class: 'admin-option' %>
-        <% if not show.current? %>
-          <%= link_to "make current", set_current_admin_show_path(show), method: :post, class: 'admin-option' %>
-        <% end %>
       <% end %>
     </div>
   </div>
