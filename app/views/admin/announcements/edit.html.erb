@@ -1,0 +1,35 @@
+<% provide(:title, 'Edit announcement') %>
+
+<div class='row'>
+  <div class='span7 offset1'>
+    <%= form_for [:admin, @announcement], :html => { :multipart => true } do |f| %>
+      <%= render 'shared/error_messages', :item => @announcement %>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+
+      <%= f.label :announcement_link %>
+      <%= f.text_field :announcement_link %>
+
+      <p>
+        <b>Announcement image (optional)</b><br/>
+        <% if @announcement.announcement_image.exists? %>
+          <%= image_tag @announcement.announcement_image.url(:thumb) %><br/>
+        <% end %>
+        <%= f.file_field :announcement_image %>
+      </p>
+
+      <%= f.label :pdf_title %>
+      <%= f.text_field :pdf_title %>
+
+      <p>
+        <b>Announcement pdf (optional)</b><br/>
+        <%= f.file_field :pdf %>
+      </p>
+
+      <%= f.submit "Update announcement", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

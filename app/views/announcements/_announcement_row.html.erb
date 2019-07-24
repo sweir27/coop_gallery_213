@@ -1,0 +1,34 @@
+<% has_image = announcement.announcement_image_file_name.present? %>
+
+<div class='announcement-row'>
+  <% if has_image %>
+    <div class='announcement-image'>
+      <%= image_tag announcement.announcement_image.url %>
+    </div>
+  <% end %>
+
+  <div class='announcement-info <%= has_image ? '' : 'without-image' %>'>
+    <div class='text-inset-title'>
+      <%= announcement.title %>
+    </div>
+    <div class='text-subtitle text-subline'>
+      <%= link_to announcement.announcement_link, announcement.announcement_link if announcement.announcement_link %>
+    </div>
+
+    <% if announcement.pdf_file_name? %>
+      <div class='text-subline'>
+        <% unless announcement.pdf_title.blank? %>
+          <%= link_to announcement.pdf_title, announcement.pdf.url %>
+        <% else %>
+          <%= link_to 'View PDF', announcement.pdf.url %>
+        <% end %>
+      </div>
+    <% end %>
+
+    <div class='text-subline'>
+      <div class='spaced-text'>
+        <%= announcement.description %>
+      </div>
+    </div>
+  </div>
+</div>

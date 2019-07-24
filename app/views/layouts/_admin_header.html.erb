@@ -1,0 +1,15 @@
+<div class="header-container">
+  <div class="nav-toggle" id="js-navbar-toggle">
+    <%= image_tag('menu.svg') %>
+  </div>
+  <%= link_to "Admin", admin_user_profile_path(current_user), id: "logo" %>
+  <% if current_user.admin? %>
+    <ul class="main-nav" id="js-menu">
+      <li><%= link_to "Users", admin_users_path, class: cp(admin_users_path) %></li>
+      <li><%= link_to "Shows", admin_shows_path, class: cp(admin_shows_path) %></li>
+      <li><%= link_to "Events", admin_events_path, class: cp(admin_events_path) %></li>
+      <li><%= link_to "Community", admin_links_path, class: cp(admin_links_path) %></li>
+      <li><%= link_to "Announcements", admin_announcements_path, class: cp(admin_announcements_path) %></li>
+    </ul>
+  <% end %>
+</div>

@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   has_many :artworks, dependent: :destroy
+  belongs_to :primary_artwork, class_name: 'Artwork'
+
   before_save { self.email = email.downcase }
   before_save { self.slug = create_slug }
   before_create :create_remember_token
@@ -9,7 +11,7 @@ class User < ActiveRecord::Base
                     format:     { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
   has_secure_password
-  validates :password, length: { minimum: 6 }
+  validates :password, length: { minimum: 6 }, if: :password
 
   Paperclip.interpolates :slug do |attachment, style|
     attachment.instance.slug
@@ -22,6 +24,16 @@ class User < ActiveRecord::Base
             # :url  => "/public/:attachment/:slug/:style/:basename.:extension"
   validates_attachment_content_type :pic, :content_type => /\Aimage\/.*\Z/
 
+  def primary_thumbnail_url
+    if primary_artwork && primary_artwork.image_file_name.present?
+      primary_artwork.image.url(:thumb)
+    else
+      artwork_with_image = artworks.where.not(image_file_name: nil).first
+      return unless artwork_with_image && artwork_with_image.image
+      artwork_with_image.image.url(:thumb)
+    end
+  end
+
   def User.new_remember_token
     SecureRandom.urlsafe_base64
   end
@@ -32,12 +44,11 @@ class User < ActiveRecord::Base
 
   private
 
-    def create_remember_token
-      self.remember_token = User.digest(User.new_remember_token)
-    end
+  def create_remember_token
+    self.remember_token = User.digest(User.new_remember_token)
+  end
 
-    def create_slug
-      return self.name.downcase.gsub(" ", "-")
-    end
-
+  def create_slug
+    return self.name.downcase.gsub(" ", "-")
+  end
 end

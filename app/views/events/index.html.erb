@@ -1,14 +1,11 @@
 <% provide(:title, 'Events') %>
-<div class='large-info-container-no-border'>
-  <%= render 'event_tabs' %>
-  <div class='events-list'>
-    <ul class="events">
-      <% @events.each do |date_group| %>
-        <h2 class='center maroon'><%= "#{Date::MONTHNAMES[date_group[0].month]} #{date_group[0].year}" %></h2>
-        <% date_group[1].sort_by(&:event_date).each do |event| %>
-          <%= render :partial => 'ind_event_admin', :locals => { event: event } %>
-        <% end %>
+<div class='events-list'>
+  <% @events.each do |date_group| %>
+    <div class='event-group'>
+      <h2 class='center maroon'><%= "#{Date::MONTHNAMES[date_group[0].month]} #{date_group[0].year}" %></h2>
+      <% date_group[1].sort_by(&:event_date).each do |event| %>
+        <%= render 'event_row', { event: event } %>
       <% end %>
-    </ul>
-  </div>
+    </div>
+  <% end %>
 </div>

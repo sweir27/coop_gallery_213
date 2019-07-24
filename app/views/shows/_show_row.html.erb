@@ -1,0 +1,57 @@
+<div class='show-row'>
+  <div class='show-row-left'>
+     <div class='show-title'>
+      <div class='center-div'>
+        <%= link_to show.name, show_path(show) %>
+      </div>
+    </div>
+
+    <div class='show-text'>
+      <%= show.artists %>
+    </div>
+
+    <div class='show-text'>
+      <%= formatted_show_dates(show.start_date, show.end_date) %>
+    </div>
+
+    <% unless show.third_thursday_talk_title.blank? %>
+      <div class='show-text'>
+        <span class='uppercase-subtitle-black'>
+          Third thursday talk
+        </span>
+        <%= link_to "#{show.third_thursday_talk_title}, #{show.third_thursday_talk_date.strftime('%m/%d/%Y, %I:%M %p')}", events_path %>
+      </div>
+    <% end %>
+
+    <% unless show.video_link.blank? %>
+      <div class='show-text'>
+        <span class='uppercase-subtitle-black'>
+          Video link
+        </span>
+        <%= link_to show.video_link_title, show.video_link %>
+      </div>
+    <% end %>
+  </div>
+
+  <% if show.picture_1_file_name.present? || show.picture_2_file_name.present? %>
+    <div class='show-row-right'>
+      <% unless show.picture_1_file_name.blank? %>
+        <%= link_to show.picture_1.url, class: "show-artwork" do %>
+          <%= image_tag show.picture_1.url(:thumb) %>
+          <div class='artwork-title hidden'>
+            <%= show.picture_1_caption unless show.picture_1_caption.blank? %>
+          </div>
+        <% end %>
+      <% end %>
+
+      <% unless show.picture_2_file_name.blank? %>
+        <%= link_to show.picture_2.url, class: "show-artwork" do %>
+          <%= image_tag show.picture_2.url(:thumb) %>
+          <div class='artwork-title hidden'>
+            <%= show.picture_2_caption unless show.picture_2_caption.blank? %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

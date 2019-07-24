@@ -1,0 +1,11 @@
+<% provide(:title, 'Announcements') %>
+<div class='large-info-container-no-border'>
+  <%= render 'announcement_tabs' %>
+  <div class='announcements-list'>
+    <ul class='announcements'>
+      <% @announcements.each do |announcement| %>
+        <%= render 'ind_announcement_admin', { announcement: announcement } %>
+      <% end %>
+    </ul>
+  </div>
+</div>

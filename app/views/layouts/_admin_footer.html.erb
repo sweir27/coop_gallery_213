@@ -1,0 +1,19 @@
+<footer class="footer">
+  <div class='footer-information'>
+    <% if signed_in? %>
+        <%= link_to "Back to Website", root_path %>
+        <br />
+        <%= link_to "Calendar", calendar_path %>
+        <br />
+        <a href="http://www.localendar.com">Shift Signup</a>
+        <br />
+        <% if admin? %>
+          <%= link_to "Manage Users", admin_users_path %>
+          <br />
+        <% end %>
+        <div class='divider'>
+          <%= link_to "Sign out", signout_path, method: "delete" %>
+        </div>
+    <% end %>
+  </div>
+</footer>

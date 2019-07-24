@@ -1,0 +1,51 @@
+<div class='current-show'>
+  <div id='current-show-images'>
+    <div class='show-picture'>
+      <%= image_tag show.picture_1.url %>
+    </div>
+    <% unless show.picture_2_file_name.blank? %>
+      <div class='show-picture'>
+        <%= image_tag show.picture_2.url  %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class='current-show-info'>
+    <div class='text-title'>
+      <%= link_to show.name, show_path(show) %>
+    </div>
+
+    <div class='text-subtitle text-subline'>
+      <%= show.artists %>
+    </div>
+
+    <div class='text-subtitle-date text-subline'>
+      <%= formatted_show_dates(show.start_date, show.end_date) %>
+    </div>
+
+    <% unless show.third_thursday_talk_title.blank? %>
+      <div class='text-subline'>
+        <span class='uppercase-subtitle-black'>Third thursday talk</span><%= link_to "#{show.third_thursday_talk_title}, #{show.third_thursday_talk_date.strftime('%m/%d/%Y, %I:%M %p')}", events_path %>
+      </div>
+    <% end %>
+
+    <% unless show.video_link.blank? %>
+      <div class=''>
+        <span class='uppercase-subtitle'>Video link</span>
+          <%= link_to "#{show.video_link_title.blank? ? 'Click here' : show.video_link_title}", show.video_link %>
+      </div>
+    <% end %>
+
+    <% if @show_long_text %>
+      <div class='current-show-description spaced-text'>
+        <%= show.description.gsub(/\n/, '<br/>').html_safe %>
+      </div>
+    <% else %>
+      <% if show.short_description %>
+        <div class='current-show-description spaced-text'>
+          <%= show.short_description.gsub(/\n/, '<br/>').html_safe %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
