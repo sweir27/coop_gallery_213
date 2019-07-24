@@ -1,4 +1,4 @@
-class AddAttachmentPicture1ToShows < ActiveRecord::Migration
+class AddAttachmentPicture1ToShows < ActiveRecord::Migration[4.2]
   def self.up
     change_table :shows do |t|
       t.attachment :picture_1

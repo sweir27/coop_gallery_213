@@ -1,0 +1,21 @@
+<% provide(:title, 'Community') %>
+<div class='links-list'>
+  <h2 class='center maroon'>Around the community</h2>
+  <%= render 'link_tabs' %>
+  <div class="links">
+    <% @links.each do |link| %>
+      <div class='ind-link'>
+        <div class='ind-link-title'>
+          <%= link_to link.title, link.url %>
+        </div>
+        <p><%= link.description %></p>
+        <% if current_user && current_user.admin? %>
+          <div class='admin-options small-padding'>
+            <%= link_to "delete", admin_link_path(link), method: :delete, data: { confirm: "You sure?" }, class: 'admin-option' %>
+            <%= link_to "edit", edit_admin_link_path(link), class: 'admin-option' %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-class AddAttachmentAnnouncementImageToAnnouncements < ActiveRecord::Migration
+class AddAttachmentAnnouncementImageToAnnouncements < ActiveRecord::Migration[4.2]
   def self.up
     change_table :announcements do |t|
       t.attachment :announcement_image

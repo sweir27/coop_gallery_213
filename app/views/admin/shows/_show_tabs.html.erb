@@ -1,0 +1,12 @@
+<div class='inner-tab-group'>
+  <div class='inner-tab-group-shows'>
+    <span class='inner-tab inner-tab-large'><%= link_to "Past", admin_shows_path(past: true), class: cp(admin_shows_path(past: true)) %></span>
+    <span class='inner-tab inner-tab-large'><%= link_to "Current", admin_shows_path(current: true), class: cp(admin_shows_path(current: true)) %></span>
+    <span class='inner-tab inner-tab-large'><%= link_to "Upcoming", admin_shows_path(upcoming: true), class: cp(admin_shows_path(upcoming: true)) %></span>
+  </div>
+</div>
+<div class='inner-tab-group'>
+  <% if current_user && current_user.admin? %>
+    <span class='inner-tab'><%= link_to "Create Show", new_admin_show_path, class: cp(new_admin_show_path) %></span>
+  <% end %>
+</div>

@@ -1,4 +1,4 @@
-class ChangeDateFormatInMyTable < ActiveRecord::Migration
+class ChangeDateFormatInMyTable < ActiveRecord::Migration[4.2]
   def up
     change_column :shows, :start_date, :date
     change_column :shows, :end_date, :date

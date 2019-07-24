@@ -1,0 +1,21 @@
+<div class='event-row'>
+  <div class='text-inset-title'><%= event.title %></div>
+  <div class='text-subline text-subtitle-date'>
+    <%= "#{event.event_date.strftime('%m/%d/%Y')}, #{event.start_time.strftime('%I:%M %p')} - #{event.end_time.strftime('%I:%M %p')}" %>
+  </div>
+  <% unless event.url.blank? %>
+    <div class='text-subline'>
+      <%= link_to event.url, event.url %>
+    </div>
+  <% end %>
+  <div class='ind-event-text'>
+    <% if event.pdf_file_name? %>
+      <% unless event.pdf_title.blank? %>
+        <span class='uppercase-subtitle-black'>PDF</span><%= link_to event.pdf_title, event.pdf.url %>
+      <% else %>
+        <span class='uppercase-subtitle-black'>PDF</span><%= link_to 'View', event.pdf.url %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class='spaced-text'><%= simple_format(event.description) %></div>
+</div>

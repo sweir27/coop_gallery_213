@@ -1,0 +1,7 @@
+<div class='artwork-thumbnails'>
+  <% artworks.each do |artwork| %>
+    <%= link_to artist_artwork_path(artist.id, artwork.id) do %>
+      <%= image_tag artwork.image.url(:thumb) %>
+    <% end %>
+  <% end %>
+</div>

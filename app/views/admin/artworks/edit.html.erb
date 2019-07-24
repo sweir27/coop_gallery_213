@@ -1,0 +1,22 @@
+<% provide(:title, "Edit artwork") %>
+<h2 class='center'>Update artwork information</h2>
+
+<div class="row">
+  <div class="span7 offset1">
+    <%= form_for [:admin, @user, @artwork], :html => { :multipart => true } do |f| %>
+      <%= render 'shared/error_messages', :item => @artwork %>
+
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+
+      <p>Image</p>
+      <% if @artwork.image.exists? %>
+        <%= image_tag @artwork.image.url(:thumb) %><br/>
+      <% end %>
+      <%= f.file_field :image %>
+      <br>
+      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+    <% end %>
+
+  </div>
+</div>

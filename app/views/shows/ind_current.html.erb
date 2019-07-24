@@ -1,46 +1,42 @@
-<% provide(:title, 'Current show') %>
-<%= render 'show_tabs' %>
-<ul class="shows">
-  <% if @current_show %>
-    <div class='col4 right-align'>
-      <div class='column-inner'>
-        <div class='show-picture'>
-          <%= link_to @current_show.picture_1.url, class: "current-show-artwork" do %>
-            <%= image_tag @current_show.picture_1.url %>
-            <div class='artwork-title hidden'><%= @current_show.picture_1_caption unless @current_show.picture_1_caption.blank? %></div>
+<% provide(:title, 'Shows') %>
+<div class='shows-all'>
+  <% if @current_shows %>
+    <h2 class='maroon'>
+      Current Shows
+    </h2>
+    <% @current_shows.each do |show| %>
+      <%= render partial: 'shared/current_show', locals: { show: show, show_long_text: true } %>
+    <% end %>
+  <% end %>
+
+  <% if @upcoming_shows %>
+    <div class='shows-upcoming'>
+      <h2 class='maroon'>
+        Upcoming Shows
+      </h2>
+      <% @upcoming_shows.each do |show| %>
+        <%= render :partial => 'show_row', :locals => { show: show } %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <% if @past_shows %>
+    <div class='shows-past'>
+      <h2 class='maroon'>
+        Past Shows
+      </h2>
+      <% @past_shows.each do |show| %>
+        <div class='show-info'>
+          <%= link_to(show_path(show)) do %>
+            <span>
+              <%= "#{show.name}, " %>
+            </span>
+            <span class='show-info--secondary'>
+             <%= "#{show.artists}, #{formatted_show_dates(show.start_date, show.end_date)}" %>
+            </span>
           <% end %>
         </div>
-        <% unless @current_show.picture_2_file_name.blank? %>
-          <div class='show-picture'>
-            <%= link_to @current_show.picture_2.url, class: "current-show-artwork" do %>
-              <%= image_tag @current_show.picture_2.url %>
-              <div class='artwork-title hidden'><%= @current_show.picture_2_caption unless @current_show.picture_2_caption.blank? %></div>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
+      <% end %>
     </div>
-    <div class='col8 last'>
-      <div class='column-inner'>
-        <div class='text-title'><%= @current_show.name %></div>
-        <div class='text-subtitle text-subline'><%= @current_show.artists %></div>
-        <div class='text-subtitle-date text-subline'><%= "#{@current_show.start_date.strftime('%m/%d/%Y')} - #{@current_show.end_date.strftime('%m/%d/%Y')}" %></div>
-        <% unless @current_show.third_thursday_talk_title.blank? %>
-          <div class='text-subline'>
-            <span class='uppercase-subtitle-black'>Third thursday talk</span><%= link_to "#{@current_show.third_thursday_talk_title}, #{@current_show.third_thursday_talk_date.strftime('%m/%d/%Y, %I:%M %p')}", events_path %>
-          </div>
-        <% end %>
-        <% unless @current_show.video_link.blank? %>
-          <div class=''>
-            <span class='uppercase-subtitle'>Video link</span><%= link_to @current_show.video_link_title, @current_show.video_link %>
-          </div>
-        <% end %>
-        <% if @current_show.description %>
-          <div class='current-show-description spaced-text'><%= @current_show.description.gsub(/\n/, '<br/>').html_safe %></div>
-        <% end %>
-      </div>
-    </div>
-  <% else %>
-    <div class='center-text center'>There is no show at this time. Visit our past and upcoming shows pages.</div>
   <% end %>
-</ul>
+</div>
