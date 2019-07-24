@@ -28,7 +28,9 @@ class User < ActiveRecord::Base
     if primary_artwork && primary_artwork.image_file_name.present?
       primary_artwork.image.url(:thumb)
     else
-      artworks.where.not(image_file_name: nil).first.image.url(:thumb)
+      artwork_with_image = artworks.where.not(image_file_name: nil).first
+      return unless artwork_with_image && artwork_with_image.image
+      artwork_with_image.image.url(:thumb)
     end
   end
 
