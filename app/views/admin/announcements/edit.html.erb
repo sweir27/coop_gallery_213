@@ -15,7 +15,7 @@
 
       <p>
         <b>Announcement image (optional)</b><br/>
-        <% if @announcement.announcement_image.exists? %>
+        <% if @announcement.announcement_image.present? %>
           <%= image_tag @announcement.announcement_image.url(:thumb) %><br/>
         <% end %>
         <%= f.file_field :announcement_image %>
