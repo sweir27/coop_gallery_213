@@ -10,7 +10,7 @@
       <%= f.text_field :title %>
 
       <p>Image</p>
-      <% if @artwork.image.exists? %>
+      <% if @artwork.image.present? %>
         <%= image_tag @artwork.image.url(:thumb) %><br/>
       <% end %>
       <%= f.file_field :image %>
