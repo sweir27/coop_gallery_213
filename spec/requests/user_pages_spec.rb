@@ -6,24 +6,29 @@ describe "User pages" do
 
   describe "profile page" do
     let(:user) { FactoryGirl.create(:user) }
-    before { visit user_path(user) }
+    before { visit "/artists/#{user.id}" }
 
     it { should have_content(user.name) }
     it { should have_title(user.name) }
   end
 
-  describe "signup page" do
-    before { visit signup_path }
+  xdescribe "signup" do
+    let(:user) { FactoryGirl.create(:user) }
 
-    it { should have_content('Sign up') }
-    it { should have_title('Sign up') }
-  end
+    before do
+      visit '/signin'
+      fill_in "Email",        with: user.email.upcase
+      fill_in "Password",     with: user.password
+      click_button "Sign in"
+      click_link "Create user"
+    end
 
-  describe "signup" do
+    let(:submit) { "Create user" }
 
-    before { visit signup_path }
-
-    let(:submit) { "Create my account" }
+    describe "signup page" do
+      it { should have_content('Add user') }
+      it { should have_title('Add user') }
+    end
 
     describe "with invalid information" do
       it "should not create a user" do

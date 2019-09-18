@@ -29,11 +29,6 @@ describe User do
     it { should_not be_valid }
   end
 
-  describe "when biography is not present" do
-    before { @user.biography = " " }
-    it { should_not be_valid }
-  end
-
   describe "when name is too long" do
     before { @user.name = "a" * 51 }
     it { should_not be_valid }
@@ -69,12 +64,6 @@ describe User do
     it { should_not be_valid }
   end
 
-  describe "should generate slug" do
-    before { @user.save }
-    its(:slug) { should_not be_blank }
-    its(:slug) { should eq 'example-user' }
-  end
-
   describe "when password is not present" do
     before do
       @user = User.new(name: "Example User", email: "user@example.com",
@@ -105,12 +94,7 @@ describe User do
       let(:user_for_invalid_password) { found_user.authenticate("invalid") }
 
       it { should_not eq user_for_invalid_password }
-      specify { expect(user_for_invalid_password).to be_false }
+      specify { expect(user_for_invalid_password).to be false }
     end
-  end
-
-  describe "remember token" do
-    before { @user.save }
-    its(:remember_token) { should_not be_blank }
   end
 end

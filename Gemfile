@@ -17,8 +17,8 @@ group :development, :test do
 end
 
 group :test do
-  gem 'selenium-webdriver', '2.35.1'
-  gem 'capybara', '2.1.0'
+  gem 'selenium-webdriver'
+  gem 'capybara'
 end
 
 gem 'sass-rails'
@@ -29,12 +29,13 @@ gem 'fancybox2-rails'
 gem 'jbuilder'
 gem 'factory_girl_rails'
 gem 'aws-sdk'
+gem 'nokogiri', '>= 1.10.4'
+gem 'rubyzip', '>= 1.2.2'
 
 group :doc do
   gem 'sdoc', require: false
 end
 
 group :production do
-
   gem 'rails_12factor'
 end

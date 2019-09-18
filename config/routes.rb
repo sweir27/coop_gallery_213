@@ -41,11 +41,10 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
 
   root 'home#index'
-  match '/signup',  to: 'users#new',            via: 'get'
-  match '/signin',  to: 'sessions#new',         via: 'get'
-  match '/signout', to: 'sessions#destroy',     via: 'delete'
-  match '/signup',  to: 'users#new',            via: 'get'
-  match '/about',   to: 'static_pages#about',   via: 'get'
+  match '/signin', to: 'sessions#new', via: 'get'
+  match '/signout', to: 'sessions#destroy', via: 'delete'
+  match '/signup', to: 'admin/users#new', via: 'get'
+  match '/about', to: 'static_pages#about', via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
   match '/calendar', to: 'static_pages#calendar', via: 'get'
 end
