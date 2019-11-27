@@ -10,6 +10,18 @@ gem "cancan"
 gem "jquery-slick-rails"
 gem 'pg'
 gem 'kaminari'
+gem 'mini_magick'
+
+gem 'sass-rails'
+gem 'uglifier'
+gem 'coffee-rails'
+gem 'jquery-rails'
+gem 'fancybox2-rails'
+gem 'jbuilder'
+gem 'factory_girl_rails'
+gem 'aws-sdk', require: false
+gem 'nokogiri', '>= 1.10.4'
+gem 'rubyzip', '>= 1.2.2'
 
 group :development, :test do
   gem 'rspec-rails'
@@ -20,17 +32,6 @@ group :test do
   gem 'selenium-webdriver'
   gem 'capybara'
 end
-
-gem 'sass-rails'
-gem 'uglifier'
-gem 'coffee-rails'
-gem 'jquery-rails'
-gem 'fancybox2-rails'
-gem 'jbuilder'
-gem 'factory_girl_rails'
-gem 'aws-sdk'
-gem 'nokogiri', '>= 1.10.4'
-gem 'rubyzip', '>= 1.2.2'
 
 group :doc do
   gem 'sdoc', require: false
