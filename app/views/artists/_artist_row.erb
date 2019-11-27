@@ -6,7 +6,7 @@
 
     <div class='artist-artworks'>
       <% artworks.each do |artwork| %>
-        <%= image_tag artwork.image.url(:thumb) %>
+        <%= image_tag artwork.thumbnail %>
       <% end %>
     </div>
   <% end %>
