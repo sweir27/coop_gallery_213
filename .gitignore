@@ -26,3 +26,5 @@ public/system
 
 latest.dump
 .env
+
+storage/
