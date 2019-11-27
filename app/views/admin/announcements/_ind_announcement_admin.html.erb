@@ -30,9 +30,9 @@
 
     <div class='col5 last'>
       <div class='onerow pull-right'>
-        <% unless announcement.announcement_image_file_name.blank? %>
+        <% unless announcement.announcement_image.filename.blank? %>
           <div class='show-picture'>
-            <%= image_tag announcement.announcement_image.url(:thumb) %>
+            <%= image_tag announcement.announcement_image.variant(resize: '150x150') %>
           </div>
         <% end %>
       </div>

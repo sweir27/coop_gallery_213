@@ -1,9 +1,9 @@
-<% has_image = announcement.announcement_image_file_name.present? %>
+<% has_image = announcement.announcement_image.filename.present? %>
 
 <div class='announcement-row'>
   <% if has_image %>
     <div class='announcement-image'>
-      <%= image_tag announcement.announcement_image.url %>
+      <%= image_tag announcement.announcement_image %>
     </div>
   <% end %>
 
