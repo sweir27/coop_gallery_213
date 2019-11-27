@@ -13,9 +13,9 @@
         <div class='text-subline'>
           <% if announcement.pdf_file_name? %>
             <% unless announcement.pdf_title.blank? %>
-              <%= link_to announcement.pdf_title, announcement.pdf.url %>
+              <%= link_to announcement.pdf_title, announcement.pdf %>
             <% else %>
-              <%= link_to 'View PDF', announcement.pdf.url %>
+              <%= link_to 'View PDF', announcement.pdf %>
             <% end %>
           <% end %>
         </div>
