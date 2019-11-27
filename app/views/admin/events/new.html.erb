@@ -28,7 +28,7 @@
 
       <p>
         <b>Event pdf (optional)</b><br/>
-        <%= f.file_field :pdf %>
+        <%= f.file_field :pdf, direct_upload: true %>
       </p>
 
       <%= f.submit "Create event", class: "btn btn-large btn-primary" %>

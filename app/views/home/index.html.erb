@@ -32,15 +32,23 @@
             </div>
           <% end %>
           <div class='ind-event-text'>
-            <% if event.pdf_file_name? %>
+            <% if event.pdf.filename.present? %>
               <% unless event.pdf_title.blank? %>
-                <span class='uppercase-subtitle-black'>PDF</span><%= link_to event.pdf_title, event.pdf.url %>
+                <span class='uppercase-subtitle-black'>
+                  PDF
+                </span>
+                <%= link_to event.pdf_title, event.pdf %>
               <% else %>
-                <span class='uppercase-subtitle-black'>PDF</span><%= link_to 'View', event.pdf.url %>
+                <span class='uppercase-subtitle-black'>
+                  PDF
+                </span>
+                <%= link_to 'View', event.pdf %>
               <% end %>
             <% end %>
           </div>
-          <div class='spaced-text'><%= simple_format(event.description) %></div>
+          <div class='spaced-text'>
+            <%= simple_format(event.description) %>
+          </div>
         </div>
       <% end %>
     </div>
