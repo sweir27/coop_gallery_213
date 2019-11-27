@@ -32,7 +32,7 @@
       <div class='onerow pull-right'>
         <% unless announcement.announcement_image.filename.blank? %>
           <div class='show-picture'>
-            <%= image_tag announcement.announcement_image.variant(resize: '150x150>') %>
+            <%= image_tag announcement.thumbnail %>
           </div>
         <% end %>
       </div>
