@@ -33,20 +33,20 @@
     <% end %>
   </div>
 
-  <% if show.picture_1_file_name.present? || show.picture_2_file_name.present? %>
+  <% if show.picture_1.attachment.present? || show.picture_2.attachment.present? %>
     <div class='show-row-right'>
-      <% unless show.picture_1_file_name.blank? %>
-        <%= link_to show.picture_1.url, class: "show-artwork" do %>
-          <%= image_tag show.picture_1.url(:thumb) %>
+      <% if show.picture_1.attachment.present? %>
+        <%= link_to show.picture_1, class: "show-artwork" do %>
+          <%= image_tag show.picture_1_thumbnail %>
           <div class='artwork-title hidden'>
             <%= show.picture_1_caption unless show.picture_1_caption.blank? %>
           </div>
         <% end %>
       <% end %>
 
-      <% unless show.picture_2_file_name.blank? %>
-        <%= link_to show.picture_2.url, class: "show-artwork" do %>
-          <%= image_tag show.picture_2.url(:thumb) %>
+      <% if show.picture_2.attachment.present? %>
+        <%= link_to show.picture_2, class: "show-artwork" do %>
+          <%= image_tag show.picture_2_thumbnail %>
           <div class='artwork-title hidden'>
             <%= show.picture_2_caption unless show.picture_2_caption.blank? %>
           </div>

@@ -30,7 +30,7 @@
 
     <div class='col5 last'>
       <div class='onerow pull-right'>
-        <% unless announcement.announcement_image.filename.blank? %>
+        <% unless announcement.announcement_image.attachment.blank? %>
           <div class='show-picture'>
             <%= image_tag announcement.thumbnail %>
           </div>

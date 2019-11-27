@@ -9,7 +9,7 @@
     </div>
   <% end %>
   <div class='ind-event-text'>
-    <% if event.pdf.filename.present? %>
+    <% if event.pdf.attachment.present? %>
       <% unless event.pdf_title.blank? %>
         <span class='uppercase-subtitle-black'>
           PDF

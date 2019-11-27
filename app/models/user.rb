@@ -17,16 +17,11 @@ class User < ActiveRecord::Base
     attachment.instance.slug
   end
 
-  has_attached_file :pic,
-            :styles =>
-              { :medium => "300x300>", :thumb => "100x100#" }
-  validates_attachment_content_type :pic, :content_type => /\Aimage\/.*\Z/
-
   def primary_thumbnail_url
-    if primary_artwork && primary_artwork.image.filename.present?
+    if primary_artwork && primary_artwork.image.attachment.present?
       primary_artwork.thumbnail
     else
-      artwork_with_image = artworks.with_attached_image.select{ |artwork| artwork.image.filename.present? }.first
+      artwork_with_image = artworks.with_attached_image.select{ |artwork| artwork.image.attachment.present? }.first
       return unless artwork_with_image && artwork_with_image.image
       artwork_with_image.thumbnail
     end
