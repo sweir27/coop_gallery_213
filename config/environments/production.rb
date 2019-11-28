@@ -92,4 +92,6 @@ CoopGallery213::Application.configure do
     },
     :s3_region => ENV['AWS_REGION']
   }
+
+  config.active_storage.service = :amazon
 end
