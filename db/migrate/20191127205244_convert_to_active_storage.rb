@@ -81,7 +81,7 @@ class ConvertToActiveStorage < ActiveRecord::Migration[5.2]
   end
 
   def checksum(attachment)
-    url = attachment.path
-    Digest::MD5.base64digest(File.read(url))
+    url = attachment.url
+    Digest::MD5.base64digest(Net::HTTP.get(URI(url)))
   end
 end
