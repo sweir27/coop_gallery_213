@@ -34,16 +34,20 @@
     </div>
     <div class='<%= "show-right-#{show.id}" %> col5 last' data-show= <%= show.id %> >
       <div class='onerow pull-right'>
-        <% unless show.picture_1_file_name.blank? %>
-          <%= link_to show.picture_1.url, class: "show-artwork" do %>
-            <%= image_tag show.picture_1.url(:thumb) %>
-            <div class='artwork-title hidden'><%= show.picture_1_caption unless show.picture_1_caption.blank? %></div>
+        <% if show.picture_1.attachment.present? %>
+          <%= link_to show.picture_1, class: "show-artwork" do %>
+            <%= image_tag show.picture_1_thumbnail %>
+            <div class='artwork-title hidden'>
+              <%= show.picture_1_caption unless show.picture_1_caption.blank? %>
+            </div>
           <% end %>
         <% end %>
-        <% unless show.picture_2_file_name.blank? %>
-          <%= link_to show.picture_2.url, class: "show-artwork" do %>
-            <%= image_tag show.picture_2.url(:thumb) %>
-            <div class='artwork-title hidden'><%= show.picture_2_caption unless show.picture_2_caption.blank? %></div>
+        <% if show.picture_2.attachment.present? %>
+          <%= link_to show.picture_2, class: "show-artwork" do %>
+            <%= image_tag show.picture_2_thumbnail %>
+            <div class='artwork-title hidden'>
+              <%= show.picture_2_caption unless show.picture_2_caption.blank? %>
+            </div>
           <% end %>
         <% end %>
       </div>

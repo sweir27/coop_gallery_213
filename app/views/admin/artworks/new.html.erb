@@ -8,7 +8,7 @@
       <%= f.text_field :title %>
       <p>
        <b>Image</b><br/>
-       <%= f.file_field :image %>
+       <%= f.file_field :image, direct_upload: true %>
      </p>
       <%= f.submit "Add artwork", class: "btn btn-large btn-primary" %>
     <% end %>

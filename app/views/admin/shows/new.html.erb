@@ -27,7 +27,7 @@
 
       <p>
         <b> Picture 1</b><br/>
-        <%= f.file_field :picture_1 %>
+        <%= f.file_field :picture_1, direct_upload: true %>
       </p>
 
       <%= f.label :picture_1_caption %>
@@ -35,7 +35,7 @@
 
       <p>
         <b> Picture 2 (optional)</b><br/>
-        <%= f.file_field :picture_2 %>
+        <%= f.file_field :picture_2, direct_upload: true %>
       </p>
 
       <%= f.label :picture_2_caption %>

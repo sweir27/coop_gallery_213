@@ -11,9 +11,9 @@
 
       <p>Image</p>
       <% if @artwork.image.present? %>
-        <%= image_tag @artwork.image.url(:thumb) %><br/>
+        <%= image_tag @artwork.thumbnail %><br/>
       <% end %>
-      <%= f.file_field :image %>
+      <%= f.file_field :image, direct_upload: true %>
       <br>
       <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
     <% end %>

@@ -2,7 +2,7 @@ class Admin::AnnouncementsController < Admin::BaseController
   before_action :require_admin
 
   def index
-    @announcements = Announcement.all
+    @announcements = Announcement.with_attached_announcement_image.all
   end
 
   def new

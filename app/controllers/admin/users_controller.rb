@@ -12,7 +12,7 @@ class Admin::UsersController < Admin::BaseController
 
   def show
     @user = User.find(params[:id])
-    @artworks = @user.artworks.order(created_at: :asc)
+    @artworks = @user.artworks.with_attached_image.order(created_at: :asc)
   end
 
   def destroy

@@ -2,8 +2,14 @@ class Artwork < ActiveRecord::Base
   belongs_to :user
   validates :user_id, presence: true
   validates :title, presence: true
-  has_attached_file :image,
-            :styles =>
-              { :medium => "300x300>", :thumb => "150x150#", :large_square => "300x300#" }
-  validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+
+  has_one_attached :image
+
+  def thumbnail
+    image.variant(resize: '150x150^', auto_orient: true, gravity: 'center', extent: '150x150')
+  end
+
+  def large_image
+    image.variant(resize: 'x600', auto_orient: true)
+  end
 end

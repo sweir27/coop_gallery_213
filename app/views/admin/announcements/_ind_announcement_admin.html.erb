@@ -13,9 +13,9 @@
         <div class='text-subline'>
           <% if announcement.pdf_file_name? %>
             <% unless announcement.pdf_title.blank? %>
-              <%= link_to announcement.pdf_title, announcement.pdf.url %>
+              <%= link_to announcement.pdf_title, announcement.pdf %>
             <% else %>
-              <%= link_to 'View PDF', announcement.pdf.url %>
+              <%= link_to 'View PDF', announcement.pdf %>
             <% end %>
           <% end %>
         </div>
@@ -30,9 +30,9 @@
 
     <div class='col5 last'>
       <div class='onerow pull-right'>
-        <% unless announcement.announcement_image_file_name.blank? %>
+        <% unless announcement.announcement_image.attachment.blank? %>
           <div class='show-picture'>
-            <%= image_tag announcement.announcement_image.url(:thumb) %>
+            <%= image_tag announcement.thumbnail %>
           </div>
         <% end %>
       </div>

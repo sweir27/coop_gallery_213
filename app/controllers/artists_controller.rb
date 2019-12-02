@@ -6,6 +6,6 @@ class ArtistsController < ApplicationController
 
   def show
     @artist = User.find(params[:id])
-    @artworks = @artist.artworks.order(created_at: :asc)
+    @artworks = @artist.artworks.with_attached_image.order(created_at: :asc)
   end
 end
