@@ -27,3 +27,19 @@
     <% end %>
   <% end %>
 </div>
+<div class='onerow center'>
+  <div class='form-inner-title'>
+    Exhibiting member pdf
+  </div>
+  <% if @site.exhibiting_member_pdf.attachment.present? %>
+    <%= link_to @site.exhibiting_member_pdf.filename, @site.exhibiting_member_pdf %>
+  <% end %>
+</div>
+<div class='onerow center'>
+  <div class='form-inner-title'>
+    Supporting member pdf
+  </div>
+  <% if @site.supporting_member_pdf.attachment.present? %>
+    <%= link_to @site.supporting_member_pdf.filename, @site.supporting_member_pdf %>
+  <% end %>
+</div>

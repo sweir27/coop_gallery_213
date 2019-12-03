@@ -253,6 +253,18 @@ h2 {
     max-width: 550px;
     margin: 0 auto;
   }
+
+  .about-page--action {
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    .accent-button {
+      background-color: $maroon;
+      color: white;
+      width: 200px;
+      padding: 10px;
+    }
+  }
 }
 
 

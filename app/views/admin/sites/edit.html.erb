@@ -7,7 +7,7 @@
       <%= render 'shared/error_messages', :item => @site %>
 
       <p>
-        <b> Home page image</b><br/>
+        <b>Home page image</b><br/>
         <% if @site.home_image.attachment.present? %>
           <%= image_tag @site.home_image_thumbnail %><br/>
         <% end %>
@@ -15,11 +15,27 @@
       </p>
 
       <p>
-        <b> About page image</b><br/>
+        <b>About page image</b><br/>
         <% if @site.about_image.attachment.present? %>
           <%= image_tag @site.about_image_thumbnail %><br/>
         <% end %>
         <%= f.file_field :about_image, direct_upload: true %>
+      </p>
+
+      <p>
+        <b>Exhibiting member pdf</b><br/>
+        <% if @site.exhibiting_member_pdf.attachment.present? %>
+          <%= @site.exhibiting_member_pdf.filename %><br/>
+        <% end %>
+        <%= f.file_field :exhibiting_member_pdf, direct_upload: true %>
+      </p>
+
+      <p>
+        <b>Supporting member pdf</b><br/>
+        <% if @site.supporting_member_pdf.attachment.present? %>
+          <%= @site.supporting_member_pdf.filename %><br/>
+        <% end %>
+        <%= f.file_field :supporting_member_pdf, direct_upload: true %>
       </p>
 
       <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
