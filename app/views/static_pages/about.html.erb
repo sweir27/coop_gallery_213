@@ -23,8 +23,17 @@
       <h2 class='center maroon'>Become a supporting member</h2>
       <div class='info-text'>
         Supporting members are guaranteed exhibition space at our annual December Holiday Show and are invited to exhibit at other special shows during the year. Supporting members receive member discount rates on bus trips, special outings and workshops. They are included in members' only events and will receive the artist's reception and show invitations, as well as the gallery e-newsletter.
-        <p><a href="/Membership_Application.pdf"><b>Click here</b></a> to open or print the application form. Mail the completed form to:</p>
       </div>
+      <p class='info-text center about-page--action'>
+        <% if @site.supporting_member_pdf.attachment.present? %>
+        <p class='info-text center about-page--action'>
+          <%= link_to 'Supporting member application form', @site.supporting_member_pdf, class: 'accent-button' %>
+        </p>
+      <% end %>
+      </p>
+      <p class='info-text center'>
+        Please mail the completed form to:
+      </p>
       <div class='info-text center'>
         Cooperative Gallery
         <br />ATTN: Membership Coordinator
@@ -37,10 +46,18 @@
       <h2 class='center maroon'>Become an exhibiting member</h2>
       <div class='info-text'>
         We are currently seeking new exhibiting members. Members share in the responsibility of running the gallery. In turn a member can expect a solo or shared show once every 'membership' year (16-19) month and the opportunity to exhibit at least one work each month in the member's gallery space.
-
-        <p><a href="/Exhibiting_Membership_Application_pdf.pdf"><b>Click here</b></a> to open or print the exhibiting member application form as a pdf file or <a href="/Exhibiting_Membership_Application_docx.docx"><b>click here</b></a> to open it as docx file. Email the completed form to
-        <b><%= mail_to 'cooperativegallery213@gmail.com' %></b> or use the mailing address displayed above.
       </div>
+      <% if @site.exhibiting_member_pdf.attachment.present? %>
+        <p class='info-text center about-page--action'>
+          <%= link_to 'Exhibiting member application form', @site.exhibiting_member_pdf, class: 'accent-button' %>
+        </p>
+      <% end %>
+      <p class='info-text'>
+        Email the completed form to
+        <b>
+          <%= mail_to 'cooperativegallery213@gmail.com' %>
+        </b> or use the mailing address displayed above.
+      </p>
     </div>
 
     <div class='padding-container'>

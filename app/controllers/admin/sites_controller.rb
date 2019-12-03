@@ -23,6 +23,6 @@ class Admin::SitesController < Admin::BaseController
   private
 
   def site_params
-    params.require(:site).permit(:home_image, :about_image)
+    params.require(:site).permit(:home_image, :about_image, :exhibiting_member_pdf, :supporting_member_pdf)
   end
 end
