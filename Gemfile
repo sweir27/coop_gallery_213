@@ -7,7 +7,6 @@ gem 'bcrypt-ruby'
 gem 'faker'
 gem "paperclip"
 gem "cancan"
-gem "jquery-slick-rails"
 gem 'pg'
 gem 'kaminari'
 gem 'mini_magick'
@@ -16,7 +15,6 @@ gem 'sass-rails'
 gem 'uglifier'
 gem 'coffee-rails'
 gem 'jquery-rails'
-gem 'fancybox2-rails'
 gem 'jbuilder'
 gem 'factory_girl_rails'
 gem 'aws-sdk', require: false

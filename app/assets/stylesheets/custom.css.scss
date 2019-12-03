@@ -334,6 +334,7 @@ h2 {
   margin: 0px;
   max-height: 400px;
   overflow: hidden;
+  text-align: center;
 
   img {
     height: 200px;
@@ -644,9 +645,26 @@ ul {
   }
 }
 
-.show-picture {
-  padding: 10px;
+.current-show {
+  margin-top: 20px;
 
+  .current-show-images {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    .show-picture {
+      max-width: 100%;
+      padding-top: 10px;
+
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+}
+
+.show-picture {
   .artwork-title {
     margin-top: 10px;
     margin-bottom: 20px;
@@ -667,16 +685,6 @@ ul {
   margin-top: 50px;
   .large-info-container {
     padding: 40px;
-  }
-}
-
-.current-show {
-  margin-top: 50px;
-
-  #current-show-images {
-    img {
-      width: 100%;
-    }
   }
 }
 
@@ -946,19 +954,6 @@ footer {
     img {
       width: 100%;
       height: auto;
-    }
-  }
-
-  .current-show {
-    display: flex;
-    justify-content: space-between;
-
-    #current-show-images {
-      max-width: 400px;
-    }
-
-    .current-show-info {
-      padding-left: 30px;
     }
   }
 
