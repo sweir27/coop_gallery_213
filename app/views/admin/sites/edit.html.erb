@@ -1,0 +1,28 @@
+<% provide(:title, 'Update site') %>
+<h2 class='center'>Update site</h1>
+
+<div class='row'>
+  <div class='span7 offset1'>
+    <%= form_for [:admin, @site], :html => { :multipart => true } do |f| %>
+      <%= render 'shared/error_messages', :item => @site %>
+
+      <p>
+        <b> Home page image</b><br/>
+        <% if @site.home_image.attachment.present? %>
+          <%= image_tag @site.home_image_thumbnail %><br/>
+        <% end %>
+        <%= f.file_field :home_image, direct_upload: true %>
+      </p>
+
+      <p>
+        <b> About page image</b><br/>
+        <% if @site.about_image.attachment.present? %>
+          <%= image_tag @site.about_image_thumbnail %><br/>
+        <% end %>
+        <%= f.file_field :about_image, direct_upload: true %>
+      </p>
+
+      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

@@ -5,6 +5,7 @@
   <%= link_to "Admin", admin_user_profile_path(current_user), id: "logo" %>
   <% if current_user.admin? %>
     <ul class="main-nav" id="js-menu">
+      <li><%= link_to "Site", admin_sites_path, class: cp(admin_sites_path) %></li>
       <li><%= link_to "Users", admin_users_path, class: cp(admin_users_path) %></li>
       <li><%= link_to "Shows", admin_shows_path, class: cp(admin_shows_path) %></li>
       <li><%= link_to "Events", admin_events_path, class: cp(admin_events_path) %></li>

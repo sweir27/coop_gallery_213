@@ -4,5 +4,6 @@ class HomeController < ApplicationController
     @events = Event.with_attached_pdf.where(on_homepage: true).sort_by(&:event_date)
     @announcements = Announcement.all
     @artists = User.all.order(:slug)
+    @site = Site.first
   end
 end

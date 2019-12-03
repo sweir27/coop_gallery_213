@@ -24,4 +24,14 @@ class Show < ActiveRecord::Base
     return unless picture_2.attachment.present?
     picture_2.variant(resize: '150x150^', auto_orient: true, gravity: 'center', extent: '150x150')
   end
+
+  def picture_1_square
+    return unless picture_1.attachment.present?
+    picture_1.variant(resize: '300x300^', auto_orient: true, gravity: 'center', extent: '300x300')
+  end
+
+  def picture_2_square
+    return unless picture_2.attachment.present?
+    picture_2.variant(resize: '300x300^', auto_orient: true, gravity: 'center', extent: '300x300')
+  end
 end

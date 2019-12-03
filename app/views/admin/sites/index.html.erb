@@ -1,0 +1,29 @@
+<h2 class='center'>
+  Site content
+</h2>
+<div class='center admin-options small-padding'>
+  <% if current_user && current_user.admin? %>
+    <%= link_to "edit all", edit_admin_site_path(@site), class: 'admin-option' %>
+  <% end %>
+</div>
+
+<div class='onerow center'>
+  <div class='form-inner-title'>
+    Home page image
+  </div>
+  <% if @site.home_image.attachment.present? %>
+    <%= link_to @site.home_image, class: "show-artwork" do %>
+      <%= image_tag @site.home_image_thumbnail %>
+    <% end %>
+  <% end %>
+</div>
+<div class='onerow center'>
+  <div class='form-inner-title'>
+    About page image
+  </div>
+  <% if @site.about_image.attachment.present? %>
+    <%= link_to @site.about_image, class: "show-artwork" do %>
+      <%= image_tag @site.about_image_thumbnail %>
+    <% end %>
+  <% end %>
+</div>

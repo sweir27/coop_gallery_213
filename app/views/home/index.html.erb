@@ -1,7 +1,6 @@
 <% provide(:title, 'Cooperative Gallery 213') %>
 
 <div class='homepage'>
-
   <% if @current_shows %>
     <% @current_shows.each do |show| %>
       <%= render partial: 'shared/current_show', locals: { show: show } %>

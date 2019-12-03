@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     end
 
     resources :shows
+    resources :sites
 
     resources :events do
       member do

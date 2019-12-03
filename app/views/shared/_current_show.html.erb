@@ -1,13 +1,13 @@
 <div class='current-show'>
-  <div id='current-show-images'>
+  <div class='current-show-images'>
     <div class='show-picture'>
       <% if show.picture_1.attachment.present? %>
-        <%= image_tag show.picture_1 %>
+        <%= image_tag show.picture_1_square %>
       <% end %>
     </div>
     <% if show.picture_2.attachment.present? %>
       <div class='show-picture'>
-        <%= image_tag show.picture_2  %>
+        <%= image_tag show.picture_2_square  %>
       </div>
     <% end %>
   </div>
