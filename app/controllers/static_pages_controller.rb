@@ -3,7 +3,9 @@ class StaticPagesController < ApplicationController
 
   def contact; end
 
-  def about; end
+  def about
+    @site = Site.first
+  end
 
   def calendar; end
 

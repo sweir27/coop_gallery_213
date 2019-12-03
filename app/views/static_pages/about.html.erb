@@ -1,7 +1,9 @@
 <% provide(:title, 'About the gallery') %>
 <div class='about-page'>
-  <div class='center'>
-    <%= image_tag('gallery_view_2.jpg', class: 'about-page-image') %>
+  <div class='center about-page-image-wrap'>
+    <% if @site.about_image.attachment.present?%>
+      <%= image_tag(@site.about_image, class: 'about-page-image') %>
+    <% end %>
   </div>
 
   <div class='about-page--contents'>
