@@ -6,6 +6,8 @@ class Artwork < ActiveRecord::Base
   has_one_attached :image
 
   def thumbnail
+    return unless image.attached? && image.variable?
+
     image.variant(resize: '150x150^', auto_orient: true, gravity: 'center', extent: '150x150')
   end
 

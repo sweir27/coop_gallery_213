@@ -1,7 +1,9 @@
 <div class='artwork-thumbnails'>
   <% artworks.each do |artwork| %>
     <%= link_to artist_artwork_path(artist.id, artwork.id) do %>
-      <%= image_tag artwork.thumbnail %>
+      <% if artwork.thumbnail.presence %>
+        <%= image_tag artwork.thumbnail %>
+      <% end %>
     <% end %>
   <% end %>
 </div>

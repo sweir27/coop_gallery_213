@@ -10,7 +10,7 @@
       <%= f.text_field :title %>
 
       <p>Image</p>
-      <% if @artwork.image.present? %>
+      <% if @artwork.thumbnail.presence %>
         <%= image_tag @artwork.thumbnail %><br/>
       <% end %>
       <%= f.file_field :image, direct_upload: true %>
