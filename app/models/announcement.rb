@@ -10,6 +10,8 @@ class Announcement < ActiveRecord::Base
   # TODO: validate content type for pdf
 
   def thumbnail
+    return unless announcement_image.attached? && announcement_image.variable?
+
     announcement_image.variant(resize: '150x150^', auto_orient: true, gravity: 'center', extent: '150x150')
   end
 end

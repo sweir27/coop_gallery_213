@@ -18,7 +18,9 @@
       <div class='all-artwork'>
         <% @artworks.each do |artwork| %>
           <div class="artwork-content">
-            <%= image_tag artwork.thumbnail, class: 'artwork-image' %>
+            <% if artwork.thumbnail.presence %>
+              <%= image_tag artwork.thumbnail, class: 'artwork-image' %>
+            <% end %>
             <div class='artwork-title'>
               <%= artwork.title %>
             </div>

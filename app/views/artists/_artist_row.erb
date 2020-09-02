@@ -6,7 +6,9 @@
 
     <div class='artist-artworks'>
       <% artworks.each do |artwork| %>
-        <%= image_tag artwork.thumbnail %>
+        <% if artwork.thumbnail.presence %>
+          <%= image_tag artwork.thumbnail %>
+        <% end %>
       <% end %>
     </div>
   <% end %>
