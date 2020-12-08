@@ -28,3 +28,5 @@ latest.dump
 .env
 
 storage/
+
+logfile

@@ -1,5 +1,5 @@
 <div class='banner-image-wrap'>
-  <% if @site.home_image.attachment.present?%>
+  <% if @site&.home_image&.attachment.present?%>
     <%= image_tag(@site.home_image) %>
   <% end %>
 </div>

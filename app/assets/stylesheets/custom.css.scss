@@ -1,8 +1,8 @@
 $grayMediumLight: #eaeaea;
-$maroon: #FE8080;
+$maroon: #fe8080;
 $grayLighter: #eee;
 $grayLight: #999;
-$sans: 'Lato', sans-serif;
+$sans: "Lato", sans-serif;
 $grayLightest: #ececec;
 
 @mixin box_sizing {
@@ -86,8 +86,14 @@ img {
   display: inline-block;
 }
 
-#new_user, #new_show, #new_artwork, #new_link, #new_event {
-  input, textarea, select {
+#new_user,
+#new_show,
+#new_artwork,
+#new_link,
+#new_event {
+  input,
+  textarea,
+  select {
     border: 1px solid black;
     border-radius: 0;
     &:focus {
@@ -164,7 +170,7 @@ img {
 .inner-tab-group {
   text-align: center;
   margin: 0 auto;
-  line-height:60px;
+  line-height: 60px;
   .inner-tab-group-shows {
     padding-top: 20px;
   }
@@ -202,9 +208,10 @@ img {
   margin-bottom: 50px;
 }
 
-.right-event, .right-announcement {
+.right-event,
+.right-announcement {
   float: right;
-  width:40%;
+  width: 40%;
 }
 
 .right-float {
@@ -267,7 +274,6 @@ h2 {
   }
 }
 
-
 .form-inner-title {
   font-size: 14pt;
   padding-bottom: 20px;
@@ -296,13 +302,15 @@ h2 {
   padding-bottom: 20px;
 }
 
-.event-info, .announcement-info {
+.event-info,
+.announcement-info {
   clear: both;
   .announcement-info-right {
     float: left;
     width: 70%;
   }
-  .event-picture, .announcement-picture {
+  .event-picture,
+  .announcement-picture {
     padding-top: 0px;
   }
   .eventrow {
@@ -320,7 +328,7 @@ h2 {
 
 .accent-link {
   font-weight: bold;
-  a  {
+  a {
     color: $maroon;
   }
 }
@@ -333,7 +341,7 @@ h2 {
   .all-artists-artwork {
     padding: 5px;
     &:hover {
-      opacity: .5;
+      opacity: 0.5;
     }
     img {
       max-width: 120px;
@@ -409,7 +417,7 @@ a {
   &:hover {
     color: $maroon;
     background-color: none;
-    text-decoration: none
+    text-decoration: none;
   }
 }
 
@@ -418,7 +426,8 @@ a {
   box-shadow: none;
   li {
     a {
-      &:hover, &:focus {
+      &:hover,
+      &:focus {
         background-color: none;
         background: none;
         color: $maroon;
@@ -439,7 +448,10 @@ a {
 
 /* forms */
 
-input, textarea, select, .uneditable-input {
+input,
+textarea,
+select,
+.uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
   margin-bottom: 15px;
@@ -579,17 +591,21 @@ aside {
 }
 
 .show-row {
-  .show-row-left, .show-row-right {
+  .show-row-left,
+  .show-row-right {
     padding-bottom: 20px;
   }
 }
 
-.show-title, .ind-link-title, .ind-event-title {
+.show-title,
+.ind-link-title,
+.ind-event-title {
   font-weight: bold;
   font-size: 20px;
 }
 
-.show-paragraph, .ind-event-paragraph {
+.show-paragraph,
+.ind-event-paragraph {
   margin-top: 10px;
 }
 
@@ -601,7 +617,8 @@ aside {
   margin-top: 30px;
 }
 
-.read-more-link, .read-less-link {
+.read-more-link,
+.read-less-link {
   cursor: pointer;
   text-transform: uppercase;
   font-weight: bold;
@@ -613,11 +630,16 @@ aside {
   display: none;
 }
 
-.shows-list, .artists-list, .links-list, .events-list, .announcements-list {
+.shows-list,
+.artists-list,
+.links-list,
+.events-list,
+.announcements-list {
   text-align: left;
 }
 
-.inner-content-shows, .inner-content-events {
+.inner-content-shows,
+.inner-content-events {
   text-align: left;
   padding-left: 0px;
 }
@@ -644,7 +666,10 @@ ul {
   padding-left: 0px !important;
 }
 
-.shows, .event-info, .events, .announcements {
+.shows,
+.event-info,
+.events,
+.announcements {
   margin-top: 50px;
 
   li {
@@ -742,7 +767,9 @@ ul {
     margin-bottom: 20px;
   }
 
-  .show-artists, .show-dates, .show-description {
+  .show-artists,
+  .show-dates,
+  .show-description {
     font-size: 18px;
   }
 
@@ -916,6 +943,18 @@ footer {
       margin-bottom: 30px;
       margin-top: 5px;
     }
+
+    .artwork-page--contact {
+      padding: 10px 20px;
+      background-color: black;
+      text-align: center;
+      max-width: 150px;
+      margin: 0 auto;
+
+      a {
+        color: white;
+      }
+    }
   }
 
   .artwork-page--more-works {
@@ -931,7 +970,6 @@ footer {
     padding: 3px;
   }
 }
-
 
 @media screen and (min-width: 768px) {
   .header-container {

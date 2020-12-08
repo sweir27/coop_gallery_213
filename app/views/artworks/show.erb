@@ -15,6 +15,10 @@
       <div class='artwork-page--title'>
         <%= @artwork.title %>
       </div>
+
+      <div class='artwork-page--contact'>
+        <%= mail_to 'cooperativegallery213@gmail.com', 'Contact gallery', subject: "Interested in #{@artwork.title} by #{@artist.name}" %>
+      </div>
     </div>
   </div>
 
