@@ -946,7 +946,10 @@ footer {
 
     .artwork-page--contact {
       padding: 10px 20px;
-      background-color: $maroon;
+      background-color: black;
+      text-align: center;
+      max-width: 150px;
+      margin: 0 auto;
 
       a {
         color: white;
