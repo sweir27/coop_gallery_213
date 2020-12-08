@@ -11,9 +11,9 @@
   <div class='form-inner-title'>
     Home page image
   </div>
-  <% if @site.home_image.attachment.present? %>
-    <%= link_to @site.home_image, class: "show-artwork" do %>
-      <%= image_tag @site.home_image_thumbnail %>
+  <% if @site&.home_image&.attachment.present? %>
+    <%= link_to @site&.home_image, class: "show-artwork" do %>
+      <%= image_tag @site&.home_image_thumbnail %>
     <% end %>
   <% end %>
 </div>
