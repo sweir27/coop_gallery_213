@@ -1,6 +1,29 @@
 <% provide(:title, 'Cooperative Gallery 213') %>
 
 <div class='homepage'>
+  <div>
+    <div class="announcement-row">
+    <div class="announcement-image">
+      <a href="https://gallery-213-on-state-st-inc.square.site"> 
+        <img src="https://www.cooperativegallery.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBdkVFIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d3fa24cc7111f19487c0e0d58ad1900e7d3e9b7e/shopping.3.jpg">
+      </a>
+      
+    </div>
+
+    <div class="announcement-info ">
+      <div class="text-inset-title">
+        <a href="https://gallery-213-on-state-st-inc.square.site"> Online Store Link</a>
+      </div>
+
+      <div class="text-subline">
+        <div class="spaced-text">
+          Now you can see artwork from shows, and purchase, at our online store, 24/7!!
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
   <% if @current_shows %>
     <% @current_shows.each do |show| %>
       <%= render partial: 'shared/current_show', locals: { show: show } %>
