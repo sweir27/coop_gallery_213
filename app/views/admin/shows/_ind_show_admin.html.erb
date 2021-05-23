@@ -16,7 +16,7 @@
         </div>
         <% unless show.third_thursday_talk_title.blank? %>
           <div class='ind-show-text'>
-            <span class='uppercase-subtitle-black'>Third thursday talk</span><%= link_to "#{show.third_thursday_talk_title}, #{show.third_thursday_talk_date.strftime('%m/%d/%Y, %I:%M %p')}", events_path %>
+            <span class='uppercase-subtitle-black'>Other event</span><%= link_to "#{show.third_thursday_talk_title}, #{show.third_thursday_talk_date.strftime('%m/%d/%Y, %I:%M %p')}", events_path %>
           </div>
         <% end %>
         <% unless show.video_link.blank? %>

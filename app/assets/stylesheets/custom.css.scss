@@ -79,6 +79,7 @@ a {
   &:hover {
     background-color: #666666;
     border: none;
+    cursor: pointer;
   }
 }
 
@@ -434,6 +435,24 @@ a {
       }
     }
   }
+}
+
+/* homepage */
+
+.home-store-button-container {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+#home-store-button {
+  padding: 10px 20px;
+  max-width: 300px;
+  margin: 0px auto;
+
+  &:hover {
+    color: white;
+  } 
 }
 
 /* miscellaneous */
