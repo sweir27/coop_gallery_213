@@ -27,7 +27,7 @@
 
     <% unless show.third_thursday_talk_title.blank? %>
       <div class='text-subline'>
-        <span class='uppercase-subtitle-black'>Third thursday talk</span><%= link_to "#{show.third_thursday_talk_title}, #{show.third_thursday_talk_date.strftime('%m/%d/%Y, %I:%M %p')}", events_path %>
+        <span class='uppercase-subtitle-black'>Other event</span><%= link_to "#{show.third_thursday_talk_title}, #{show.third_thursday_talk_date.strftime('%m/%d/%Y, %I:%M %p')}", events_path %>
       </div>
     <% end %>
 

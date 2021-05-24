@@ -1,6 +1,11 @@
 <% provide(:title, 'Cooperative Gallery 213') %>
 
 <div class='homepage'>
+  <div class='home-store-button-container'>
+    <%= link_to "Buy from our Online Store", "https://gallery-213-on-state-st-inc.square.site", class: 'btn center', id: 'home-store-button', target: :_blank %>
+  </div>
+
+  </div>
   <% if @current_shows %>
     <% @current_shows.each do |show| %>
       <%= render partial: 'shared/current_show', locals: { show: show } %>

@@ -14,4 +14,9 @@ class Site < ActiveRecord::Base
     return unless about_image.attachment.present?
     about_image.variant(resize: '200x200^', auto_orient: true, gravity: 'center', extent: '200x200')
   end
+
+  def about_image_meta
+    return unless about_image.attachment.present?
+    about_image.variant(resize: '1200x1200^', auto_orient: true, gravity: 'center', extent: '1200x1200')
+  end
 end
