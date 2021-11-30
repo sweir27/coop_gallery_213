@@ -4,10 +4,14 @@
   </div>
   <%= link_to "Cooperative Gallery 213", root_path, id: "logo" %>
   <ul class="main-nav" id="js-menu">
+
     <li><%= link_to "Artists", artists_path, class: cp(artists_path) %></li>
     <li><%= link_to "Shows", ind_current_shows_path, class: cp(ind_current_shows_path) %></li>
     <li><%= link_to "Events", events_path, class: cp(events_path) %></li>
     <li><%= link_to "Community", links_path, class: cp(links_path) %></li>
     <li><%= link_to "About",   about_path, class: cp(about_path) %></li>
+    <li>
+      <%= link_to "Buy from our Online Store", "https://gallery-213-on-state-st-inc.square.site", class: 'btn center', id: 'home-store-button', target: :_blank %>
+    </li>
   </ul>
 </div>
