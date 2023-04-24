@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.5.3'
+ruby '2.7.7'
 
 gem 'rails', '5.2.2'
 gem 'sprockets'
@@ -20,6 +20,7 @@ gem 'factory_girl_rails'
 gem 'aws-sdk', require: false
 gem 'nokogiri', '>= 1.10.4'
 gem 'rubyzip', '>= 1.2.2'
+gem 'psych', '< 4' # Because of incompatible psych 4 changes and rails version https://bugs.ruby-lang.org/issues/17866
 
 group :development, :test do
   gem 'rspec-rails'
